@@ -1,9 +1,8 @@
 'use client'
 
 import { visionTool } from '@sanity/vision'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-import { structure } from 'sanity/structure'
+import { defineConfig, deskTool, structureTool } from 'sanity'
+import { structure } from './sanity/structure'
 
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schemaTypes'
@@ -14,9 +13,8 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    deskTool({
-      structure,
-    }),
+    deskTool(),
+    structureTool({ structure }),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 })
