@@ -1,10 +1,10 @@
 import Stripe from 'stripe';
 
-console.log('STRIPE_SECRET_KEY:', process.env.STRIPE_SECRET_KEY);
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 export async function POST(request) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2023-08-16',
+  });
+
   try {
     const body = await request.json();
 
