@@ -1,0 +1,51 @@
+
+import React from 'react'
+import { LuArrowUpRight } from "react-icons/lu";
+import Link from 'next/link'
+
+function Product({ post }) {
+  if (!post) return null;
+
+  return (
+    <>
+
+
+    <main className='group w-[100%] lg:w-[100%] lg:h-[100%] z-10' >
+      <svg className="sr-only z-9" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="customClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.002794 0.030038 C0.003661 0.008767 0.025562 0.002711 0.036403 0.002342 C0.304919 0.00308 0.848669 0.004558 0.875558 0.004558 C0.902444 0.004558 0.906275 0.028192 0.904831 0.040009 V0.739066 C0.904831 0.769199 0.881701 0.774518 0.870137 0.77341 H0.783403 C0.763454 0.77341 0.755574 0.791874 0.75413 0.801105 V0.896379 C0.75413 0.916766 0.732447 0.925555 0.721604 0.9274 H0.030982 C0.005829 0.9274 0.00171 0.904506 0.002794 0.893056 C0.002432 0.614246 0.001926 0.051309 0.002794 0.030038 Z" />
+        </clipPath>
+      </defs>
+      </svg>
+      <div style={{
+                  clipPath: 'url(#customClip)',
+                  WebkitClipPath: 'url(#customClip)',
+                }}
+      className='bg-[#f9f6fe] flex items-center justify-center relative w-[100%] h-[88%] rounded-2xl cursor-pointer z-10'>
+        <img src={`/${post["image"]}.png`} 
+        className='w-[90%] p-5 transition-all duration-400 ease-in-out group-hover:scale-[1.05]
+        object-cover object-center'>
+        </img>
+        <div className='absolute bottom-0 right-14 z-100 bg-amber-600'>
+            <Link href={`/shop/${post.slug}`}>
+            <LuArrowUpRight className=
+            'text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45 z-100'/>
+            </Link>
+        </div>
+      </div>
+      <div className='mt-2'>
+        <h1 className='text-[1.3rem] font-medium'>
+        {post.name}
+        </h1>
+        <p className='text-[0.9rem] text-[#6c6474] font-medium mt-1'>
+        USD <span>{post.price}$</span>    
+        </p>
+      </div>
+
+    </main>
+    </>
+  )
+}
+
+export default Product

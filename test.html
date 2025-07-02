@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framer Style Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.scroll-container {
+  position: relative;
+  height: 300vh;
+}
+
+.spacer {
+  height: 100vh;
+}
+
+.sticky-card {
+  position: sticky;
+  top: 100px;
+  margin: 0 auto;
+  width: 60%;
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  padding: 4rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+</style>
+<body>
+  <section class="scroll-container">
+    <div class="spacer"></div>
+
+    <div class="sticky-card" id="card">
+      <h1>Modern Framer-Style Block</h1>
+      <p>This section stays sticky and animates while scrolling.</p>
+    </div>
+
+    <div class="spacer"></div>
+  </section>
+
+  <script>
+    const card = document.getElementById('card');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const scale = 1 + Math.min(scrollY / 1000, 0.1); // max scale 1.1
+  card.style.transform = `scale(${scale})`;
+});
+  </script>
+</body>
+</html>

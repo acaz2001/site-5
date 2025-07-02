@@ -1,0 +1,195 @@
+'use client'
+import Image from "next/image";
+import { FaShopify } from "react-icons/fa";
+import { Inter } from 'next/font/google'
+import { LuArrowUpRight } from "react-icons/lu";
+import "./globals.css";
+import { GoArrowRight } from "react-icons/go";
+import MostPopular from "../components/mostPopular";
+import Testimonials from "../components/testimonials";
+import OurCollections from "../components/ourCollections";
+import AboutProd from "../components/aboutProd";
+import BlogBanner from "../components/blogBanner";
+import MoreBanner from "../components/moreBanner";
+import VideoHero from "../components/videoHero";
+import AboutProdGrid from "../components/aboutProdGrid";
+import Link from "next/link";
+import ProductList from "../components/productList";
+import { AiFillThunderbolt } from "react-icons/ai";
+import { FaDiamond } from "react-icons/fa6";
+import { FaForward } from "react-icons/fa";
+
+
+export default function Home() {
+
+
+
+  const features = [
+    {
+      icon: <AiFillThunderbolt className='text-[1.2rem]' />,
+      title: "Instant Digital Downloads",
+      description: "Access your digital products purchase immediately after checkout."
+    },
+    {
+      icon: <FaDiamond className='text-[1.2rem]' />,
+      title: "Premium Quality Files",
+      description: "All files are high-resolution and carefully crafted for professional use."
+    },
+    {
+      icon: <FaForward className='text-[1.2rem]' />,
+      title: "Fast & Easy Integration",
+      description: "Easily add your assets to any platform, with ready-to-use formats."
+    }
+  ]
+
+  
+  return (
+    <main>
+        <section className="custom-box">
+        {/*<div class="cutout"></div> */}
+              {/* Sekcija sa maskom */}
+              <svg width="0" height="0">
+                <defs>
+                  <clipPath id="clip-path-1" clipPathUnits="objectBoundingBox">
+                  <path d="M0.98923 0.001968 C0.995697 0.002599 0.998337 0.0159 0.998853 0.022473 C0.999107 0.340297 0.999546 0.978309 0.999238 0.987773 C0.99893 0.997237 0.99475 0.999076 0.992694 0.998814 H0.010401 C0.003935 0.995028 0.001292 0.983566 0.000778 0.978309 C0.000907 0.699129 0.001086 0.136195 0.000778 0.117898 C0.00047 0.099602 0.008605 0.09345 0.012711 0.092662 H0.388384 C0.396082 0.092662 0.398007 0.083198 0.398007 0.078466 C0.397878 0.069791 0.397699 0.046921 0.398007 0.024838 C0.398315 0.002756 0.408143 0.000391 0.413018 0.001968 C0.602395 0.001705 0.982764 0.001337 0.98923 0.001968 Z" />
+                  </clipPath>
+                </defs>
+              </svg>
+          <div
+                style={{
+                  clipPath: 'url(#clip-path-1)',
+                  WebkitClipPath: 'url(#clip-path-1)',
+                }}
+              className="bg-[url(/clark-van-der-beken-Tk0B3Dfkf_4-unsplash.jpg)] pt-38 pl-8 bg-cover w-full h-[600px] rounded-2xl
+              lg:pt-38 lg:pl-15
+              md:pt-38 md:pl-15"
+            >
+            <div className="bg-white w-fit p-1 pl-3 pr-3 rounded-2xl flex flex-row items-center gap-[0.5rem] ">
+              <FaShopify/>
+              <p className="text-[0.8rem] font-medium ">Powered by Shopify</p>
+            </div>
+    
+            <div>
+              <h1 style={{lineHeight:'1.1'}} 
+              className="text-[2.6rem] tracking-tight font-[450] mt-7 w-[90%]
+              lg:text-[3.8rem] lg:w-[68%]
+              md:w-[65%]">
+                The <span className="text-[#8345d8]">beautiful</span> way to sell anything with Framer.
+              </h1>
+              <p className="text-[1.1rem] text-[#6c6474] mt-3 w-[80%]
+              lg:w-[40%] md:w-[55%]" >
+                Designed with Framer, this template makes it easy to turn your website into a powerful ecommerce store.
+              </p>
+            </div>
+            <div className="cursor-pointer w-[187px]">
+            <Link href='/shop' className="w-10 cursor-pointer">
+            <div className="group relative w-fit rounded-3xl flex flex-row items-center gap-[0.5rem] mt-6 pt-2 pb-3 ">
+              <LuArrowUpRight 
+              className="absolute right-[13px] text-[1rem] z-10 transition-transform duration-400 ease-in-out group-hover:rotate-45" />
+              <div className="absolute bg-white rounded-3xl w-[100%] h-full z-1 opacity-50"></div>
+              <h4 className="text-[0.9rem] w-fit pl-7 z-10 pr-15 font-medium overflow-hidden">
+                Shop Products</h4>
+              <div className='absolute right-0.5 bg-white rounded-full w-10 p-[19px] z-9 transition-all duration-800 
+              ease-in-out group-hover:w-[98%]' />
+
+            </div>
+           
+            </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-row items-center justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
+            <h1 className="text-[1.5rem] font-medium">Most Popular</h1>
+            <p className="text-[#6c6474] mt-1.5">
+            Showcase your most popular products, front and center.
+            </p>
+          </div>
+          
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer pt-1.5 pb-1.5 pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]">
+            <Link href='/shop'>
+            <p className="font-medium ">View All</p>
+            </Link>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+          </div>
+          
+        </section>
+
+        <ProductList isPopular="true"/>
+
+        <Testimonials></Testimonials>
+
+
+        <section className="flex flex-row items-center justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
+            <h1 className="text-[1.5rem] font-medium">Our Collections</h1>
+            <p className="text-[#6c6474] mt-1.5 font-[450]">
+            Showcase all of the different collections you have to offer.
+            </p>
+          </div>
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer pt-1.5 pb-1.5 pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]">
+            <Link href='/collections'>
+            <p className="font-medium ">View All</p>
+            </Link>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+          </div>
+        </section>
+
+
+        <OurCollections></OurCollections>
+
+        <section className="mt-20">
+        <VideoHero></VideoHero>
+        </section>
+        
+
+        <section className="flex flex-col items-center mt-10">
+          <h1 className="lg:text-[2.5rem] md::text-[2.5rem] text-[2rem] font-medium text-center">
+          Highlight what makes you stand out
+          </h1>
+          <p className="text-[#6c6474] mt-4">
+          Use this section to show off the key features like these.
+          </p>
+        </section>
+
+        <AboutProdGrid>
+        {features.map((item, index) => (
+          <AboutProd
+            key={index}
+            icon={item.icon}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+        </AboutProdGrid>
+
+
+
+        <section className="flex flex-row items-center justify-between mt-20  mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
+            <h1 className="text-[1.5rem] font-medium">Explore the blog</h1>
+            <p className="text-[#6c6474] mt-1.5 font-normal">
+            Share insights, boost SEO, and build trust with your audience.
+            </p>
+          </div>
+          <Link href='/blog'>
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer pt-1.5 pb-1.5 pl-5 pr-3 rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]">
+            <p className="font-medium">View Posts</p>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+          </div>
+          </Link>
+        </section>
+
+        <BlogBanner></BlogBanner>
+
+        <MoreBanner></MoreBanner>
+
+
+        
+
+    </main>
+  );
+}
