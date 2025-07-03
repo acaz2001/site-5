@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-      env: {
+    env: {
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   }
 };
