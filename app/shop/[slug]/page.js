@@ -12,6 +12,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { getProductBySlug } from '../../../sanity/lib/getProductBySlug'
 import AnimatedOnScroll from '../../../components/AnimatedOnScroll'
 import RelatedProducts from '../../../components/RelatedProducts'
+import { GiMirrorMirror } from "react-icons/gi";
+import { PiShower } from "react-icons/pi";
 
 
 const builder = imageUrlBuilder(client)
@@ -51,14 +53,14 @@ export default async function Page({ params }) {
 
   const features = [
     {
-      icon: <PiCursorFill className='text-[1.2rem]' />,
-      title: "30 Day Returns",
-      description: "Enjoy hassle-free returns with our 30-day policy for peace of mind."
+      icon: <GiMirrorMirror className='text-[1.2rem]' />,
+      title: "Rok isporuke ogledala",
+      description: "Je 7-9 dana od dana kada ste poručili proizod. Ako preuzimate u radnji onda je rok 4-5 dana,"
     },
     {
-      icon: <PiCursorFill className='text-[1.2rem]' />,
-      title: "Next Day Delivery",
-      description: "Get your order delivered fast with our reliable next-day delivery service."
+      icon: <PiShower className='text-[1.2rem]' />,
+      title: "Rok isporuke tuš kabine",
+      description: "Je 10-12 dana od dana kada ste poručili kabinu. Ako preuzimate u radnji onda je rok 5-7 dana,"
     },
     {
       icon: <PiCursorFill className='text-[1.2rem]' />,

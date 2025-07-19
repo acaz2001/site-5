@@ -127,15 +127,48 @@ export const Products = defineType({
       of: [
         {
           type: 'object',
+          title: 'Variant',
           fields: [
             { name: 'name', type: 'string', title: 'Name' },
             { name: 'price', type: 'number', title: 'Price' },
             { name: 'priceOld', type: 'number', title: 'Old Price' },
-            { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } }
+            { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } },
+
+            {
+              name: 'dimenzije',
+              title: 'Dimenzije',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  title: 'Dimenzija',
+                  fields: [
+                    { 
+                      name: 'naziv', 
+                      type: 'string', 
+                      title: 'Naziv dimenzije' 
+                    },
+                    { 
+                      name: 'cena', 
+                      type: 'number', 
+                      title: 'Cena za ovu dimenziju' 
+                    },
+                    { 
+                      name: 'staraCena', 
+                      type: 'number', 
+                      title: 'Stara cena' 
+                    }
+                  ]
+                }
+              ]
+            },
+            { name: 'opis', type: 'string', title: 'Opis proizvoda' },
+
           ]
         }
       ]
     }),
+
 
     defineField({
       name: 'tags',

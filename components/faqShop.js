@@ -6,13 +6,13 @@ import AnimatedOnScroll from './AnimatedOnScroll';
 const questions = [
   {
     id: 1,
-    question: "Shipping Information?",
-    answer: "We offer reliable and fast shipping to ensure your order reaches you on time. All orders are processed within 1–2 business days, with tracking provided for a seamless delivery experience."
+    question: "Informacije o načinu isporuke.",
+    answer: "Kada odete na checkout stranicu imaćete opcije za isproruke. Možete preuzeti u našoj radnji, dostavljamo na adresu i još dodatno ako vam treba montaža."
   },
   {
     id: 2,
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, PayPal, and other secure payment options for your convenience."
+    question: "Koji su načini plaćanja?",
+    answer: "Možete izabrati da platite karticom online, platite pouzećem kešom ili uplata na račun(inforamcije za plaćanje na račun prilikom isporuke proizvoda)."
   }
 ];
 
@@ -41,7 +41,7 @@ function FaqShop() {
           onClick={toggleWarranty}
           className='flex flex-row justify-between items-center cursor-pointer '
         >
-          <h3 className='text-[1rem] font-[450] pb-4'>Warranty</h3>
+          <h3 className='text-[1rem] font-[450] pb-4'>Kako kupiti proizvod?</h3>
           <IoIosArrowUp
             className={`transition-transform duration-300 ${
               warrantyOpen ? 'rotate-0' : 'rotate-180'
@@ -51,7 +51,7 @@ function FaqShop() {
         {warrantyOpen && (
           <AnimatedOnScroll>
           <p className='text-[0.8rem] font-[450] text-[#6c6474] mt-[-5] pb-3 '>
-            Every purchase is backed by our commitment to quality. Enjoy peace of mind with a 90-day warranty, ensuring your product delivers satisfaction and reliability.
+          Proizvod na stranici kupite tako što kada izaberete varijantu i dimenzije kliknete na dugme "Dodaj u korpu", nakon toga otvorite korpu i kliknite checkout dugme.
           </p>
           </AnimatedOnScroll>
         )}

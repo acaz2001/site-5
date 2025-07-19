@@ -2,7 +2,7 @@
 import { useCart } from '../../context/CartContext';
 
 export default function CheckoutPage() {
-  const { cartItems, total, clearCart } = useCart();
+  const { cartItems, total, clearCart, shippingOption } = useCart();
 
   return (
     <div className="p-8">

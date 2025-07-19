@@ -68,7 +68,7 @@ useEffect(() => {
             <ul className="flex flex-col gap-4 text-lg font-medium">
               <li><Link href="/shop">Shop</Link></li>
               <li><Link href="/collections">Collection</Link></li>
-              <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/blog">Ogledalo Segmenti</Link></li>
               <li><Link href="/support">Support</Link></li>
             </ul>
           </div>
@@ -76,7 +76,7 @@ useEffect(() => {
         <section className='mr-1.5 z-40'>
           <Link href="/">
             <h2 className='text-[1.35rem] font-medium cursor-pointer'>
-              Commerce_
+              VERDE
             </h2>
           </Link>
         </section>
@@ -84,19 +84,19 @@ useEffect(() => {
           <ul className='flex flex-row items-center gap-0 text-[0.9rem] z-40'>
             <Link href="/shop">
               <li className='header-shop cursor-pointer text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
-                Shop</li>
+                Ogledala</li>
             </Link>
             <Link href="/collections">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
-                Collections</li>
+                Tuš kabine</li>
             </Link>
             <Link href="/blog">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
-                Blog</li>
+                Ogledalo Segmenti</li>
             </Link>
             <Link href="/support">
               <li className='cursor-pointer hidden lg:block md:block sm:hidden text-[0.85rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450]'>
-                Support</li>
+                Kontakt</li>
             </Link>
           </ul>
         </section>

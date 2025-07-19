@@ -8,15 +8,15 @@ import { FaGripLines } from "react-icons/fa6";
 import { useState } from 'react';
 
 function Page() {
-  const categories = ['All', 'Technology', 'Footwear', 'Home']
-  const [activeCategory, setActiveCategory] = useState('All')
+  const categories = ['Kupatilo/ LED rasveta', 'Kupatilo/ Bez LED rasvete', 'Hodnik']
+  const [activeCategory, setActiveCategory] = useState('Kupatilo/ LED rasveta')
 
   return (
     <main>
       <Hero
-        badgeText="Shop"
-        heading="Showcase all your products in one place"
-        subheading="Use this page to group your products into simple collections, making it easy for customers to explore."
+        badgeText="Ogledala"
+        heading="Svaki proizvod se može raditi po vašoj meri"
+        subheading="Odaberite proizvod i promenite ga kako vi želite da izgleda, dimenzije, boja, led...."
       />
 
       <section className='lg:flex lg:flex-row lg:justify-between mt-10 mb-20
@@ -25,10 +25,10 @@ function Page() {
         {/* Sidebar */}
         <div className='lg:w-[18%] md:w-[100%] w-[100%] mb-10'>
           <div>
-            <h1 className='text-[1.3rem] font-medium'>Shop</h1>
+            <h1 className='text-[1.3rem] font-medium'>Prodavnica</h1>
             <p className='text-[0.9rem] w-[70%] pt-1 lg:text-[0.9rem] text-[#6c6474] font-normal mt-1
             sm:w-[100%] sm:text-[0.9rem]'>
-              Split your products into categories so visitors can easily navigate.
+              Pretražite proizvode po kategoriji koja vam odgovara.
             </p>
           </div>
 

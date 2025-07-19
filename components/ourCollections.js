@@ -16,8 +16,8 @@ function OurCollections() {
         <Link href='/collections/home'>
         <h1 className=
         'pt-1 text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
-        Home</h1>
-        <img className='absolute top-5 transform translate-x-[-10%] w-[14rem] ' src={"/pngwing15.png"}></img>
+        Klizne</h1>
+        <img className='absolute top-5 transform translate-x-[-10%] w-[14rem] ' src={"/tus-kabina-klizna.png"}></img>
         {/*
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>
@@ -37,8 +37,8 @@ function OurCollections() {
       justify-items-center items-center cursor-pointer'>
         <Link href='/collections/footwear'>
         <h1 className='text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
-          Footwear</h1>
-        <img className='absolute top-5 w-[14rem]' src={"/Sneakers.png"}></img>
+          Šarke</h1>
+        <img className='absolute top-5 w-[14rem]' src={"/tus-kabina-sarke.png"}></img>
         {/* 
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>
@@ -58,9 +58,9 @@ function OurCollections() {
         <Link href='/collections/technology'>
         <h1 className='text-[3.8rem]  font-semibold transition-all duration-400 ease-in-out 
         group-hover:scale-[1.05]'>
-          Technology
+          Paravani
         </h1>
-        <img className='absolute top-5 transform translate-x-[18%] w-[14rem]' src={"/headphones.png"}></img>
+        <img className='absolute top-5 transform translate-x-[18%] w-[14rem]' src={"/tus-kabina-paravan.png"}></img>
         {/* 
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>

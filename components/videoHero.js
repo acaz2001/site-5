@@ -22,17 +22,21 @@ function VideoHero() {
   return (
     <AnimatedOnScroll>
     <div className="relative w-[100%]">
+
     <main className="video relative w-full h-[480px] overflow-hidden">
       {/* VIDEO */}
+          <div className="absolute w-full h-full bg-black z-9 opacity-[30%] rounded-2xl">
+
+    </div>
       <video
         ref={videoRef}
-        className="w-full h-[480px] object-cover z-10 rounded-2xl"
+        className="w-full h-[480px] object-cover z-10 rounded-2xl "
         autoPlay
         loop
         muted
         playsInline
       >
-        <source src="/rfC1p1gUmOqGA6GUrdSJt8IjRA4.mp4" type="video/mp4" />
+        <source src="/7578552-uhd_3840_2160_30fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -40,7 +44,7 @@ function VideoHero() {
       <div className="absolute bottom-0 w-full h-full flex items-center justify-center z-10">
         <h1 className="text-white lg:text-[3rem] md:text-[3rem] sm:text-[3rem] text-[2.3rem] 
         lg:w-[65%] md::w-[55%] sm::w-[55%] w-[90%] leading-[1.2] font-medium text-center drop-shadow-lg">
-          Showcase your products in action and outline their benefits.
+          Svi proizvodi na sajtu se mogu izraditi po vašoj meri.
         </h1>
       </div>
 

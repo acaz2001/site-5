@@ -20,6 +20,8 @@ import { FaDiamond } from "react-icons/fa6";
 import { FaForward } from "react-icons/fa";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
 import BlogGrid from "../components/blogGrid";
+import { MdOutlineShoppingBag } from "react-icons/md";
+
 
 
 export default function Home() {
@@ -29,18 +31,18 @@ export default function Home() {
   const features = [
     {
       icon: <AiFillThunderbolt className='text-[1.2rem]' />,
-      title: "Instant Downloads",
-      description: "Access your digital products purchase immediately after checkout."
+      title: "Rok izrade i montaže ogledala",
+      description: "Je 10-12 dana od poručivanja ogledala."
     },
     {
       icon: <FaDiamond className='text-[1.2rem]' />,
-      title: "Premium Quality Files",
-      description: "All files are high-resolution and carefully crafted for professional use."
+      title: "Da li se izradjuje po meri?",
+      description: "Da, samo se i po meri izrađuje izlazimo na teren i uzimamo mere."
     },
     {
       icon: <FaForward className='text-[1.2rem]' />,
-      title: "Fast & Easy Integration",
-      description: "Easily add your assets to any platform, with ready-to-use formats."
+      title: "Ogledala u drugoj boji",
+      description: "Može se izraditi da ogledalo bude obično ili u braon ili sivoj boji."
     }
   ]
 
@@ -60,12 +62,12 @@ export default function Home() {
                   loop
                   playsInline
                 >
-                  <source src="/81656-576083123.mp4" type="video/mp4" />
+                  <source src="/3820019-uhd_3840_2160_30fps.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
             <div className="bg-white w-fit p-1 pl-3 pr-3 rounded-2xl flex flex-row items-center gap-[0.5rem] z-10 relative">
-              <FaShopify className="z-100 "/>
-              <p className="text-[0.8rem] font-medium z-100  ">Powered by Shopify</p>
+              <MdOutlineShoppingBag className="z-100 p-0 m-0"/>
+              <p className="text-[0.8rem] font-medium z-100  ">Staklorezačka radnja Verde</p>
             </div>
     
             <div className="z-10 relative">
@@ -98,10 +100,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-row items-center justify-between mt-8 mb-8">
-          <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
+        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
             <AnimatedOnScroll>
-            <h1 className="text-[1.5rem] font-medium">Most Popular</h1>
+            <h1 className="text-[1.5rem] font-medium">Najprodavaniji modeli ogledala.</h1>
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] mt-1.5">
@@ -110,11 +112,12 @@ export default function Home() {
             </AnimatedOnScroll>
           </div>
           
-          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer pt-1.5 pb-1.5 pl-5 pr-3 
-          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]">
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
+          mt-5 lg:mt-0 md:mt-0 sm:mt-0 ">
             <Link href='/shop'>
             <AnimatedOnScroll>
-            <p className="font-medium ">View All</p>
+            <p className="font-medium ">Vidi još</p>
             </AnimatedOnScroll>
             </Link>
             <AnimatedOnScroll>
@@ -129,22 +132,23 @@ export default function Home() {
         <Testimonials></Testimonials>
 
 
-        <section className="flex flex-row items-center justify-between mt-8 mb-8">
-          <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
+        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
             <AnimatedOnScroll>
-            <h1 className="text-[1.5rem] font-medium">Our Collections</h1>
+            <h1 className="text-[1.5rem] font-medium">Tuš kabine.</h1>
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] mt-1.5 font-[450]">
-            Showcase all of the different collections you have to offer.
+            Izaberite model i možete ga promeniti kako želite. 
             </p>
             </AnimatedOnScroll>
           </div>
-          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer pt-1.5 pb-1.5 pl-5 pr-3 
-          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]">
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
+          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
             <Link href='/collections'>
             <AnimatedOnScroll>
-            <p className="font-medium ">View All</p>
+            <p className="font-medium ">Vidi još</p>
             </AnimatedOnScroll>
             </Link>
             <AnimatedOnScroll>
@@ -159,20 +163,56 @@ export default function Home() {
         <section className="mt-20">
         <VideoHero></VideoHero>
         </section>
+
+
+        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+            <AnimatedOnScroll>
+            <h1 className="text-[1.5rem] font-medium">Modernizujte vaše kupatilske rutine.</h1>
+            </AnimatedOnScroll>
+            <AnimatedOnScroll>
+            <p className="text-[#6c6474] mt-1.5">
+            Ogledala za kupatilo, mogu biti sa ili bez led rasvete.
+            </p>
+            </AnimatedOnScroll>
+          </div>
+          
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
+          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
+            <Link href='/shop'>
+            <AnimatedOnScroll>
+            <p className="font-medium ">Vidi još</p>
+            </AnimatedOnScroll>
+            </Link>
+            <AnimatedOnScroll>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+            </AnimatedOnScroll>
+          </div>
+        </section>
+
+
+        <section className="mt-10 mb-30">
+          <ProductList isPopular="true" activeCategory="Kupatilo/ LED rasveta"/>
+        </section>
         
 
         <section className="flex flex-col items-center mt-10">
           <AnimatedOnScroll>
-          <h1 className="lg:text-[2.5rem] md::text-[2.5rem] text-[2rem] font-medium text-center">
-          Highlight what makes you stand out
+          <h1 className="lg:text-[2.5rem] md:text-[2.5rem] text-[2rem] font-medium lg:text-center md:text-center sm:text-center
+          leading-[1.3]">
+          Deo koji inspiriše razne enterijer dizajnere.
           </h1>
           </AnimatedOnScroll>
           <AnimatedOnScroll>
           <p className="text-[#6c6474] mt-4">
-          Use this section to show off the key features like these.
+          Kako da vam ogledalo otvori enterijer i atraktivnost vašeg prostora.
           </p>
+
           </AnimatedOnScroll>
         </section>
+
+        <BlogBanner></BlogBanner>
 
         <AboutProdGrid>
         {features.map((item, index) => (
@@ -185,9 +225,10 @@ export default function Home() {
         ))}
         </AboutProdGrid>
 
+        
 
-
-        <section className="flex lg:flex-row md:flex-row sm:flex-row flex-col lg:items-center md:items-center sm:items-center items-start justify-between mt-20  mb-8">
+        {/*
+                  <section className="flex lg:flex-row md:flex-row sm:flex-row flex-col lg:items-center md:items-center sm:items-center items-start justify-between mt-20  mb-8">
           <div className="lg:w-fit md:w-fit sm:w-fit w-[60%]">
             <AnimatedOnScroll>
             <h1 className="text-[1.5rem] font-medium">Explore the blog</h1>
@@ -208,12 +249,14 @@ export default function Home() {
           </AnimatedOnScroll>
           </Link>
         </section>
-        
-        <BlogBanner></BlogBanner>
 
+        
         <div className="mt-[4rem]">
           <BlogGrid isPopular="true" />
         </div>
+        */}
+
+
         
 
 

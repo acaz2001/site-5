@@ -48,7 +48,7 @@ console.log("Slika Product Images:", data.image)
         {data.name}
         </h1>
         <p className='text-[0.9rem] text-[#6c6474] font-medium mt-1'>
-        USD <span>{data.price}$</span>    
+        RSD <span>{data.price},₀₀</span>    
         </p>
       </div>
 

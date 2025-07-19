@@ -26,7 +26,13 @@ export async function getProductBySlug(slug) {
         name,
         price,
         priceOld,
-        image { asset-> }
+        image { asset-> },
+        dimenzije[] {
+          naziv,
+          cena,
+          staraCena
+        },
+        opis
       }
     }
   `;

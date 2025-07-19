@@ -6,6 +6,7 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
   // Inicijalizacija korpe iz localStorage-a
   const [cartItems, setCartItems] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -21,6 +22,14 @@ export const CartProvider = ({ children }) => {
       localStorage.setItem('cart', JSON.stringify(cartItems));
     }
   }, [cartItems]);
+
+    function openCart() {
+    setIsCartOpen(true);
+  }
+
+  function closeCart() {
+    setIsCartOpen(false);
+  }
 
   // ✅ Dodavanje u korpu
   const addToCart = (product) => {
@@ -109,6 +118,9 @@ export const CartProvider = ({ children }) => {
       value={{
         cartItems,
         addToCart,
+        isCartOpen,
+        openCart,
+        closeCart,
         increaseQuantity,
         decreaseQuantity,
         removeFromCart,
