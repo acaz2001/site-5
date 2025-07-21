@@ -131,7 +131,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
               <div
                 key={index}
                 onClick={() => setSelectedVariant(variant)}
-                className='bg-[#f9f6fe] rounded-sm p-2 cursor-pointer flex flex-row justify-start h-20 lg:h-auto md:h-auto'
+                className='bg-[#f9f6fe] rounded-sm cursor-pointer flex flex-row justify-start h-20 lg:h-auto md:h-auto'
               >
                 <img
                   src={
@@ -140,6 +140,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
                       : '/fallback.png'
                   }
                   alt={variant.name}
+                  className='rounded-sm'
                 />
               </div>
             ))}

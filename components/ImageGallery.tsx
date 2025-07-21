@@ -62,7 +62,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 alt={image.alt}
                 width={1000}
                 height={13000}
-                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+                className="w-full h-[500px] object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
               />
             </AnimatedOnScroll>
             <span className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>

@@ -32,7 +32,7 @@ export default function Home() {
     {
       icon: <AiFillThunderbolt className='text-[1.2rem]' />,
       title: "Rok izrade i montaže ogledala",
-      description: "Je 10-12 dana od poručivanja ogledala."
+      description: "Je 10-12 dana od poručivanja. Pre montaže kontaktiraćemo vas."
     },
     {
       icon: <FaDiamond className='text-[1.2rem]' />,
@@ -75,11 +75,11 @@ export default function Home() {
               className=" z-100 text-[2.6rem] tracking-tight font-[450] mt-7 w-[90%]
               lg:text-[3.8rem] lg:w-[68%]
               md:w-[65%]">
-                The <span className="text-[#8345d8] z-10">beautiful</span> way to sell anything with Us.
+                Pretražite <span className="text-[#f4edff] z-10">veliki izbor</span> ogledala i tuš kabina.
               </h1>
               <p className="text-[1.1rem] text-[#6c6474] mt-3 w-[80%] z-100
-              lg:w-[40%] md:w-[55%]" >
-                Designed by us, this template makes it easy to turn your website into a powerful ecommerce store.
+              lg:w-[46%] md:w-[55%]" >
+              Ogledala, za kupatilo sa i bez led rasvete, za hodnik, za dnevnu i spavaću sobu. Tuš kabine, klizne, na šarke ili paravan.
               </p>
             </div>
             <div className="cursor-pointer w-[187px]">
@@ -89,7 +89,7 @@ export default function Home() {
               className="absolute right-[13px] text-[1rem] z-10 transition-transform duration-400 ease-in-out group-hover:rotate-45" />
               <div className="absolute bg-white rounded-3xl w-[100%] h-full z-1 opacity-50"></div>
               <h4 className="text-[0.9rem] w-fit pl-7 z-10 pr-15 font-medium overflow-hidden">
-                Shop Products</h4>
+                Prodavnica</h4>
               <div className='absolute right-0.5 bg-white rounded-full w-10 p-[19px] z-9 transition-all duration-800 
               ease-in-out group-hover:w-[98%]' />
 
@@ -107,7 +107,7 @@ export default function Home() {
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] mt-1.5">
-            Showcase your most popular products, front and center.
+            Pretražite modele koji se najviše prodaju i kupcima sviđaju.
             </p>
             </AnimatedOnScroll>
           </div>
@@ -129,8 +129,35 @@ export default function Home() {
 
         <ProductList isPopular="true"/>
 
-        <Testimonials></Testimonials>
+        {/*<Testimonials></Testimonials>*/}
 
+        <section className="flex flex-col items-center mt-10">
+          <AnimatedOnScroll>
+          <h1 className="lg:text-[2.5rem] md:text-[2.5rem] text-[2rem] font-medium lg:text-center md:text-center sm:text-center
+          leading-[1.3]">
+          Deo koji inspiriše razne enterijer dizajnere.
+          </h1>
+          </AnimatedOnScroll>
+          <AnimatedOnScroll>
+          <p className="text-[#6c6474] mt-4">
+          Kako da vam ogledalo otvori enterijer i atraktivnost vašeg prostora.
+          </p>
+
+          </AnimatedOnScroll>
+        </section>
+
+        <BlogBanner></BlogBanner>
+
+        <AboutProdGrid>
+        {features.map((item, index) => (
+          <AboutProd
+            key={index}
+            icon={item.icon}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+        </AboutProdGrid>
 
         <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
           <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
@@ -195,36 +222,6 @@ export default function Home() {
         <section className="mt-10 mb-30">
           <ProductList isPopular="true" activeCategory="Kupatilo/ LED rasveta"/>
         </section>
-        
-
-        <section className="flex flex-col items-center mt-10">
-          <AnimatedOnScroll>
-          <h1 className="lg:text-[2.5rem] md:text-[2.5rem] text-[2rem] font-medium lg:text-center md:text-center sm:text-center
-          leading-[1.3]">
-          Deo koji inspiriše razne enterijer dizajnere.
-          </h1>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll>
-          <p className="text-[#6c6474] mt-4">
-          Kako da vam ogledalo otvori enterijer i atraktivnost vašeg prostora.
-          </p>
-
-          </AnimatedOnScroll>
-        </section>
-
-        <BlogBanner></BlogBanner>
-
-        <AboutProdGrid>
-        {features.map((item, index) => (
-          <AboutProd
-            key={index}
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
-        </AboutProdGrid>
-
         
 
         {/*

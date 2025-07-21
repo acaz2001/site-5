@@ -10,12 +10,12 @@ import ProductList from '../../components/productList';
 import ImageGallery from "../../components/ImageGallery";
 
 const images = [
-  { src: "https://picsum.photos/id/10/1000/1000", alt: "Image 01" },
-  { src: "https://picsum.photos/id/11/1000/1000", alt: "Image 02" },
-  { src: "https://picsum.photos/id/12/1000/1000", alt: "Image 03" },
-  { src: "https://picsum.photos/id/13/1000/1000", alt: "Image 04" },
-  { src: "https://picsum.photos/id/14/1000/1000", alt: "Image 05" },
-  { src: "https://picsum.photos/id/15/1000/1000", alt: "Image 06" }
+  { src: "https://i.postimg.cc/3RTtGsNj/272705070-1470019783395612-8195079515659878199-n.jpg", alt: "Image 01" },
+  { src: "https://i.postimg.cc/GhHx4Lzw/282460393-1211901906218389-4226273125088877517-n.jpg", alt: "Image 02" },
+  { src: "https://i.postimg.cc/5tMBKwJb/319875486-561278205349631-3441663074748939684-n.jpg", alt: "Image 03" },
+  { src: "https://i.postimg.cc/tCKW7hYW/Snapins-ai-431672059-333812205792342-6441328870061537036-n-1024.jpg", alt: "Image 04" },
+  { src: "https://i.postimg.cc/vB26ynJ1/260151651-957674281771102-7080591912376449212-n.jpg", alt: "Image 05" },
+  { src: "https://i.postimg.cc/Mp0MTgkJ/335630293-726555945862616-1348476890702537156-n.jpg", alt: "Image 06" }
 ];
 
 function Page() {

@@ -12,7 +12,10 @@ function Page() {
        subheading='Step up your style with our collection of comfortable, versatile, and on-trend footwear for every occasion.'
        page= 'Tuš kabine /'
       />
+
       <ProductList activeCategory="Kabina/ Šarke"/>
+
+      
 
       
       <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1px]">

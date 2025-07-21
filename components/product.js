@@ -25,7 +25,7 @@ console.log("Slika Product Images:", data.image)
     <main className='relative group w-[100%] lg:w-[100%] z-40'>
 
       <div className='relative'>
-      <Link href={`/shop/${data.slug.current}`}> 
+      <Link href={`/prodavnica/${data.slug.current}`}> 
       <div className=' product bg-[#f9f6fe] flex items-center justify-center relative w-[100%] h-[82%] rounded-2xl cursor-pointer z-40'>
         <img   src={
           data.images?.asset

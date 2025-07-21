@@ -14,7 +14,7 @@ function Page() {
       page= 'Tuš kabine /'
       />
       <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8">
-        <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+        <div className="lg:w-fit md:w-fit sm:w-fit w-[100%] ">
           <AnimatedOnScroll>
           <h1 className="text-[2rem] font-medium mb-5">Okov je van domašaja vode.</h1>
           </AnimatedOnScroll>

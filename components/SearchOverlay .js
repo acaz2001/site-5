@@ -63,7 +63,7 @@ function SearchOverlay({ onClose }) {
           {results.map((product) => (
             <AnimatedOnScroll key={product._id}>
               <li className='py-4 px-2 mx-2 border-b border-[#ede4fc] text-black'>
-                <Link href={`/shop/${product.slug.current}`} onClick={onClose}>
+                <Link href={`/prodavnica/${product.slug.current}`} onClick={onClose}>
                   <div className='flex items-center gap-4 hover:bg-gray-100 p-2 rounded-lg'>
                     <img
                       src={

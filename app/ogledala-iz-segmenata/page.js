@@ -7,15 +7,16 @@ import MoreBanner from '../../components/moreBanner'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
 
-
-const images = [
-  { src: "https://picsum.photos/id/10/1000/1000", alt: "Image 01" },
-  { src: "https://picsum.photos/id/11/1000/1000", alt: "Image 02" },
-  { src: "https://picsum.photos/id/12/1000/1000", alt: "Image 03" },
-  { src: "https://picsum.photos/id/13/1000/1000", alt: "Image 04" },
-  { src: "https://picsum.photos/id/14/1000/1000", alt: "Image 05" },
-  { src: "https://picsum.photos/id/15/1000/1000", alt: "Image 06" }
+  const images = [
+  { src: "https://i.postimg.cc/c1X4xfrL/262599260-618188062762754-2777503893336128715-n.jpg", alt: "Image 01" },
+  { src: "https://i.postimg.cc/WbyNrjmR/340356903-9060156800725943-7198273552745203153-n.jpg", alt: "Image 02" },
+  { src: "https://i.postimg.cc/zGRJFMpy/217910398-401390971307935-4040034474903832780-n.webp", alt: "Image 03" },
+  { src: "https://i.postimg.cc/q7s493P0/275588295-1061236127774646-5640208158791095963-n.webp", alt: "Image 04" },
+  { src: "https://i.postimg.cc/k47q95CS/398138033-1078430746516709-7096591177582083524-n-1.webp", alt: "Image 05" },
+  { src: "https://i.postimg.cc/TwQGPX24/464890462-18018706811622399-4690848829967943523-n-1.webp", alt: "Image 06" }
 ];
+
+
 
 
 function Page() {
@@ -65,6 +66,7 @@ function Page() {
     </section>
 
     <ImageGallery images={images} />
+    
 
     <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">

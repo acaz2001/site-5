@@ -42,8 +42,8 @@ function AddToCart({ show, setShow }) {
         ) : (
           cartItems.map((item) => (
             <div key={`${item.name}-${item.variant}-${item.image}`} className='flex flex-row items-start p-5 gap-4 border-b'>
-              <div className='w-28 h-28 flex items-center justify-center bg-[#f3f3f3] p-5 rounded-xl'>
-                <img src={item.image} alt={item.name} className='w-full h-full object-contain' />
+              <div className='w-28 h-28 flex items-center justify-center bg-[#f3f3f3] rounded-xl'>
+                <img src={item.image} alt={item.name} className='w-full h-full object-cover rounded-xl' />
               </div>
 
               <div className='flex flex-col flex-1 gap-6'>

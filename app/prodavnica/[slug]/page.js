@@ -14,6 +14,8 @@ import AnimatedOnScroll from '../../../components/AnimatedOnScroll'
 import RelatedProducts from '../../../components/RelatedProducts'
 import { GiMirrorMirror } from "react-icons/gi";
 import { PiShower } from "react-icons/pi";
+import { CiDeliveryTruck } from "react-icons/ci";
+
 
 
 const builder = imageUrlBuilder(client)
@@ -63,9 +65,9 @@ export default async function Page({ params }) {
       description: "Je 10-12 dana od dana kada ste poručili kabinu. Ako preuzimate u radnji onda je rok 5-7 dana,"
     },
     {
-      icon: <PiCursorFill className='text-[1.2rem]' />,
-      title: "International Shipping",
-      description: "Shop from anywhere with convenient worldwide shipping. Only with us enjoy."
+      icon: <CiDeliveryTruck className='text-[1.2rem]' />,
+      title: "Načini isporuke",
+      description: "Preuzmite proizvod kod nas u radnji bez nadoknade, dostava ili montaža na adresi sa nadoknadom."
     }
   ]
 
@@ -87,17 +89,17 @@ export default async function Page({ params }) {
       </section>
 
       <AnimatedOnScroll>
-      <section className='flex flex-col lg:flex-row gap-[3%] w-[100%] h-[750] mb-15 mt-15'>
+      <section className='flex flex-col lg:flex-row gap-[3%] w-[100%] h-[900] mb-15 mt-15'>
         <div
           style={{
             backgroundImage: product.infoImg1
               ? `url(${urlFor(product.infoImg1).width(800).url()})`
               : 'none'
           }}
-          className='w-[100%] h-[70%] rounded-2xl md:h-[75%] lg:h-[100%]'
+          className='w-[100%] h-[80%] rounded-2xl md:h-[75%] lg:h-[100%] bg-cover bg-center'
         ></div>
 
-        <div className='w-[100%] h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
+        <div className='w-[100%] h-[20%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
           <h1 className='text-[2.4rem] lg:text-[2.8rem] md:text-[2.8rem] font-[450] leading-[1.2]'>
             {product.infoTitle1}
           </h1>
@@ -114,7 +116,7 @@ export default async function Page({ params }) {
       </section>
 
       <AnimatedOnScroll>
-      <section className='flex flex-col lg:flex-row gap-[5%] w-[100%] h-[750] mt-10'>
+      <section className='flex flex-col lg:flex-row gap-[5%] w-[100%] h-[900] mt-10'>
         <div className='w-[100%] h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
           <h1 className='text-[2.4rem] lg:text-[2.8rem] md:text-[2.8rem] font-[450] leading-[1.2]'>
             {product.infoTitle2}
@@ -125,7 +127,7 @@ export default async function Page({ params }) {
           </p>
         </div>
         <div
-          className='w-[100%] h-[70%] rounded-2xl md:h-[75%] lg:h-[100%]'
+          className='w-[100%] h-[70%] rounded-2xl md:h-[75%] lg:h-[100%] bg-cover bg-center'
           style={{
             backgroundImage: product.infoImg2
               ? `url(${urlFor(product.infoImg2).width(800).url()})`
@@ -136,9 +138,9 @@ export default async function Page({ params }) {
       </AnimatedOnScroll>
 
       <RelatedProducts
-  currentProductId={product._id}
-  categoryName={product.category?.name}
-/>
+        currentProductId={product._id}
+        categoryName={product.category?.name}
+      />
 
 
     </main>

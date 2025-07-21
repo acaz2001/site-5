@@ -13,7 +13,7 @@ function OurCollections() {
       <div className='group relative lg:w-[32%] w-full'>
       <section className='collection group bg-[#f9f6fe] relative w-[100%]  lg:w-[100%] md:w-[100%] h-[275px] rounded-2xl flex 
       flex-col items-center justify-items-start cursor-pointer'>
-        <Link href='/collections/home'>
+        <Link href='/tus-kabine/klizne'>
         <h1 className=
         'pt-1 text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
         Klizne</h1>
@@ -35,7 +35,7 @@ function OurCollections() {
       <div className='group relative lg:w-[32%] w-full'>
       <section className='collection group bg-[#f9f6fe] relative w-[100%]  lg:w-[100%] md:w-[100%] h-[275px] rounded-2xl flex flex-col
       justify-items-center items-center cursor-pointer'>
-        <Link href='/collections/footwear'>
+        <Link href='//tus-kabine/sarke'>
         <h1 className='text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
           Šarke</h1>
         <img className='absolute top-5 w-[14rem]' src={"/tus-kabina-sarke.png"}></img>
@@ -55,7 +55,7 @@ function OurCollections() {
       <div className='group relative lg:w-[32%] w-full'>
       <section className='collection group bg-[#f9f6fe] relative w-[100%]  lg:w-[100%] md:w-[100%] h-[275px] 
       rounded-2xl flex flex-col items-center justify-items-start cursor-pointer'>
-        <Link href='/collections/technology'>
+        <Link href='/tus-kabine/paravan'>
         <h1 className='text-[3.8rem]  font-semibold transition-all duration-400 ease-in-out 
         group-hover:scale-[1.05]'>
           Paravani

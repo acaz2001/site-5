@@ -60,16 +60,16 @@ useEffect(() => {
   return (
     <>
       {/* Header meni */}
-      <main className='header z-40 absolute flex flex-row items-center w-fit lg:gap-4 md:gap-4 sm:gap-0 gap-0 px-4 py-[10px] bg-transparent rounded-xl z-50'>
+      <main className='header z-40 absolute flex flex-row items-center w-fit lg:gap-2 md:gap-2 sm:gap-0 gap-0 px-4 py-[10px] bg-transparent rounded-xl z-50'>
           {isMenuOpen && (
           <div ref={menuRef} 
           className={`lg:hidden md:hidden heder-dropdown absolute top-[-2px] right-0 z-30 bg-white w-full shadow-md p-4 pt-15 rounded-xl ${
       isClosing ? 'animate-slide-up' : 'animate-slide-down'}`}>
             <ul className="flex flex-col gap-4 text-lg font-medium">
-              <li><Link href="/shop">Shop</Link></li>
-              <li><Link href="/collections">Collection</Link></li>
-              <li><Link href="/blog">Ogledalo Segmenti</Link></li>
-              <li><Link href="/support">Support</Link></li>
+              <li><Link href="/prodavnica">Ogledala</Link></li>
+              <li><Link href="/tus-kabine">Tuš kabine</Link></li>
+              <li><Link href="/ogledala-iz-segmenata">Ogledalo Segmenti</Link></li>
+              <li><Link href="/support">Kontakt</Link></li>
             </ul>
           </div>
         )}
@@ -82,17 +82,17 @@ useEffect(() => {
         </section>
         <section>
           <ul className='flex flex-row items-center gap-0 text-[0.9rem] z-40'>
-            <Link href="/shop">
+            <Link href="/prodavnica">
               <li className='header-shop cursor-pointer text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
                 Ogledala</li>
             </Link>
-            <Link href="/collections">
+            <Link href="/tus-kabine">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
                 Tuš kabine</li>
             </Link>
-            <Link href="/blog">
+            <Link href="/ogledala-iz-segmenata">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
-                Ogledalo Segmenti</li>
+                Ogl. Segmenti</li>
             </Link>
             <Link href="/support">
               <li className='cursor-pointer hidden lg:block md:block sm:hidden text-[0.85rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450]'>
