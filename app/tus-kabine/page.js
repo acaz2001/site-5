@@ -4,8 +4,8 @@ import { LuArrowUpRight } from "react-icons/lu";
 import { GoArrowRight } from "react-icons/go";
 import OurCollections from '../../components/ourCollections'
 import Hero from '../../components/hero'
-import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import Link from 'next/link';
+import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import ProductList from '../../components/productList';
 import ImageGallery from "../../components/ImageGallery";
 
@@ -24,8 +24,8 @@ function Page() {
     <main>
           <Hero
             badgeText="Tuš kabine"
-            heading="Pretražite kabinu koja odgovara vašem stilu."
-            subheading="Svaka kabina na sajtu se može raditi po vašoj meri."
+            heading="Izrada po meri ili gotovi modeli na sajtu."
+            subheading="Pretražite kabinu koja odgovara vašem stilu."
           />
 
           <div className='mt-10'>
@@ -82,7 +82,7 @@ function Page() {
           <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
           rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
           mt-5 lg:mt-0 md:mt-0 sm:mt-0 ">
-            <Link href='/shop'>
+            <Link href='/tus-kabine/klizne'>
             <AnimatedOnScroll>
             <p className="font-medium ">Vidi još</p>
             </AnimatedOnScroll>

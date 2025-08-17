@@ -4,7 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import AddToCart from "../components/addToCart";
 import { CartProvider } from '../context/CartContext'; 
-
+import AddToCartWrapper from "../components/AddToCartWrapper";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,11 +40,11 @@ export default function RootLayout({ children }) {
         <CartProvider>
         <Header className='w-[100%] z-100'></Header>
         <div className="absolute right-0">
-        <AddToCart></AddToCart>
         </div>
         <div className="fade-in-page layout">
         {children}
         </div>
+        <AddToCartWrapper /> {/* 👈 Globalno AddToCart uvek dostupno */}
         <Footer></Footer>
         </CartProvider>
 

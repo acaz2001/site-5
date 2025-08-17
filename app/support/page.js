@@ -55,9 +55,9 @@ function page() {
   return (
     <main className='flex flex-col gap-15 '>
         <Hero
-        badgeText="Support"
+        badgeText="Kontakt"
         heading="Kako možemo da vam pomognemo."
-        subheading="Use this page to answer common questions, offer help, and guide customers to solutions quickly and efficiently."
+        subheading="Sekcija koja vam pomaže da dobijete odgovore na sva svoja pitanja što se tiče sajta."
         />
         <div className='flex flex-col items-center w-full'>
           <AnimatedOnScroll>
@@ -66,7 +66,7 @@ function page() {
             </h1>
           </AnimatedOnScroll>
             <p className='text-[#6c6474] text-[1.1rem] mt-2 mb-10 text-center'>
-            Give your visitors quick answers to common questions about your store like these.
+            Na osnovu kupaca naših proizvoda izdvojili smo najčešča pitanja koja ih zanimaju.
             </p>
             <Faq></Faq>
         </div>
@@ -75,12 +75,12 @@ function page() {
         <div className='flex flex-col items-center'>
           <AnimatedOnScroll>
             <h1 className='text-[2.5rem] font-medium text-center'>
-            Still got questions?
+            Još imate pitanja?
             </h1>
           </AnimatedOnScroll>
           <AnimatedOnScroll>
             <p className='text-[#6c6474] text-[1.1rem] mt-2 mb-10 text-center w-[100%]'>
-            Send us a message below and we'll get back to you in 1 business day.
+            Pošaljite nam poruku i odgovorićemo vam u najkraćem periodu.
             </p>
           </AnimatedOnScroll>  
         </div>
@@ -95,7 +95,7 @@ function page() {
               htmlFor="name"
               className='justify-items-start text-[0.95rem] font-medium'
             >
-              Name:
+              Ime i prezime:
             </label>
             <input
               className='bg-[#f9f6fe] p-2.5 w-[100%] rounded-lg text-[0.9rem]'
@@ -127,7 +127,7 @@ function page() {
               htmlFor="message"
               className='justify-items-start text-[0.95rem] font-medium'
             >
-              Message:
+              Poruka:
             </label>
             <textarea
               className='bg-[#f9f6fe] p-2.5 pb-12 w-[100%] rounded-lg text-[0.9rem]'

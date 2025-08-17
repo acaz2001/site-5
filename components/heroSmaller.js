@@ -14,7 +14,7 @@ function HeroSmaller({page, heading, subheading}) {
         <h1 style={{ lineHeight:'1.1'}} 
          className="text-[3.2rem] tracking-tight text-center font-medium
          lg:text-[4.2rem] md:text-[3.5rem]">
-        <Link href="/collections">
+        <Link href="/tus-kabine">
         <span className=
         'pr-3 text-[#7c7783] transition-all duration-400 ease-in-out hover:text-black cursor-pointer'>
           {page}</span>

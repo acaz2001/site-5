@@ -6,8 +6,8 @@ import AnimatedOnScroll from './AnimatedOnScroll';
 const questions = [
   {
     id: 1,
-    question: "Informacije o načinu isporuke.",
-    answer: "Kada odete na checkout stranicu imaćete opcije za isproruke. Možete preuzeti u našoj radnji, dostavljamo na adresu i još dodatno ako vam treba montaža."
+    question: "Proizod možete raditi po vašoj meri.",
+    answer: "Ukoliko na proizvodu hoćete nešto da promenite, boju led trake, boju okova, dimenzije... Možete nas kontaktirati."
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ function FaqShop() {
         {warrantyOpen && (
           <AnimatedOnScroll>
           <p className='text-[0.8rem] font-[450] text-[#6c6474] mt-[-5] pb-3 '>
-          Proizvod na stranici kupite tako što kada izaberete varijantu i dimenzije kliknete na dugme "Dodaj u korpu", nakon toga otvorite korpu i kliknite checkout dugme.
+          Proizvod na stranici kupite tako što kada izaberete varijantu i dimenzije kliknete na dugme "Dodaj u korpu", nakon toga otvorite korpu i kliknite "Idu u korpu" dugme.
           </p>
           </AnimatedOnScroll>
         )}

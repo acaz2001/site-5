@@ -1,6 +1,10 @@
 import React from 'react'
 import AnimatedOnScroll from './AnimatedOnScroll';
 
+{/*
+      bg-[#ede4fc] to je boja za backgroudn ljubicasta 
+*/}
+
 function Hero({ heading, subheading, badgeText }) {
   return (
     <main>
@@ -37,6 +41,8 @@ function Hero({ heading, subheading, badgeText }) {
       </div>
       </AnimatedOnScroll>
     </main>
+
+    
   )
 }
 

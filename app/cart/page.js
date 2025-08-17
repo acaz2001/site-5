@@ -47,7 +47,8 @@ export default function CartPage() {
         customerData.adresa.trim() &&
         customerData.telefon.trim() &&
         customerData.opstina.trim() &&
-        customerData.grad.trim()
+        customerData.grad.trim() &&
+        customerData.email.trim()
       );
     }
     return false;
@@ -71,6 +72,7 @@ export default function CartPage() {
               spratStan: customerData.spratStan,
               opstina: customerData.opstina,
               grad: customerData.grad,
+              email: customerData.email,
               proizvodi: buyNowItem 
                 ? [{
                     naziv: buyNowItem.name,
@@ -92,11 +94,25 @@ export default function CartPage() {
             }),
           });
 
-          if (res.ok) {
-            window.location.href = '/success';
-          } else {
-            alert('Došlo je do greške prilikom slanja porudžbine.');
-          }
+        if (res.ok) {
+          // ✉️ Pošalji email kupcu preko Resend
+          await fetch('/api/send-confirmation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              toEmail: customerData.email,
+              ime: customerData.imePrezime,
+              proizvod: buyNowItem?.name || cartItems[0]?.name,
+              dimenzija: buyNowItem?.dimension || cartItems[0]?.dimension,
+              cena: totalWithShipping,
+            }),
+          });
+
+          window.location.href = '/success';
+        } else {
+          alert('Došlo je do greške prilikom slanja porudžbine.');
+        }
+
         } catch (error) {
           console.error(error);
           alert('Greška prilikom slanja forme.');
@@ -155,11 +171,11 @@ const totalWithShipping = productSubtotal + shippingCost;
     return (
       <AnimatedOnScroll>
       <div className="flex flex-col items-center justify-center min-h-[70vh] p-8">
-        <h1 className="text-2xl font-bold mb-2">Your Cart is Empty</h1>
-        <p className="text-gray-600 mb-4">Start adding some products!</p>
-        <Link href="/shop">
+        <h1 className="text-2xl font-bold mb-2">Vaša korpa je prazna</h1>
+        <p className="text-gray-600 mb-4">Počnite da ubacujete proizvode!</p>
+        <Link href="/prodavnica">
           <button className="bg-black text-white px-6 py-3 rounded-2xl cursor-pointer">
-            Continue Shopping
+            Nastavite kupovinu
           </button>
         </Link>
       </div>
@@ -182,7 +198,7 @@ const totalWithShipping = productSubtotal + shippingCost;
         <div className="flex flex-row justify-between">
           <div className='flex flex-col gap-1'>
             <h2 className="font-semibold text-lg">{buyNowItem.name}</h2>
-            <p className="text-sm text-gray-500">Variant: {buyNowItem.variant}</p>
+            <p className="text-sm text-gray-500">Varijanta: {buyNowItem.variant}</p>
           </div>
           <p className="font-medium">{buyNowItem.price} RSD</p>
         </div>
@@ -196,18 +212,18 @@ const totalWithShipping = productSubtotal + shippingCost;
   ) : (
     cartItems.map((item) => (
       <div key={`${item.name}-${item.variant}-${item.image}`} className="flex flex-row items-start border-b pb-6 gap-6">
-        <div className="w-28 h-28 flex items-center justify-center bg-[#f3f3f3] p-3 rounded-xl">
-          <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
+        <div className="w-28 h-30 flex items-center justify-center bg-[#f3f3f3] rounded-xl">
+          <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-xl" />
         </div>
 
         <div className="flex flex-col flex-1 gap-7">
           <div className="flex flex-row justify-between">
             <div className='flex flex-col gap-1'>
               <h2 className="font-semibold text-lg">{item.name}</h2>
-              <p className="text-sm text-gray-500">Variant: {item.variant}</p>
+              <p className="text-sm text-gray-500">Varijanta: {item.variant}</p>
             </div>
             
-            <p className="font-medium">{item.price} USD</p>
+            <p className="font-medium">{item.price} RSD</p>
           </div>
 
           <div className="flex flex-row justify-between items-center">
@@ -229,9 +245,9 @@ const totalWithShipping = productSubtotal + shippingCost;
 
             <div
               onClick={() => removeFromCart(item.id, item.name, item.image, item.variant)}
-              className='p-2 bg-[#f9f6fe] rounded-xl cursor-pointer'
+              className='p-2 bg-[#f9f6fe] rounded-xl cursor-pointer translate-x-[10px] lg:translate-x-0 md:translate-x-0 sm:translate-x-0'
             >
-              <MdOutlineCancel className='text-[1.7rem]' />
+              <MdOutlineCancel className='lg:text-[1.7rem] md:text-[1.7rem] sm:text-[1.7rem] text-[1.4rem]' />
             </div>
           </div>
         </div>
@@ -273,7 +289,7 @@ const totalWithShipping = productSubtotal + shippingCost;
               checked={shippingOption === 'installation'}
               onChange={() => setShippingOption('installation')}
             />
-            <span>Montaža (+35%)</span>
+            <span>Montaža</span>
           </label>
         </div>
       </div>
@@ -356,7 +372,7 @@ const totalWithShipping = productSubtotal + shippingCost;
       {/* Subtotal & actions */}
       <div className="flex flex-col gap-4 border-t pt-6">
         <div className="flex flex-row justify-between text-xl font-semibold">
-          <p>Subtotal:</p>
+          <p>Cena proizvoda:</p>
           <p>{productSubtotal} RSD</p>
         </div>
         {shippingOption && shippingOption !== 'store' && (
@@ -372,6 +388,7 @@ const totalWithShipping = productSubtotal + shippingCost;
 
         <div className="flex flex-col gap-4 mt-4">
         <div className='flex flex-row gap-[1rem]'>
+          {/*
           <button
             onClick={() => handleCheckout('card')}
             disabled={!shippingOption || !isFormValid()}
@@ -383,6 +400,8 @@ const totalWithShipping = productSubtotal + shippingCost;
           >
             Plaćanje karticom
           </button>
+           */}
+
 
           <button
             onClick={() => handleCheckout('cod')}
@@ -401,9 +420,9 @@ const totalWithShipping = productSubtotal + shippingCost;
 
 
         <div>
-          <Link href="/shop" className="w-full">
+          <Link href="/prodavnica" className="w-full">
             <button className="w-full bg-gray-300 text-black py-3 rounded-2xl font-semibold cursor-pointer">
-              Continue Shopping
+              Nastavite kupovinu
             </button>
           </Link>
         </div>

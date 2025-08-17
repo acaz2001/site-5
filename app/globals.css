@@ -240,6 +240,14 @@
         left: 28%;
       }
     }
+
+    @media (max-width: 2222px) {
+      .arrow {
+        transform: scale(0.7);
+        transform-origin: bottom left;
+        bottom: 12px;
+      }
+    }
     
     @media (max-width: 2098px) {
       .arrow {
@@ -334,9 +342,16 @@
     transform: scale(0.75);
   };
 }
+
+@media (max-width: 1025px) {
+  .arrow {
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 767px) and (min-width: 570px) {
     .arrow {
-    bottom: 1%;
+    bottom: 2%;
     left: 86.5%;  
     transform: scale(1.5);
 

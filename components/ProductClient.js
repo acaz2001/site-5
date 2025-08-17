@@ -9,11 +9,14 @@ import AddToCart from '../components/addToCart';
 import { useRouter } from 'next/navigation';
 
 
+
+
 function ProductClient({ product}) {
-  const { addToCart } = useCart();
+  const { addToCart, openCart } = useCart();
   const [selectedDimension, setSelectedDimension] = useState(null);
   const [showCart, setShowCart] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+
 
   const router = useRouter();
 
@@ -80,19 +83,20 @@ function ProductClient({ product}) {
         ? urlFor(selectedVariant.image.asset).width(300).url()
         : '/fallback.png',
       variant: selectedVariant.name,
-      dimension: selectedDimension?.naziv || null,
+      dimenzija: selectedDimension?.naziv || null,
       quantity: 1,
     });
   };
 
 const handleAddToCartAndShow = () => {
   addToCartHandler();
-  setIsAdded(true);
+  setIsAdded(true);         // ✅ Postavi na true
+  openCart();               // ✅ Prikazuje AddToCart
 
-  // Vrati dugme u početno stanje posle 2 sekunde:
+  // ⏳ Resetuje se posle 3 sekunde
   setTimeout(() => {
     setIsAdded(false);
-  }, 5000);
+  }, 9000);
 };
 
 const handleBuyNow = () => {
@@ -168,7 +172,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
         {/* Right: info */}
         <div className='lg:w-[35.5%] flex flex-col items-start gap-2'>
           <div className='flex flex-row items-center gap-2 mb-1'>
-            <Link href="/shop">
+            <Link href="/prodavnica">
               <p className='text-[0.9rem] text-[#6c6474] hover:text-black transition-all cursor-pointer'>Prodavnica</p>
             </Link>
             <svg width="6" height="6"><circle cx="3" cy="3" r="3" fill="grey" /></svg>
@@ -248,6 +252,13 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
       
 
     </main>
+    {/* AddToCart Overlay */}
+    {showCart && (
+      <>
+        <div className="fixed inset-0 z-50 w-[100%] bg-black opacity-80 translate-x-[-300px]" onClick={() => setShowCart(false)} />
+        <AddToCart show={showCart} setShow={setShowCart} />
+      </>
+    )}
 </>
 
   );

@@ -58,7 +58,7 @@ function Testimonials() {
           alt='Customer avatar'
         />
         </AnimatedOnScroll>
-        <h1 className='text-[1.4rem] sm:text-[2rem] leading-[1.2] 
+        <h1 className='text-[1.8rem] sm:text-[2rem] leading-[1.2] 
         lg:text-[2.5rem] w-[80%] text-center font-[480]'>
           {currentTestimonial.title}
         </h1>
@@ -73,7 +73,7 @@ function Testimonials() {
             <FaStar className='text-[1.3rem] text-black' />
             <FaStar className='text-[1.3rem] text-black' />
           </div>
-          <h2 className='text-[1.1rem] text-[#6c6474]'>Your Customer</h2>
+          <h2 className='text-[1.1rem] text-[#6c6474]'>{currentTestimonial.avatarName}</h2>
         </div>
         </AnimatedOnScroll>
 
@@ -89,7 +89,7 @@ function Testimonials() {
           Feature client logos to build trust and credibility for your brand:
         </p>
         </AnimatedOnScroll>
-        <div className='w-[32%] mt-4'>
+        <div className='w-[32%] mt-4 opacity-0'>
           <BrendSlider />
         </div>
       </section>

@@ -7,60 +7,45 @@ function Page() {
     <main className='flex flex-col gap-10'>
     <section>
       <HeroSmaller 
-      heading='Privacy Policy'
-      subheading='Last Updated:January 2025'/>
+      heading='Politika privatnosti'
+      subheading='Ažurirano poslednji put: Jul 2025'/>
     </section>
 
     <section className='w-[100%] flex flex-col justify-center items-center font-[420] text-[1.1rem] gap-5'>
         <div className='w-[45%] flex flex-col items-center justify-center gap-5'>
         <AnimatedOnScroll>
         <p>
-        Welcome to Commerce. By using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully before using our site.
+1. Podaci koje prikupljamo Možemo prikupljati sledeće podatke: Ime i prezime Kontakt podatke (broj telefona, e-mail adresa) Adresu isporuke i naplate Dimenzije i specifikacije proizvoda koje poručujete Informacije koje dobrovoljno dostavite putem upita ili kontakt forme na sajtu
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        By accessing our website, you confirm that you are at least 18 years old or have the legal authority to agree to these terms. You agree to use the site only for lawful purposes and in compliance with all applicable laws and regulations.    
+2. Način prikupljanja podataka Podatke prikupljamo: Kada popunjavate kontakt formu ili šaljete upit Kada izvršite porudžbinu proizvoda ili usluga Kada nas kontaktirate putem telefona ili e-maila
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        All content on this website, including text, images, logos, graphics, and designs, is the property of Commerce or its licensors and is protected by copyright and intellectual property laws. You may not reproduce, distribute, or use any content without prior written consent.   
+3. Korišćenje podataka Vaši podaci koriste se isključivo za: Obradu porudžbina i isporuku proizvoda Komunikaciju u vezi sa vašim upitima i zahtevima Izdavanje računa i pravnu evidenciju Poboljšanje kvaliteta naših usluga
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        If you submit content to us, such as feedback or testimonials, you grant Commerce a non-exclusive, royalty-free, and irrevocable license to use, modify, and display the content for promotional or operational purposes.
+4. Čuvanje i zaštita podataka Podaci se čuvaju na siguran način i dostupni su samo ovlašćenim licima. Ne prodajemo, ne iznajmljujemo niti delimo vaše podatke sa trećim licima, osim ako je to zakonski obavezno ili neophodno radi realizacije usluge (npr. kurirska služba).
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        Our website and services are provided “as is” without any guarantees or warranties. While we strive to provide accurate and up-to-date information, we do not warrant the accuracy, reliability, or completeness of the content on our website.   
+5. Kolačići (Cookies) Naš sajt može koristiti kolačiće radi poboljšanja korisničkog iskustva i analitike posete. Korišćenjem sajta pristajete na upotrebu kolačića u skladu sa ovom politikom.
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        Commerce is not liable for any indirect, incidental, or consequential damages arising from your use of our website or services. This includes, but is not limited to, loss of data, revenue, or profits.
+6. Prava korisnika Imate pravo da: Zatražite uvid u podatke koje čuvamo o vama Zatražite ispravku ili brisanje podataka Povučete saglasnost za korišćenje podataka, osim kada zakon nalaže njihovo čuvanje
         </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p>
-        Our website may contain links to third-party websites. These links are provided for convenience, and Commerce does not endorse or assume responsibility for the content or practices of these external sites.
-        </p>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll>
-        <p>
-        We reserve the right to terminate or suspend your access to our website without notice if you violate these terms or engage in any conduct that we consider harmful to our business or users.
-        </p>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll>
-        <p>
-        We may update these terms and conditions periodically to reflect changes in our practices or legal requirements. Your continued use of the website constitutes acceptance of any changes.
-        </p>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll>
-        <p>
-        These terms and conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction]. Any disputes will be resolved in the courts of [Insert Jurisdiction].
+7. Kontakt Za sva pitanja u vezi sa zaštitom privatnosti možete nas kontaktirati putem: [email adresa] ili na broj telefona 0603170707.
         </p>
         </AnimatedOnScroll>
         </div>

@@ -13,7 +13,7 @@ export default function AnimatedOnScroll({ children }) {
           observer.unobserve(ref.current) // animira samo prvi put
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.4 }
     )
 
     if (ref.current) observer.observe(ref.current)

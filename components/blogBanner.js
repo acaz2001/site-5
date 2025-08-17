@@ -44,7 +44,7 @@ function BlogBanner() {
                 skupocenosti i otmenosti. </p>
             </div>
             <div className=' relative flex lg:flex-row md:flex-row sm:flex-row flex-col'>
-                <div className=' flex flex-row items-center gap-2'>
+                <div className='opacity-0 flex flex-row items-center gap-2 cursor-pointer'>
                     <div className='rounded-full'>
                         <img className='w-[2.2rem] h-[2.2rem] rounded-full' src={"/avatar2.jpg"}></img>
                     </div>
@@ -53,7 +53,7 @@ function BlogBanner() {
                         <p className='text-[0.8rem] text-[#6c6474] font-normal'>Graphic Designer</p>
                     </div>
                 </div>
-                <Link href={`/blog/how-to-make-your-social-media`}>
+                <Link href={`/ogledala-iz-segmenata`}>
                 <div className='blogBanner-icon absolute bottom-0 right-0 bg-[#ede4fc] p-3 rounded-3xl transition-transform duration-400 ease-in-out cursor-pointer hover:rotate-45'>
                     <LuArrowUpRight className='text-[1.4rem] '/>
                 </div>

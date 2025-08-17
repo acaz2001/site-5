@@ -19,7 +19,7 @@ function AddToCart({ show, setShow }) {
       {/* Header */}
       <section className='flex flex-row items-center justify-between pt-4 pb-4 pl-6 pr-6 border-b'>
         <div className='flex flex-row items-center gap-5'>
-          <h1 className='text-[1.6rem] font-[450]'>Your Cart</h1>
+          <h1 className='text-[1.6rem] font-[450]'>Vaša korpa</h1>
           <div className='bg-[#f9f6fe] p-1 rounded-full'>
             <p className='font-[500]'>{cartItems.length}</p> {/* Broj različitih proizvoda */}
           </div>
@@ -36,8 +36,8 @@ function AddToCart({ show, setShow }) {
       <section className='flex-1 overflow-y-auto flex flex-col'>
         {cartItems.length === 0 ? (
           <div className='flex flex-col items-center justify-center mt-10'>
-            <h1 className='text-[1.3rem] font-[450]'>Your Cart is Empty</h1>
-            <p className='text-[#6c6474]'>Add some items to the cart.</p>
+            <h1 className='text-[1.3rem] font-[450]'>Vaša korpa je prazna</h1>
+            <p className='text-[#6c6474]'>Dodajte artikle u korpu.</p>
           </div>
         ) : (
           cartItems.map((item) => (
@@ -52,6 +52,7 @@ function AddToCart({ show, setShow }) {
                   <div className='flex flex-col gap-1'>
                     <h1 className='font-[450]'>{item.name}</h1>
                     <p className='text-sm text-gray-500'>{item.variant}</p> {/* Prikazuje varijantu */}
+                    <p className='text-sm text-gray-500'>{item.dimenzija}</p>
                   </div>
                   <p className='font-[450]'>{item.price} RSD</p>
                 </div>
@@ -92,7 +93,7 @@ function AddToCart({ show, setShow }) {
       {/* Footer */}
       <section className='flex flex-col pt-4 pb-6 pl-6 pr-6 gap-6'>
         <div className='flex flex-row items-center justify-between'>
-          <h1 className='text-[1.1rem] font-[450]'>Subtotal</h1>
+          <h1 className='text-[1.1rem] font-[450]'>Ukupno:</h1>
           <p className='font-[450]'>{total} RSD</p>
         </div>
         <div className='bg-[#888888] flex flex-row justify-center rounded-3xl'>
@@ -101,7 +102,7 @@ function AddToCart({ show, setShow }) {
               onClick={() => setShow(false)}
               className='text-white w-full pt-3 pb-3 text-[0.9rem] font-[450] rounded-3xl cursor-pointer'
             >
-              Checkout
+              Idi u korpu
             </button>
           </Link>
         </div>

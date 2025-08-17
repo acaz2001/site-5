@@ -26,7 +26,7 @@ function Page() {
      <Hero
         badgeText="Ogledalo iz segmenata"
         heading="Kako da vam svi zavide na dizajnu vašeg enterijera."
-        subheading="Use this space to publish engaging content that educates, inspires, and connects with your audiance."
+        subheading="Sve se radi po vašoj meri, može ogledala biti i u boji braon ili sivoj, a može i obično ogledalo."
       />
      </div>
      <div className='mt-[-80px]'>
@@ -78,7 +78,7 @@ function Page() {
         Cela montaža je gotova za 1 dan i traje manje od 3 sata, ako je ogledalo manje onda montaža traje i kraće.        
         </p>
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Komadi se lepe direktno na zid jedan po jedan. Lepku treba 24h da stegne i do tada ne bi trebalo da se diraju ogledala, posle toga bezbedno možete brisati ogledala. Rok izrade je 7-10 dana.       
+        Komadi se lepe direktno na zid jedan po jedan. Lepku treba 24h da stegne i do tada ne bi trebalo da se diraju ogledala, posle toga bezbedno možete brisati ogledala. Rok izrade je 10-12 dana.       
         </p>
         </AnimatedOnScroll>
       </div>
@@ -93,6 +93,10 @@ function Page() {
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
         Ako želite da zakažete merenje ili konsultaciju, možete nas kontaktirati, sve podatke imate ispod. Izlazak na merenje se ne naplaćuje.        
         </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Kontakt telefon: 0603170707
+        </p>
+        <p>Kontakt email: verdestaklo011@gmail.com</p>
         </AnimatedOnScroll>
       </div>
     </section>

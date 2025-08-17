@@ -6,28 +6,28 @@ import AnimatedOnScroll from './AnimatedOnScroll';
 const questions = [
   {
     id: 1,
-    question: "How do I access my digital downloads after purchase?",
-    answer: "Once your purchase is complete, you’ll receive an email with a download link. You can also access your downloads directly from your account page."
+    question: "Koji su sve načini plaćanja kada dostavite proizvod?",
+    answer: "Proizvod možete platiti u gotovini ili karticom, a možete direktno na račun."
   },
   {
     id: 2,
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, PayPal, and other secure payment options for your convenience."
+    question: "Kako da vas kontaktiramo?",
+    answer: "Na broj telefona: 0603170707, email: verdestaklo011@gmail.com"
   },
   {
     id: 3,
-    question: "Can I customize the digital products I purchase?",
-    answer: "Yes, all our digital products are fully customizable and come with easy-to-edit files to suit your needs."
+    question: "Kako da poručim tuš kabinu po meri.",
+    answer: "Možete nas kontaktirati na broj telefona 0603170707 ili na email: verdestaklo011@gmail.com."
   },
   {
     id: 4,
-    question: "How long does shipping take for physical products?",
-    answer: "Shipping times vary depending on your location, but most orders are delivered within 5–7 business days."
+    question: "Da li radite van Beograda?",
+    answer: "Radimo, ali samo ako je veći posao u pitanju, za takvu uslugu morate nas kontaktirati na 0603170707."
   },
   {
     id: 5,
-    question: "What’s your return policy?",
-    answer: "We offer returns on physical products within 30 days of purchase. Digital products are non-refundable due to their nature, but feel free to contact us if you encounter any issues."
+    question: "Gde vam se nalazi radnja?",
+    answer: "Bulevar kralja Aleksandra 546, Mali Mokri Lug, Beograd"
   }
 ];
 

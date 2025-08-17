@@ -14,6 +14,12 @@ export const testimonials = defineType({
       description: 'Upload avatar image (e.g. avatar, avatar2, etc.)'
     }),
     defineField({
+      name: 'avatarName',
+      title: 'Name',
+      type: 'string',
+      description: 'Name of your avatar'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

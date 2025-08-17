@@ -21,6 +21,8 @@ import { FaForward } from "react-icons/fa";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
 import BlogGrid from "../components/blogGrid";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { IoIosTime } from "react-icons/io";
+import { HiColorSwatch } from "react-icons/hi";
 
 
 
@@ -30,7 +32,7 @@ export default function Home() {
 
   const features = [
     {
-      icon: <AiFillThunderbolt className='text-[1.2rem]' />,
+      icon: <IoIosTime className='text-[1.2rem]' />,
       title: "Rok izrade i montaže ogledala",
       description: "Je 10-12 dana od poručivanja. Pre montaže kontaktiraćemo vas."
     },
@@ -40,7 +42,7 @@ export default function Home() {
       description: "Da, samo se i po meri izrađuje izlazimo na teren i uzimamo mere."
     },
     {
-      icon: <FaForward className='text-[1.2rem]' />,
+      icon: <HiColorSwatch className='text-[1.2rem]' />,
       title: "Ogledala u drugoj boji",
       description: "Može se izraditi da ogledalo bude obično ili u braon ili sivoj boji."
     }
@@ -49,6 +51,7 @@ export default function Home() {
   
   return (
     <main className="home">
+      <AnimatedOnScroll>
         <section className="custom-box rounded-2xl">
           <div
               className="relative pt-38 pl-8 bg-cover w-full h-[600px] rounded-2xl
@@ -83,7 +86,7 @@ export default function Home() {
               </p>
             </div>
             <div className="cursor-pointer w-[187px]">
-            <Link href='/shop' className="w-10 cursor-pointer">
+            <Link href='/prodavnica' prefetch className="w-10 cursor-pointer">
             <div className="group relative w-fit rounded-3xl flex flex-row items-center gap-[0.5rem] mt-6 pt-2 pb-3 ">
               <LuArrowUpRight 
               className="absolute right-[13px] text-[1rem] z-10 transition-transform duration-400 ease-in-out group-hover:rotate-45" />
@@ -99,7 +102,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+    </AnimatedOnScroll>
         <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
           <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
             <AnimatedOnScroll>
@@ -115,7 +118,7 @@ export default function Home() {
           <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
           rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
           mt-5 lg:mt-0 md:mt-0 sm:mt-0 ">
-            <Link href='/shop'>
+            <Link href='/prodavnica'>
             <AnimatedOnScroll>
             <p className="font-medium ">Vidi još</p>
             </AnimatedOnScroll>
@@ -129,7 +132,74 @@ export default function Home() {
 
         <ProductList isPopular="true"/>
 
-        {/*<Testimonials></Testimonials>*/}
+        <Testimonials></Testimonials>
+
+
+
+        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+            <AnimatedOnScroll>
+            <h1 className="text-[1.5rem] font-medium">Tuš kabine.</h1>
+            </AnimatedOnScroll>
+            <AnimatedOnScroll>
+            <p className="text-[#6c6474] mt-1.5 font-[450]">
+            Izaberite model i možete ga promeniti kako želite. 
+            </p>
+            </AnimatedOnScroll>
+          </div>
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
+          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
+            <Link href='/tus-kabine'>
+            <AnimatedOnScroll>
+            <p className="font-medium ">Vidi još</p>
+            </AnimatedOnScroll>
+            </Link>
+            <AnimatedOnScroll>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+            </AnimatedOnScroll>
+          </div>
+        </section>
+
+
+        <OurCollections></OurCollections>
+
+        <section className="mt-20">
+        <VideoHero></VideoHero>
+        </section>
+
+        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
+          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+            <AnimatedOnScroll>
+            <h1 className="text-[1.5rem] font-medium">Modernizujte vaše kupatilske rutine.</h1>
+            </AnimatedOnScroll>
+            <AnimatedOnScroll>
+            <p className="text-[#6c6474] mt-1.5">
+            Ogledala za kupatilo, mogu biti sa ili bez led rasvete.
+            </p>
+            </AnimatedOnScroll>
+          </div>
+          
+          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
+          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
+          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
+            <Link href='/prodavnica'>
+            <AnimatedOnScroll>
+            <p className="font-medium ">Vidi još</p>
+            </AnimatedOnScroll>
+            </Link>
+            <AnimatedOnScroll>
+            <GoArrowRight className="text-[1.1rem] font-bold"/>
+            </AnimatedOnScroll>
+          </div>
+        </section>
+
+
+
+        <section className="mt-10 mb-30">
+          <ProductList isPopular="true" activeCategory="Kupatilo/ LED rasveta"/>
+        </section>
+
 
         <section className="flex flex-col items-center mt-10">
           <AnimatedOnScroll>
@@ -148,7 +218,7 @@ export default function Home() {
 
         <BlogBanner></BlogBanner>
 
-        <AboutProdGrid>
+      <AboutProdGrid>
         {features.map((item, index) => (
           <AboutProd
             key={index}
@@ -159,69 +229,8 @@ export default function Home() {
         ))}
         </AboutProdGrid>
 
-        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
-          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
-            <AnimatedOnScroll>
-            <h1 className="text-[1.5rem] font-medium">Tuš kabine.</h1>
-            </AnimatedOnScroll>
-            <AnimatedOnScroll>
-            <p className="text-[#6c6474] mt-1.5 font-[450]">
-            Izaberite model i možete ga promeniti kako želite. 
-            </p>
-            </AnimatedOnScroll>
-          </div>
-          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
-          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
-          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
-            <Link href='/collections'>
-            <AnimatedOnScroll>
-            <p className="font-medium ">Vidi još</p>
-            </AnimatedOnScroll>
-            </Link>
-            <AnimatedOnScroll>
-            <GoArrowRight className="text-[1.1rem] font-bold"/>
-            </AnimatedOnScroll>
-          </div>
-        </section>
 
 
-        <OurCollections></OurCollections>
-
-        <section className="mt-20">
-        <VideoHero></VideoHero>
-        </section>
-
-
-        <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-8 mb-8">
-          <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
-            <AnimatedOnScroll>
-            <h1 className="text-[1.5rem] font-medium">Modernizujte vaše kupatilske rutine.</h1>
-            </AnimatedOnScroll>
-            <AnimatedOnScroll>
-            <p className="text-[#6c6474] mt-1.5">
-            Ogledala za kupatilo, mogu biti sa ili bez led rasvete.
-            </p>
-            </AnimatedOnScroll>
-          </div>
-          
-          <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
-          rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
-          mt-5 lg:mt-0 md:mt-0 sm:mt-0">
-            <Link href='/shop'>
-            <AnimatedOnScroll>
-            <p className="font-medium ">Vidi još</p>
-            </AnimatedOnScroll>
-            </Link>
-            <AnimatedOnScroll>
-            <GoArrowRight className="text-[1.1rem] font-bold"/>
-            </AnimatedOnScroll>
-          </div>
-        </section>
-
-
-        <section className="mt-10 mb-30">
-          <ProductList isPopular="true" activeCategory="Kupatilo/ LED rasveta"/>
-        </section>
         
 
         {/*
