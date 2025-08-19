@@ -15,7 +15,7 @@ import RelatedProducts from '../../../components/RelatedProducts'
 import { GiMirrorMirror } from "react-icons/gi";
 import { PiShower } from "react-icons/pi";
 import { CiDeliveryTruck } from "react-icons/ci";
-
+import RecentlyViewedProductsView from '../../../components/RecentlyViewedProductsView'
 
 
 const builder = imageUrlBuilder(client)
@@ -42,7 +42,7 @@ export async function generateStaticParams() {
 export const dynamicParams = true
 
 // ✅ Sprečava keširanje — svaki request je svež
-export const revalidate = 0
+export const revalidate = 60
 
 export default async function Page({ params }) {
 
@@ -141,6 +141,9 @@ export default async function Page({ params }) {
         currentProductId={product._id}
         categoryName={product.category?.name}
       />
+
+      {/*<RecentlyViewedProductsView /> */}
+      
 
 
     </main>

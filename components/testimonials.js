@@ -82,7 +82,7 @@ function Testimonials() {
       
 
       
-      {/* Logos below */}
+      {/* Logos below 
       <section className='flex flex-col items-center justify-center mt-5'>
         <AnimatedOnScroll>
         <p className='text-[#6c6474] hidden lg:block md:block sm:block  text-[0.8rem] lg:text-[1rem] md:text-[1rem] sm:text-[1rem]'>
@@ -93,6 +93,7 @@ function Testimonials() {
           <BrendSlider />
         </div>
       </section>
+      */}
     </main>
     </div>
   );

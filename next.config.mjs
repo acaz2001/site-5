@@ -4,7 +4,7 @@ const nextConfig = {
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   },
     images: {
-    domains: ['i.postimg.cc'],
+    domains: ['i.postimg.cc','cdn.sanity.io'],
   }
 };
 

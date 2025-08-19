@@ -221,6 +221,7 @@ const totalWithShipping = productSubtotal + shippingCost;
             <div className='flex flex-col gap-1'>
               <h2 className="font-semibold text-lg">{item.name}</h2>
               <p className="text-sm text-gray-500">Varijanta: {item.variant}</p>
+              <p className="text-sm text-gray-500">Dimezija: {item.dimenzija}</p>
             </div>
             
             <p className="font-medium">{item.price} RSD</p>

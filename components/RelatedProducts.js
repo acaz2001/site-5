@@ -23,8 +23,8 @@ function RelatedProducts({ currentProductId, categoryName }) {
   if (related.length === 0) return null;
 
   return (
-    <section className='mt-16'>
-      <h2 className='text-2xl font-semibold mb-4'>Slični proizvodi</h2>
+    <section className='lg:mt-16 md:mt-16 sm:mt-26 mt-26'>
+      <h2 className='text-2xl font-semibold mb-4'>Na osnovu vašeg interesovanja, možda će vam se svideti.</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
         {related.map((product) => (
           <Product key={product._id} data={product} />

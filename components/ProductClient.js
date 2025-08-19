@@ -73,6 +73,32 @@ function ProductClient({ product}) {
   }
 }, [selectedVariant]);
 
+useEffect(() => {
+  if (!product) return;
+
+  const viewedProduct = {
+    _id: product._id,
+    name: product.name,
+    slug: product.slug?.current, // string
+    price: product.price,
+    image: product.images?.[0]?.asset?.url, // direktan URL
+  };
+
+  const stored = localStorage.getItem('recentlyViewed');
+  let viewed = stored ? JSON.parse(stored) : [];
+
+  // Dodaj samo ako već nije u listi
+  viewed = viewed.filter((p) => p.slug !== viewedProduct.slug);
+  viewed.push(viewedProduct);
+
+  // Ograniči na max 10 proizvoda
+  if (viewed.length > 10) viewed = viewed.slice(-10);
+
+  localStorage.setItem('recentlyViewed', JSON.stringify(viewed));
+}, [product]);
+
+
+
 
   const addToCartHandler = () => {
     addToCart({

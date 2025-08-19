@@ -30,7 +30,7 @@ console.log("Slika Product Images:", data.image)
         <img   src={
           data.images?.asset
             ? urlFor(data.images.asset).url()
-            : '/fallback.png'
+            : data.image || '/fallback.png'
         }
         className='w-[90%] p-5 my-3 transition-all duration-400 ease-in-out group-hover:scale-[1.05]
         object-cover object-center'>

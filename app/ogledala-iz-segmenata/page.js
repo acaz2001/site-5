@@ -1,3 +1,6 @@
+export const revalidate = 60; // Revalidacija svakih 60 sekundi
+
+
 import React from 'react'
 import Hero from '../../components/hero'
 import BlogBanner from '../../components/blogBanner'
@@ -15,6 +18,7 @@ import ImageGallery from '../../components/ImageGallery'
   { src: "https://i.postimg.cc/k47q95CS/398138033-1078430746516709-7096591177582083524-n-1.webp", alt: "Image 05" },
   { src: "https://i.postimg.cc/TwQGPX24/464890462-18018706811622399-4690848829967943523-n-1.webp", alt: "Image 06" }
 ];
+
 
 
 
