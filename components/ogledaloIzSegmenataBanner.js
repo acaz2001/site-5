@@ -2,6 +2,7 @@ import React from 'react'
 import { LuArrowUpRight } from "react-icons/lu";
 import Link from 'next/link';
 import AnimatedOnScroll from './AnimatedOnScroll';
+import Image from 'next/image';
 
 function OgledaloIzSegmenataBanner() {
   return (
@@ -35,7 +36,7 @@ function OgledaloIzSegmenataBanner() {
             <div className=' relative'>
                 <div className=' flex flex-row items-center gap-2'>
                     <div className='rounded-full'>
-                        <img className='w-[2.2rem] h-[2.2rem] rounded-full' src={"/avatar2.jpg"}></img>
+                        <Image className='w-[2.2rem] h-[2.2rem] rounded-full' src={"/avatar2.jpg"}></Image>
                     </div>
                     <div>
                         <p className='font-medium'>Written by Sarah Miller</p>

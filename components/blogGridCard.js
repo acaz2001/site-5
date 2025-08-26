@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../sanity/lib/image';
 import AnimatedOnScroll from './AnimatedOnScroll';
+import Image from 'next/image';
 
 function BlogGridCard({ post }) {
   if (!post) return null;
@@ -15,7 +16,7 @@ function BlogGridCard({ post }) {
     <Link href={`/blog/${post.slug?.current || post.slug}`}>
       <section className='blog h-[22rem] w-full overflow-hidden cursor-pointer'>
         <div className='relative h-[80%] rounded-2xl overflow-hidden bg-cover object-top'>
-          <img
+          <Image
             src={post.image ? urlFor(post.image).url() : '/fallback-avatar.jpg'}
             alt={post.title}
             className='absolute w-full h-full object-cover transition-all duration-400 ease-in-out group-hover:scale-[1.02]'

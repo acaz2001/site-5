@@ -4,6 +4,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import Image from 'next/image';
 
 function AddToCart({ show, setShow }) {
   const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, total } = useCart();
@@ -43,7 +44,7 @@ function AddToCart({ show, setShow }) {
           cartItems.map((item) => (
             <div key={`${item.name}-${item.variant}-${item.image}`} className='flex flex-row items-start p-5 gap-4 border-b'>
               <div className='w-28 h-28 flex items-center justify-center bg-[#f3f3f3] rounded-xl'>
-                <img src={item.image} alt={item.name} className='w-full h-full object-cover rounded-xl' />
+                <Image width={112} height={112} src={item.image} alt={item.name} className='w-full h-full object-cover rounded-xl' />
               </div>
 
               <div className='flex flex-col flex-1 gap-6'>

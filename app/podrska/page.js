@@ -140,12 +140,12 @@ function page() {
 
             <button
               type='submit'
-              className={`bg-[#8345d8] text-white text-[0.95rem] font-medium w-[100%] rounded-lg pb-2 pt-2 mt-5 cursor-pointer ${
+              className={`bg-black text-white text-[0.95rem] font-medium w-[100%] rounded-lg pb-2 pt-2 mt-5 cursor-pointer ${
                 loading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
               disabled={loading}
             >
-              {success ? 'Uspešno poslato' : loading ? 'Slanje...' : 'Submit'}
+              {success ? 'Uspešno poslato' : loading ? 'Slanje...' : 'Pošaljite poruku'}
             </button>
           </form>
         </div>

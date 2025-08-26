@@ -9,7 +9,9 @@ import { MdOutlineCancel } from "react-icons/md";
 import { loadStripe } from "@stripe/stripe-js";
 import AnimatedOnScroll from "../../components/AnimatedOnScroll";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 function CartInner() {
   const searchParams = useSearchParams();
@@ -55,7 +57,7 @@ function CartInner() {
     return false;
   };
 
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  
 
   const handleCheckout = async (paymentType) => {
     // Računanje totalWithShipping se nalazi niže; ovde ga samo koristimo
@@ -77,7 +79,7 @@ function CartInner() {
                   {
                     naziv: buyNowItem.name,
                     varijanta: buyNowItem.variant,
-                    dimenzija: buyNowItem.dimension,
+                    dimenzija: buyNowItem.dimenzija,
                     kolicina: buyNowItem.quantity,
                     cena: buyNowItem.price
                   }
@@ -85,7 +87,7 @@ function CartInner() {
               : cartItems.map((item) => ({
                   naziv: item.name,
                   varijanta: item.variant,
-                  dimenzija: item.dimension,
+                  dimenzija: item.dimenzija,
                   kolicina: item.quantity,
                   cena: item.price
                 })),
@@ -103,7 +105,7 @@ function CartInner() {
               toEmail: customerData.email,
               ime: customerData.imePrezime,
               proizvod: buyNowItem?.name || cartItems[0]?.name,
-              dimenzija: buyNowItem?.dimension || cartItems[0]?.dimension,
+              dimenzija: buyNowItem?.dimenzija || cartItems[0]?.dimenzija,
               cena: totalWithShipping
             })
           });
@@ -177,7 +179,7 @@ function CartInner() {
           {buyNowItem ? (
             <div className="flex flex-row items-start border-b pb-6 gap-6">
               <div className="w-28 h-28 flex items-center justify-center bg-[#f3f3f3] p-3 rounded-xl">
-                <img src={buyNowItem.image} alt={buyNowItem.name} className="w-full h-full object-contain" />
+                <Image width={112} height={120} src={buyNowItem.image} alt={buyNowItem.name} className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col flex-1 gap-7">
                 <div className="flex flex-row justify-between">
@@ -198,7 +200,7 @@ function CartInner() {
             cartItems.map((item) => (
               <div key={`${item.name}-${item.variant}-${item.image}`} className="flex flex-row items-start border-b pb-6 gap-6">
                 <div className="w-28 h-30 flex items-center justify-center bg-[#f3f3f3] rounded-xl">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-xl" />
+                  <Image width={112} height={120} src={item.image} alt={item.name} className="w-full h-full object-cover rounded-xl" />
                 </div>
 
                 <div className="flex flex-col flex-1 gap-7">

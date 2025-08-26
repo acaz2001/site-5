@@ -17,7 +17,7 @@ function OurCollections() {
         <h1 className=
         'pt-1 text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
         Klizne</h1>
-        <img className='absolute top-5 transform translate-x-[-10%] w-[14rem] ' src={"/tus-kabina-klizna.png"}></img>
+        <Image width={224} height={224} className='absolute top-5 transform translate-x-[-10%] w-[14rem] ' src={"/tus-kabina-klizna.png"} alt='tus-kabina-klizna'></Image>
         {/*
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>
@@ -38,7 +38,7 @@ function OurCollections() {
         <Link href='/tus-kabine/sarke'>
         <h1 className='text-[3.8rem] font-semibold transition-all duration-400 ease-in-out group-hover:scale-[1.05]'>
           Šarke</h1>
-        <img className='absolute top-5 w-[14rem] translate-x-[-8%]' src={"/tus-kabina-sarke.png"}></img>
+        <Image width={224} height={224} alt='tus-kabina-sarke' className='absolute top-5 w-[14rem] translate-x-[-8%]' src={"/tus-kabina-sarke.png"}></Image>
         {/* 
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>
@@ -60,7 +60,7 @@ function OurCollections() {
         group-hover:scale-[1.05]'>
           Paravani
         </h1>
-        <img className='absolute top-4 transform translate-x-[] w-[14rem]' src={"/tus-kabina-paravan.png"}></img>
+        <Image width={224} height={224} className='absolute top-4 transform translate-x-[] w-[14rem]' src={"/tus-kabina-paravan.png"} alt='tus-kabina-paravan'></Image>
         {/* 
         <div className='bg-amber-600 w-fit absolute bottom-0 right-[0] rounded-3xl p-3  '>
         <LuArrowUpRight className='text-[1.6rem] transition-transform duration-400 ease-in-out group-hover:rotate-45'/>

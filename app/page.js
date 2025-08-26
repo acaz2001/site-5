@@ -65,7 +65,7 @@ export default function Home() {
                   loop
                   playsInline
                 >
-                  <source src="/3820019-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+                  <source src="/4665103-uhd_3840_2160_30fps.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
             <div className="bg-white w-fit p-1 pl-3 pr-3 rounded-2xl flex flex-row items-center gap-[0.5rem] z-10 relative">
@@ -75,12 +75,12 @@ export default function Home() {
     
             <div className="z-10 relative">
               <h1 style={{lineHeight:'1.1'}} 
-              className=" z-100 text-[2.6rem] tracking-tight font-[450] mt-7 w-[90%]
+              className=" z-100 text-[2.6rem] tracking-tight font-[450] mt-7 w-[90%] text-white
               lg:text-[3.8rem] lg:w-[68%]
               md:w-[65%]">
-                Pretražite <span className="text-[#f4edff] z-10">veliki izbor</span> ogledala i tuš kabina.
+                Pretražite <span className="text-black z-10">veliki izbor</span> ogledala i tuš kabina.
               </h1>
-              <p className="text-[1.1rem] text-[#6c6474] mt-3 w-[80%] z-100
+              <p className="text-[1.1rem] text-[#ede4fc] mt-3 w-[80%] z-100
               lg:w-[46%] md:w-[55%]" >
               Ogledala, za kupatilo sa i bez led rasvete, za hodnik, za dnevnu i spavaću sobu. Tuš kabine, klizne, na šarke ili paravan.
               </p>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { client } from '../sanity/lib/client';
 import imageUrlBuilder from '@sanity/image-url'
 import AnimatedOnScroll from './AnimatedOnScroll';
+import Image from 'next/image';
 
 
 
@@ -27,14 +28,14 @@ console.log("Slika Product Images:", data.image)
       <div className='relative'>
       <Link href={`/prodavnica/${data.slug.current}`}> 
       <div className=' product bg-[#f9f6fe] flex items-center justify-center relative w-[100%] h-[82%] rounded-2xl cursor-pointer z-40'>
-        <img   src={
+        <Image width={412} height={412} alt={data.name}  src={
           data.images?.asset
             ? urlFor(data.images.asset).url()
             : data.image || '/fallback.png'
         }
         className='w-[90%] p-5 my-3 transition-all duration-400 ease-in-out group-hover:scale-[1.05]
         object-cover object-center'>
-        </img>
+        </Image>
 
       </div>
       </Link>

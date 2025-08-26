@@ -22,11 +22,12 @@ function Footer() {
             </input>
             <button type='submit' className='bg-[black] rounded-xl my-1 mx-1 pt-2 pb-2 pl-8 pr-8 text-[1.1rem]
             text-white font-[450] cursor-pointer'>
-            Join
+            Pošalji
             </button>
             </div>
+            
             <p className='w-fit mt-10 text-[#6c6474] text-[0.8rem]'>
-            Created by <span className='text-black'>Aleksandar Živković</span> © 2025   
+            Radnja Lokacija: <span className='text-black'>Bulevar Kralja Aleksandra 546 Zvezdara</span> 
             </p>
         </div>
       </section>
@@ -43,7 +44,7 @@ function Footer() {
                   Početna</li></Link>
                 <Link href='/prodavnica' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
-                  prodavnica</li></Link>
+                  Prodavnica</li></Link>
                 <Link href='/tus-kabine' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
                   Tuš kabine</li></Link>
@@ -55,17 +56,19 @@ function Footer() {
         <div>
         <ul className='flex flex-col gap-3'>
                 <li className='text-[1.1rem] font-medium'>Informacije</li>
-                <Link href='/terms-and-conditions' prefetch>
+                <Link href='/uslovi-i-odredbe' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
-                  Terms & Conditions</li>
+                  Uslovi i odredbe
+                </li>
                 </Link>
-                <Link href= '/privacy-policy' prefetch>
+                <Link href= '/politika-privatnosti' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer '>
-                  Privacy policy</li>
+                  Politika privatnosti
+                </li>
                 </Link>
-                <Link href= '/support' prefetch>
+                <Link href= '/podrska' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
-                  Support</li>
+                  Podrška</li>
                 </Link>
             </ul>
         </div>

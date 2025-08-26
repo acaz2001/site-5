@@ -1,15 +1,18 @@
 'use client';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect,useRef } from 'react';
 import { useCart } from '../../context/CartContext';
 
 export default function SuccessPage() {
   const { clearCart } = useCart();
+  const clearedRef = useRef(false);
 
   useEffect(() => {
-    // Kada korisnik dođe na Success stranicu, očistimo korpu
-    clearCart();
-  }, [clearCart]);
+    if (!clearedRef.current) {
+      clearCart();
+      clearedRef.current = true;
+    }
+  }, []); // 👈 bez clearCart u deps
 
   return (
     <main className="flex flex-col items-center justify-center min-h-[80vh] p-8">
@@ -18,7 +21,7 @@ export default function SuccessPage() {
 
       <Link href="/prodavnica">
         <button className="bg-black text-white px-6 py-3 rounded-2xl font-semibold cursor-pointer">
-          Continue Shopping
+          Nastavite kupovinu
         </button>
       </Link>
     </main>
