@@ -186,11 +186,11 @@
 }
 
 .testimonial {
-  mask-image: url('/testimonialsSvg.png');
-  mask-size: cover; 
+  mask-image: url('/testimonialsSvg2.png');
+  mask-size: auto, contain; 
   mask-repeat: no-repeat;
   mask-position: right top;
-
+  transform-origin: right center; /* desna strana je anchor */
 }
 
 

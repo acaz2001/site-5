@@ -1,4 +1,4 @@
-'use client'
+
 import Image from "next/image";
 import { FaShopify } from "react-icons/fa";
 import { Inter } from 'next/font/google'
@@ -86,7 +86,7 @@ export default function Home() {
               </p>
             </div>
             <div className="cursor-pointer w-[187px]">
-            <Link href='/prodavnica' prefetch className="w-10 cursor-pointer">
+            <Link href='/prodavnica' className="w-10 cursor-pointer">
             <div className="group relative w-fit rounded-3xl flex flex-row items-center gap-[0.5rem] mt-6 pt-2 pb-3 ">
               <LuArrowUpRight 
               className="absolute right-[13px] text-[1rem] z-10 transition-transform duration-400 ease-in-out group-hover:rotate-45" />

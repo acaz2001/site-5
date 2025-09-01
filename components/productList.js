@@ -121,22 +121,23 @@ export default function ProductList({
     )
   }
 
-  if (!sortedProducts.length) {
-    return (
-      <div className="w-full py-10 text-center text-[#6c6474]">
-        Nema proizvoda za odabrane filtere.
-      </div>
-    )
-  }
 
   return (
-    <main
-      className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3
-                 gap-5 auto-rows-auto w-full"
-    >
-      {sortedProducts.map((data) => (
-        <Product key={data._id} data={data} />
-      ))}
-    </main>
-  )
+  <>
+    {sortedProducts.length > 0 ? (
+      <main
+        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3
+                   gap-5 auto-rows-auto w-full"
+      >
+        {sortedProducts.map((data) => (
+          <Product key={data._id} data={data} />
+        ))}
+      </main>
+    ) : (
+      <div className="w-full  py-10 text-center text-[#6c6474]">
+        Nema proizvoda za odabrane filtere.
+      </div>
+    )}
+  </>
+)
 }

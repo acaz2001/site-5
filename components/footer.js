@@ -56,17 +56,17 @@ function Footer() {
         <div>
         <ul className='flex flex-col gap-3'>
                 <li className='text-[1.1rem] font-medium'>Informacije</li>
-                <Link href='/uslovi-i-odredbe' prefetch>
+                <Link href='/uslovi-i-odredbe' prefetch={false}>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
                   Uslovi i odredbe
                 </li>
                 </Link>
-                <Link href= '/politika-privatnosti' prefetch>
+                <Link href= '/politika-privatnosti' prefetch={false}>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer '>
                   Politika privatnosti
                 </li>
                 </Link>
-                <Link href= '/podrska' prefetch>
+                <Link href= '/podrska' prefetch={false}>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
                   Podrška</li>
                 </Link>

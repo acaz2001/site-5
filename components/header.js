@@ -8,7 +8,6 @@ import AddToCart from '../components/addToCart'; // prilagodi putanju
 import CartIcon from './cartIcon';
 import SearchOverlay from './SearchOverlay ';
 
-
 function Header() {
   const [showCart, setShowCart] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -75,7 +74,7 @@ useEffect(() => {
         )}
         <section className='mr-1.5 z-40'>
           <Link href="/">
-            <h2 className='text-[1.35rem] font-medium cursor-pointer'>
+            <h2 className='text-[1.35rem] text-[#4aaf31] font-medium cursor-pointer'>
               VERDE
             </h2>
           </Link>
