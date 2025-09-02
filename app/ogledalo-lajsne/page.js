@@ -9,16 +9,20 @@ import BlogGrid from '../../components/blogGrid'
 import MoreBanner from '../../components/moreBanner'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
+import ShopShell from '../prodavnica/ShopShell';
 
   const images = [
-  { src: "https://i.postimg.cc/c1X4xfrL/262599260-618188062762754-2777503893336128715-n.jpg", alt: "Image 01" },
-  { src: "https://i.postimg.cc/WbyNrjmR/340356903-9060156800725943-7198273552745203153-n.jpg", alt: "Image 02" },
-  { src: "https://i.postimg.cc/zGRJFMpy/217910398-401390971307935-4040034474903832780-n.webp", alt: "Image 03" },
-  { src: "https://i.postimg.cc/q7s493P0/275588295-1061236127774646-5640208158791095963-n.webp", alt: "Image 04" },
-  { src: "https://i.postimg.cc/k47q95CS/398138033-1078430746516709-7096591177582083524-n-1.webp", alt: "Image 05" },
-  { src: "https://i.postimg.cc/TwQGPX24/464890462-18018706811622399-4690848829967943523-n-1.webp", alt: "Image 06" }
+  { src: "https://i.postimg.cc/hjTmLsJJ/Ogl-lajsne-1.jpg.avif", alt: "Image 01" },
+  { src: "https://i.postimg.cc/BZ5Dth9k/Ogl-lajsne-2.jpg.avif", alt: "Image 02" },
+  { src: "https://i.postimg.cc/GhqyxHpj/Ogl-lajsne-4.jpg.avif", alt: "Image 03" },
+  { src: "https://i.postimg.cc/HkN8FRXc/Ogl-lajsne-5.jpg.avif", alt: "Image 04" },
+  { src: "https://i.postimg.cc/qqpN8TVY/Ogl-lajsne-11.jpg.avif", alt: "Image 05" },
+  { src: "https://i.postimg.cc/QCSHmyjM/Ogl-lajsne-13.jpg.avif", alt: "Image 06" }
 ];
 
+const CATEGORIES = [
+  'Hodnik',
+]
 
 
 
@@ -28,14 +32,24 @@ function Page() {
     <main className='flex flex-col gap-[4rem]'>
      <div>
      <Hero
-        badgeText="Ogledals sa lajsnama"
-        heading="Kako da vam svi zavide na dizajnu vašeg enterijera."
+        badgeText="Ogledala sa lajsnama"
+        heading="Elegantno ogledalo sa lajsnama, za vaš enterijer."
         subheading="Sve se radi po vašoj meri, može ogledala biti i u boji braon ili sivoj, a može i obično ogledalo."
       />
      </div>
-     <div className='mt-[-80px]'>
-        <BlogBanner></BlogBanner>
-     </div>
+
+    <AnimatedOnScroll>
+    <div className='relative w-full lg:h-[700px] md:h-[700px] sm:h-[700px] h-[540px] bg-[url(/ogl-lajnse-banner.avif)] bg-no-repeat 
+    bg-cover lg:bg-center md:bg-center sm:right center rounded-3xl'>
+        <div className='absolute flex items-center px-10 bg-[#ede4fc] lg:h-full md:h-full h-fit py-5 lg:w-[38%] md:w-[38%] w-[100%] lg:right-0 md:right-0 bottom-0
+        rounded-r-3xl leading-[30px] opacity-70 lg:visible md:visible sm:visible invisible'>
+          <p className='text-black lg:text-[1.5rem] md:text-[1.5rem] sm:text-[1.2rem] text-[1.2rem] lg:leading-[40px] md:leading-[40px] sm:leading-[30px] leading-[30px] font-medium'>
+            Unesite luksuz u svoj dom uz moderno dekorativno ogledalo sa drvenim lajsnama. Dostupno u crnoj, beloj ili zlatnoj varijanti, ovo ogledalo se savršeno uklapa u svaki enterijer – bilo da je u pitanju trpezarija, dnevna soba ili hodnik.
+          </p>
+        </div>
+    </div>
+    </AnimatedOnScroll>
+
 
     <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
@@ -44,10 +58,13 @@ function Page() {
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        U suštini kao što vidite po slikama ovakva ogledala izgledaju lepo uz svaki enterijer, bilo da je on tamnih ili svetlijih boja.        
+        Sa svojim elegantnim dizajnom i tankim lajsnama, ovo ogledalo se prilagođava svakom prostoru.
         </p>
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
-          Daje vašem enterijeru konačnu lepotu, osećaj većeg prostora, sve što ste radili u kući dolazi do većeg isticanja, još ako vam se ogledalo nalazi pored nekog prozora ili sličnog izvora svetlosti dodatno povećava osvetljenost tog prostora.       
+        U trpezariji unosi dozu luksuza i topline, u hodniku daje osećaj prostornosti i svetlosti, dok u dnevnoj sobi postaje dekorativni detalj koji privlači pažnju.
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Bilo da je vaš stil moderan, klasičan ili minimalistički, ovo ogledalo će se savršeno uklopiti i podići izgled enterijera – a sve to po ceni koja je pristupačna svima.
         </p>
         </AnimatedOnScroll>
       </div>
@@ -69,20 +86,28 @@ function Page() {
       </div>
     </section>
 
+
+    <section className="lg:flex lg:flex-row lg:justify-between mt-0 mb-0 md:flex md:flex-col sm:flex sm:flex-col">
+      <ShopShell categories={CATEGORIES} />
+    </section>
+
+
     <ImageGallery images={images} />
+
+
     
 
     <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
         <AnimatedOnScroll>
-        <h1 className="text-[2rem] font-medium mb-5">Montaža traje manje od 3 sata.</h1>
+        <h1 className="text-[2rem] font-medium mb-5">Montaža traje 15-30 minuta.</h1>
         </AnimatedOnScroll>
         <AnimatedOnScroll>
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Cela montaža je gotova za 1 dan i traje manje od 3 sata, ako je ogledalo manje onda montaža traje i kraće.        
+        Zavisi od veličine ogledala, za manja ogledala se montira i za manje od 15 minuta, za veća treba malo više vremena ,zbog iznošenja ogledala, nekih 20tak minuta.        
         </p>
         <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Komadi se lepe direktno na zid jedan po jedan. Lepku treba 24h da stegne i do tada ne bi trebalo da se diraju ogledala, posle toga bezbedno možete brisati ogledala. Rok izrade je 10-12 dana.       
+        Ogledalo se u većini slučaja kači na zid, da bi kasnije ako je potrebno mogli da pomerate ogledalo, može i da se lepi na zid ako želite umesto kačenja. Kada se kači buše se rupe u zidu (obično 2 rupe, zavisi od veličine ogledala) i stavljaju se kuke i na te kuke se kači ogledalo. Ogledalo iza sebe ima jedan ram koji se ne vidi i na taj ram se kači i drži ogledalo.
         </p>
         </AnimatedOnScroll>
       </div>
