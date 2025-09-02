@@ -122,7 +122,7 @@ const handleAddToCartAndShow = () => {
   // ⏳ Resetuje se posle 3 sekunde
   setTimeout(() => {
     setIsAdded(false);
-  }, 9000);
+  }, 2000);
 };
 
 const handleBuyNow = () => {

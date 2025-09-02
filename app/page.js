@@ -183,7 +183,7 @@ export default function Home() {
           <div className="flex flex-row items-center gap-[0.5rem] mr-3 cursor-pointer py-1.5 lg:pl-5 md:pl-5 sm:pl-5 pr-3 
           rounded-full transition duration-300 ease-in-out hover:bg-[#ede4fc]
           mt-5 lg:mt-0 md:mt-0 sm:mt-0">
-            <Link href='/prodavnica'>
+            <Link href='/ogledala-za-kupatilo'>
             <AnimatedOnScroll>
             <p className="font-medium ">Vidi još</p>
             </AnimatedOnScroll>
