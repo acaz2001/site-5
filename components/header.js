@@ -66,8 +66,10 @@ useEffect(() => {
       isClosing ? 'animate-slide-up' : 'animate-slide-down'}`}>
             <ul className="flex flex-col gap-4 text-lg font-medium">
               <li><Link href="/prodavnica">Ogledala</Link></li>
-              <li><Link href="/tus-kabine">Tuš kabine</Link></li>
+              <li><Link href="/ogledala-za-kupatilo">Ogledala za kupatilo</Link></li>
+              <li><Link href="/ogledalo-lajsne">Ogledala sa lajsnama</Link></li>
               <li><Link href="/ogledala-iz-segmenata">Ogledalo Segmenti</Link></li>
+              <li><Link href="/tus-kabine">Tuš kabine</Link></li>
               <li><Link href="/podrska">Kontakt</Link></li>
             </ul>
           </div>
