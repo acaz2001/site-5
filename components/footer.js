@@ -51,6 +51,12 @@ function Footer() {
                 <Link href='/ogledala-iz-segmenata' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
                   Ogl. segmenti</li></Link>
+                <Link href='/ogledalo-lajsne' prefetch>
+                <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
+                  Ogl. sa lajsnama</li></Link>
+                <Link href='/ogledala-za-kupatilo' prefetch>
+                <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
+                  Ogl. za kupatilo</li></Link>
             </ul>
         </div>
         <div>
