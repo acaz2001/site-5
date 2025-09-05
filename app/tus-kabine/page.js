@@ -9,6 +9,34 @@ import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import ProductList from '../../components/productList';
 import ImageGallery from "../../components/ImageGallery";
 
+export const metadata = {
+  title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
+  description: "Izrada tuš kabina po meri i gotovih modela. Klizne, na šarke i paravani – moderni i kvalitetni modeli sa garancijom i brzom montažom.",
+  keywords: ["tuš kabine po meri", "tus kabine"],
+  openGraph: {
+    title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
+    description: "Pretražite našu ponudu tuš kabina – klizne, na šarke i paravani. Kvalitet, sigurnost i moderan dizajn.",
+    url: "https://verdestaklorezac/tus-kabine",
+    siteName: "Staklorezačka Radnja Verde",
+    images: [
+      {
+        url: "https://i.postimg.cc/3RTtGsNj/272705070-1470019783395612-8195079515659878199-n.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tuš kabine po meri"
+      }
+    ],
+    locale: "sr_RS",
+    type: "website",
+    robots: {
+    index: true,
+    follow: true,
+  }
+  },
+};
+
+export const revalidate = 3600;
+
 const images = [
   { src: "https://i.postimg.cc/3RTtGsNj/272705070-1470019783395612-8195079515659878199-n.jpg", alt: "Image 01" },
   { src: "https://i.postimg.cc/GhHx4Lzw/282460393-1211901906218389-4226273125088877517-n.jpg", alt: "Image 02" },
@@ -186,9 +214,30 @@ function Page() {
           </div>
         </section>
 
-
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Tuš kabine po meri",
+  "image": "https://i.postimg.cc/3RTtGsNj/272705070-1470019783395612-8195079515659878199-n.jpg",
+  "description": "Izrada tuš kabina po meri – klizne, na šarke i paravani. Moderna rešenja za svako kupatilo.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Staklorezačka Radnja"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "RSD",
+    "lowPrice": "15000",
+    "highPrice": "55000",
+    "availability": "https://schema.org/InStock"
+  }
+}
+`}} />
 
     </main>
+
+    
   )
 }
 

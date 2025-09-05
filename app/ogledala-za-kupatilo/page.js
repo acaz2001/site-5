@@ -11,6 +11,34 @@ import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
 import ShopShell from '../prodavnica/ShopShell';
 
+
+export const metadata = {
+  title: "Ogledala za kupatilo | Izrada po meri ili gotovi modeli na sajtu.",
+  description: "Modeli sa ili bez led rasvete + usluga montaže, takođe jednostavna i jeftina ogledala bez led rasvete.",
+  keywords: ["ogledala za kupatilo","jeftina ogledala za kupatilo"],
+  openGraph: {
+    title: "Ogledala za kupatilo | Izrada po meri ili gotovi modeli na sajtu.",
+    description: "Modeli sa ili bez led rasvete + usluga montaže, takođe jednostavna i jeftina ogledala bez led rasvete.",
+    url: "https://verdestaklorezac/tus-kabine",
+    siteName: "Staklorezačka Radnja Verde",
+    images: [
+      {
+        url: "https://i.postimg.cc/28R7YM1c/319875486-561278205349631-3441663074748939684-n.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Paravani po meri"
+      }
+    ],
+    locale: "sr_RS",
+    type: "website",
+    robots: {
+    index: true,
+    follow: true,
+  }
+  },
+};
+
+{/*
   const images = [
   { src: "https://i.postimg.cc/hjTmLsJJ/Ogl-lajsne-1.jpg.avif", alt: "Image 01" },
   { src: "https://i.postimg.cc/BZ5Dth9k/Ogl-lajsne-2.jpg.avif", alt: "Image 02" },
@@ -19,6 +47,8 @@ import ShopShell from '../prodavnica/ShopShell';
   { src: "https://i.postimg.cc/qqpN8TVY/Ogl-lajsne-11.jpg.avif", alt: "Image 05" },
   { src: "https://i.postimg.cc/QCSHmyjM/Ogl-lajsne-13.jpg.avif", alt: "Image 06" }
 ];
+   */}
+
 
 const CATEGORIES = [
   'Kupatilo/ LED rasveta',
