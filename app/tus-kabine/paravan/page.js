@@ -64,6 +64,20 @@ function Page() {
       </div>
     </section>
 
+    <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1px]">
+      <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+        <AnimatedOnScroll>
+        <h1 className="text-[2rem] font-medium mb-5">Montaža traje manje od 45 minuta.</h1>
+        </AnimatedOnScroll>
+        <AnimatedOnScroll>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[100%] md:w-[100%] sm:w-[100%] w-[100%]">
+        Što se tiče montaže paravana dosta je jednostavno i ne traje dugo, u nekim slučajevima ne treba ni 30 minuta da se iznese i namontira. Na zid se lepe lajsne (U profili) i u njih se ubacuje paravan i silikonira se. Na kraju se u zid buši i šrafi teleskop, koji se pričvršćuje i za staklo i dodatno fiksira paravan da se ne pomera.         
+        </p>
+        </AnimatedOnScroll>
+      </div>
+    </section>
+
+
     <ImageGallery images={images}/>
 
       <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1px]">

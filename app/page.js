@@ -143,7 +143,7 @@ export default function Home() {
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] mt-1.5 font-[450]">
-            Izaberite model i možete ga promeniti kako želite. 
+            Izrada tuš kabina po meri ili gotovi modeli na sajtu.
             </p>
             </AnimatedOnScroll>
           </div>

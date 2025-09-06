@@ -4,6 +4,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import { GoArrowRight } from "react-icons/go";
 import OurCollections from '../../components/ourCollections'
 import Hero from '../../components/hero'
+import FaqKabine from '../../components/faqKabine';
 import Link from 'next/link';
 import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import ProductList from '../../components/productList';
@@ -102,7 +103,7 @@ function Page() {
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] mt-1.5">
-            Showcase your most popular products, front and center.
+            Pretažite kabine koje se najviše sviđaju kupcima.
             </p>
             </AnimatedOnScroll>
           </div>
@@ -134,13 +135,13 @@ function Page() {
             </AnimatedOnScroll>
             <AnimatedOnScroll>
             <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
-            Ako ste iole odgovorna osoba i pazite da ne lupate vratima,čistite redovno kabinu od kamenca njena dugotrajnost će vam biti neograničena.
+            Ako ste odgovorna osoba i pazite da ne lupate vratima,čistite redovno kabinu od kamenca njena dugotrajnost će vam biti neograničena.
             </p>
             <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
             Staklo koje se montira je pod obavezno kaljeno, to znači da je to staklo ojačano od običnog i mnogo je otpornije na udarce, daje sigurnost od povreda prilikom loma jer i ako se desi da pukne, staklo će pući na mnogo malih komadića 8x8mm.
             </p>
             <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
-            Okov se može plastificirati u bilo koju boju (najčešće je to crna i zlatna boja) time možete još više uklopiti kabinu u vaš enterijer ako vam se to svidja.
+            Okov je od prohroma odličnog kvaliteta, može se plastificirati u bilo koju boju (najčešće je to crna i zlatna boja) time možete još više uklopiti kabinu u vaš enterijer ako vam se to svidja.
             </p>
             </AnimatedOnScroll>
           </div>
@@ -172,9 +173,18 @@ function Page() {
         </section>
 
 
-      <ImageGallery images={images} />
-       
+      <ImageGallery images={images} />       
 
+      <section className='py-15'>
+        <AnimatedOnScroll>
+            <h1 className="text-[2rem] font-medium pb-3">Najčešće postavljena pitanja.</h1>
+            <p className="text-[#6c6474] text-[1.1rem] mb-7 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">
+            Pitanja koje nas kupci najčešće pitaju u vezi tuš kabina.
+            </p>
+        </AnimatedOnScroll>
+        <FaqKabine></FaqKabine>
+      </section>
+      
 
         <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1.5px]">
           <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
