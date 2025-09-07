@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     title: "Ogledala | Prodavnica",
     description: "Prodavnica za ogledala, pretražite ogledala za kupatilo, hodnik, dnevnu ili spavaću sobu.",
-    url: "https://verdestaklorezac/tus-kabine",
+    url: "https://www.verdestaklorezac.com/prodavnica",
     siteName: "Staklorezačka Radnja Verde",
     images: [
       {

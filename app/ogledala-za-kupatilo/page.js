@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     title: "Ogledala za kupatilo | Izrada po meri ili gotovi modeli na sajtu.",
     description: "Modeli sa ili bez led rasvete + usluga montaže, takođe jednostavna i jeftina ogledala bez led rasvete.",
-    url: "https://verdestaklorezac/tus-kabine",
+    url: "https://www.verdestaklorezac.com/ogledala-za-kupatilo",
     siteName: "Staklorezačka Radnja Verde",
     images: [
       {

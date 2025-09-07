@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
     description: "Pretražite našu ponudu tuš kabina – klizne, na šarke i paravani. Kvalitet, sigurnost i moderan dizajn.",
-    url: "https://verdestaklorezac/tus-kabine",
+    url: "https://www.verdestaklorezac.com/tus-kabine",
     siteName: "Staklorezačka Radnja Verde",
     images: [
       {

@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: "Paravani za tuš kabine | Jeftine cene moderan dizajn.",
     description: "Paravani po meri ili gotovi modeli spremni za naručivanje na našem sajtu. Moderni i kvalitetni modeli sa garancijom i brzom montažom.",
-    url: "https://verdestaklorezac/tus-kabine",
+    url: "https://www.verdestaklorezac.com/tus-kabine/paravan",
     siteName: "Staklorezačka Radnja Verde",
     images: [
       {
