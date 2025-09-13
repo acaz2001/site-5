@@ -39,10 +39,12 @@ console.log("Slika Product Images:", data.image)
 
       </div>
       </Link>
+      <Link href={`/prodavnica/${data.slug.current}`}>
       <div className='arrow bg-[#ede4fc] rounded-4xl  absolute bottom-[3%] left-[87.2%] z-50 '>
         <LuArrowUpRight className=
         'p-3 text-[2.9rem] rounded-4xl transition-transform duration-400 ease-in-out group-hover:rotate-45'/>
       </div>
+      </Link>
       </div>
       <div className='mt-2 z-50'>
         <h1 className='text-[1.3rem] font-medium'>
