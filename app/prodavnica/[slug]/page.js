@@ -31,7 +31,6 @@ export async function generateStaticParams() {
     }
   `)
 
-  console.log("🟢 Static slugs:", slugs) // 🔍 vidi da li se generišu
 
   return slugs.map((p) => ({
     slug: p.slug.toLowerCase(), // 🔐 lowercase za bezbednost
@@ -49,7 +48,6 @@ export default async function Page({ params }) {
   const product = await getProductBySlug(params.slug)
 
 
-  console.log("🧩 Product data:", product)
 
   if (!product) return <p>Product not found</p>
 

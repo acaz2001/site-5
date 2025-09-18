@@ -57,6 +57,9 @@ function Footer() {
                 <Link href='/ogledala-za-kupatilo' prefetch>
                 <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
                   Ogl. za kupatilo</li></Link>
+                <Link href='/ramovi' prefetch>
+                <li className='text-[0.90rem] text-[#6c6474] hover:text-black cursor-pointer'>
+                  Ramovi</li></Link>
             </ul>
         </div>
         <div>

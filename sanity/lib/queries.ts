@@ -19,6 +19,20 @@ export const heroBanner = defineQuery(`*[_type == "heroBanner"]{ title, descript
 export const getAllProductsByCategoryFootwear = defineQuery (``)
 
 
+// /lib/queries.ts
+export const frameCatalogBySlugQuery = `
+*[_type == "frameCatalog" && slug.current == $slug][0]{
+  title,
+  "pages": pages[] | order(pageNumber asc){
+    pageNumber,
+    alt,
+    image
+  }
+}
+`
+
+
+
 
 
 

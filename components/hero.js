@@ -34,7 +34,7 @@ function Hero({ heading, subheading, badgeText }) {
             {heading}
           </h1>
           <p className="text-center text-[1.1rem] text-[#6c6474] mt-6 font-[450]
-          w-[75%] lg:w-[42%] md:w-[42%] sm:w-[70%]">
+          w-[75%] lg:w-[52%] md:w-[42%] sm:w-[70%]">
             {subheading}
           </p>
         </div>

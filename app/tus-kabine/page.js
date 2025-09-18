@@ -9,6 +9,7 @@ import Link from 'next/link';
 import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import ProductList from '../../components/productList';
 import ImageGallery from "../../components/ImageGallery";
+import ShopShell from '../prodavnica/ShopShell';
 
 export const metadata = {
   title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
@@ -35,6 +36,12 @@ export const metadata = {
   }
   },
 };
+
+const CATEGORIES = [
+  'Kabina/ Klizna',
+  'Kabina/ Šarke',
+  'Paravan'
+]
 
 export const revalidate = 3600;
 
@@ -94,6 +101,9 @@ function Page() {
             </AnimatedOnScroll>
           </div>
         </section>
+
+
+        <ShopShell categories={CATEGORIES} />
 
           
         <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-15 mb-8">

@@ -34,7 +34,7 @@ function Page() {
      <Hero
         badgeText="Ogledala sa lajsnama"
         heading="Elegantno ogledalo sa lajsnama, za vaš enterijer."
-        subheading="Sve se radi po vašoj meri, može ogledala biti i u boji braon ili sivoj, a može i obično ogledalo."
+        subheading="Sve se radi po vašoj meri, ogledala mogu biti i u boji braon ili sivoj, a može i obično ogledalo."
       />
      </div>
 
