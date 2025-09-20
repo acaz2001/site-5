@@ -70,6 +70,7 @@ useEffect(() => {
               <li><Link href="/ogledalo-lajsne">Ogledala sa lajsnama</Link></li>
               <li><Link href="/ogledala-iz-segmenata">Ogledalo Segmenti</Link></li>
               <li><Link href="/tus-kabine">Tuš kabine</Link></li>
+              <li><Link href="/ramovi">Uramljivanje</Link></li>
               <li><Link href="/podrska">Kontakt</Link></li>
             </ul>
           </div>
@@ -89,7 +90,7 @@ useEffect(() => {
             </Link>
             <Link href="/tus-kabine">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
-                Tuš kabine</li>
+                Tuš kabine</li> 
             </Link>
             <Link href="/ogledala-iz-segmenata">
               <li className='cursor-pointer  text-[0.9rem] hover:bg-[#d9d1f7] hover:rounded-[10px] pt-2 pb-2 pl-3 pr-3 font-[450] lg:block md:block sm:block hidden'>
