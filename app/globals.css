@@ -133,6 +133,18 @@
   }
 }
 
+
+/* kružić */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #4aaf31;
+  cursor: pointer;
+}
+
+
 .cutout{
   position: absolute;
   top: 30px;

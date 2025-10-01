@@ -41,10 +41,33 @@ function AddToCart({ show, setShow }) {
             <p className='text-[#6c6474]'>Dodajte artikle u korpu.</p>
           </div>
         ) : (
-          cartItems.map((item) => (
+          cartItems.map((item) => {
+          const imageSrc =
+            (typeof item.image === "string" && item.image.trim().length > 0)
+              ? item.image
+              : (item.color === "bela"
+                  ? "/BeleOglLajsneModel.jpg"
+                  : "/OglLajsneModel.png"); 
+                  
+                  
+              return (
             <div key={`${item.name}-${item.variant}-${item.image}`} className='flex flex-row items-start p-5 gap-4 border-b'>
               <div className='w-28 h-28 flex items-center justify-center bg-[#f3f3f3] rounded-xl'>
-                <Image width={112} height={112} src={item.image} alt={item.name} className='w-full h-full object-cover rounded-xl' />
+              {imageSrc ? (
+            <Image
+              width={112}
+              height={112}
+              src={imageSrc}
+              alt={item.name}
+              className='w-full h-full object-cover rounded-xl'
+              unoptimized
+            />) : (
+                // Fallback kada nema slike:
+                <div className='w-full h-full flex items-center justify-center text-xs text-gray-500 rounded-xl'>
+                  <Image width={112} height={112} src="/BeleOglLajsneModel.jpg" alt="Ogledalo Lajsne"
+                   className='w-full h-full object-contain' />
+                </div>
+            )}
               </div>
 
               <div className='flex flex-col flex-1 gap-6'>
@@ -87,7 +110,8 @@ function AddToCart({ show, setShow }) {
                 </div>
               </div>
             </div>
-          ))
+)
+    })
         )}
       </section>
 

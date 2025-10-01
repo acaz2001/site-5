@@ -4,6 +4,7 @@ import MostPopular from '../../../components/mostPopular'
 import ProductList from '../../../components/productList';
 import AnimatedOnScroll from '../../../components/AnimatedOnScroll';
 import ImageGallery from '../../../components/ImageGallery';
+import Script from 'next/script';
 
 const images = [
   { src: "https://i.postimg.cc/28R7YM1c/319875486-561278205349631-3441663074748939684-n.jpg", alt: "Image 01" },
@@ -17,7 +18,13 @@ const images = [
 export const metadata = {
   title: "Paravani za tuš kabine | Jeftine cene moderan dizajn.",
   description: "Paravani po meri ili gotovi modeli spremni za naručivanje na našem sajtu. Moderni i kvalitetni modeli sa garancijom i brzom montažom.",
-  keywords: ["paravani za tus kabine","paravan za tus kabinu"],
+  keywords: ["paravani za tus kabine","paravan za tus kabinu,klizni paravan za tus kabinu,paravani za tus kabine cena,paravani za tus kabine po meri​​"],
+  alternates: {
+  canonical: "https://www.verdestaklorezac.com/tus-kabine/paravan",
+  languages: {
+    "sr-RS": "https://www.verdestaklorezac.com/tus-kabine/paravan",
+  }
+  },
   openGraph: {
     title: "Paravani za tuš kabine | Jeftine cene moderan dizajn.",
     description: "Paravani po meri ili gotovi modeli spremni za naručivanje na našem sajtu. Moderni i kvalitetni modeli sa garancijom i brzom montažom.",
@@ -38,12 +45,107 @@ export const metadata = {
     follow: true,
   }
   },
+
 };
+
+
+// ============================
+// JSON-LD BLOKOVI
+// ============================
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://www.verdestaklorezac.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tuš kabine", "item": "https://www.verdestaklorezac.com/tus-kabine" },
+    { "@type": "ListItem", "position": 3, "name": "Paravani", "item": "https://www.verdestaklorezac.com/tus-kabine/paravan" }
+  ]
+}
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Paravani za tuš kabine",
+  "serviceType": "Shower screen (paravan) fabrication & installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Staklorezačka Radnja Verde",
+    "telephone": "+381603170707",
+    "image": "https://www.verdestaklorezac.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bulevar Kralja Aleksandra 546",
+      "addressLocality": "Beograd",
+      "postalCode": "11050",
+      "addressCountry": "RS"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Beograd" },
+  "description": "Paravani za tuš kabine od kaljenog stakla: U profili, teleskop, plastifikacija okova u boji (crna, zlatna), profesionalna montaža.",
+  "url": "https://www.verdestaklorezac.com/tus-kabine/paravan"
+}
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Da li paravan dobro zadržava vodu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, uz pravilno silikoniranje i postavljanje U profila, paravan zadržava vodu u zoni tuša. Po potrebi se dodaje i donja lajsna."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kolika je debljina stakla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Najčešće 8–10 mm kaljeno staklo zbog čvrstoće i bezbednosti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koliko traje montaža?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montaža paravana obično traje 30–45 minuta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Može li okov u boji?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, okov/sistem se može plastificirati u boju (najčešće crna ili zlatna) radi boljeg uklapanja u enterijer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li dajete garanciju?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, na okov dajemo garanciju 3 godine uz preporučeno održavanje."
+      }
+    }
+  ]
+}
+
 
 
 function Page() {
   return (
     <main className='flex flex-col gap-10'>
+          {/* JSON-LD */}
+      <Script id="ld-breadcrumb-paravan" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <Script id="ld-service-paravan" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <Script id="ld-faq-paravan" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+
+    
       <HeroSmaller
        heading='Paravani'
        subheading='Svaki model na sajtu se može raditi po vašoj meri, kontaktirajte nas.'

@@ -10,15 +10,23 @@ import AnimatedOnScroll from '../../components/AnimatedOnScroll';
 import ProductList from '../../components/productList';
 import ImageGallery from "../../components/ImageGallery";
 import ShopShell from '../prodavnica/ShopShell';
+import Script from 'next/script';
 
 export const metadata = {
   title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
   description: "Izrada tuš kabina po meri i gotovih modela. Klizne, na šarke i paravani – moderni i kvalitetni modeli sa garancijom i brzom montažom.",
-  keywords: ["tuš kabine po meri", "tus kabine"],
+  keywords: ["tuš kabine po meri", "tus kabine,paravani za tus kabine,klizni paravan za tus kabinu,paravan za tus kabinu"],
+    alternates: {
+    canonical: "https://www.verdestaklorezac.com/tus-kabine",
+    languages: {
+      "sr-RS": "https://www.verdestaklorezac.com/tus-kabine",
+    }
+    },
   openGraph: {
+    type: "website",
+    url: "https://www.verdestaklorezac.com/tus-kabine",
     title: "Tuš kabine po meri | Moderna i kvalitetna rešenja",
     description: "Pretražite našu ponudu tuš kabina – klizne, na šarke i paravani. Kvalitet, sigurnost i moderan dizajn.",
-    url: "https://www.verdestaklorezac.com/tus-kabine",
     siteName: "Staklorezačka Radnja Verde",
     images: [
       {
@@ -28,14 +36,120 @@ export const metadata = {
         alt: "Tuš kabine po meri"
       }
     ],
-    locale: "sr_RS",
-    type: "website",
-    robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true
   }
   },
 };
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://www.verdestaklorezac.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tuš kabine", "item": "https://www.verdestaklorezac.com/tus-kabine" }
+  ]
+}
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Tuš kabine po meri",
+  "serviceType": "Custom shower enclosures",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Staklorezačka Radnja Verde",
+    "telephone": "+381603170707",
+    "image": "https://www.verdestaklorezac.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bulevar Kralja Aleksandra 546",
+      "addressLocality": "Beograd",
+      "postalCode": "11050",
+      "addressCountry": "RS"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Beograd" },
+  "description": "Izrada tuš kabina po meri: klizne, na šarke i paravani. Kaljeno staklo, kvalitetan okov, plastifikacija u boji i montaža za 7 dana.",
+  "url": "https://www.verdestaklorezac.com/tus-kabine"
+}
+
+const itemListLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Klizne tuš kabine",
+      "url": "https://www.verdestaklorezac.com/tus-kabine/klizne"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tuš kabine na šarke",
+      "url": "https://www.verdestaklorezac.com/tus-kabine/sarke"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Paravani",
+      "url": "https://www.verdestaklorezac.com/tus-kabine/paravan"
+    }
+  ]
+}
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Koliko traje montaža?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montaža standardne tuš kabine traje obično do 2 sata. Paravan se obično montira za 25–35 minuta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koji je rok izrade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rok izrade je 7–10 dana, u zavisnosti od modela i gužve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li je staklo kaljeno i bezbedno?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. Koristimo kaljeno staklo koje je znatno otpornije na udarce i pri lomu se rasipa u male komadiće radi bezbednosti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li okov rđa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Okov ne rdja on je od prohroma visokog kvaliteta i može se plastificirati u boju (najčešće crna ili zlatna). Dajemo garanciju 3 godine na okov."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kako mogu da naručim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ako dimenzije odgovaraju, možete naručiti direktno sa sajta. Za izradu po meri, kontakt je moguć telefonom, Instagramom, Facebook-om ili e-mailom. Kontakt telefon: 0603170707."
+      }
+    }
+  ]
+}
+
 
 const CATEGORIES = [
   'Kabina/ Klizna',
@@ -58,6 +172,17 @@ function Page() {
   
   return (
     <main>
+            {/* JSON-LD */}
+      <Script id="ld-breadcrumb-tus" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <Script id="ld-service-tus" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <Script id="ld-itemlist-tus" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      <Script id="ld-faq-tus" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+
+
           <Hero
             badgeText="Tuš kabine"
             heading="Izrada po meri ili gotovi modeli na sajtu."

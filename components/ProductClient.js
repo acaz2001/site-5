@@ -180,7 +180,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
           <div ref={mainImageRef} className='clientImg relative bg-[#f9f6fe] w-[100%] lg:w-[90%] md:w-[90%] rounded-3xl overflow-hidden'>
             <div className='absolute top-0 right-0 flex flex-col items-center gap-1 mt-3 z-50'>
               <PiCursorFill className='text-[0.8rem] text-white' />
-              <p className='text-[0.8rem] text-center w-[60%] leading-[1.1] text-white cursor-pointer'>Hover to zoom</p>
+              <p className='text-[0.8rem] text-center w-[60%] leading-[1.1] text-white cursor-pointer'>Predjite za zoom</p>
             </div>
             <img
               ref={imageRef}

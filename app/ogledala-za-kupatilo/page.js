@@ -10,13 +10,20 @@ import MoreBanner from '../../components/moreBanner'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
 import ShopShell from '../prodavnica/ShopShell';
-
+import Script from 'next/script';
 
 export const metadata = {
   title: "Ogledala za kupatilo | Izrada po meri ili gotovi modeli na sajtu.",
   description: "Modeli sa ili bez led rasvete + usluga montaže, takođe jednostavna i jeftina ogledala bez led rasvete.",
   keywords: ["ogledala za kupatilo","jeftina ogledala za kupatilo"],
+  alternates: {
+  canonical: "https://www.verdestaklorezac.com/ogledala-za-kupatilo",
+  languages: {
+    "sr-RS": "https://www.verdestaklorezac.com/ogledala-za-kupatilo",
+  }
+  },
   openGraph: {
+    type: "website",
     title: "Ogledala za kupatilo | Izrada po meri ili gotovi modeli na sajtu.",
     description: "Modeli sa ili bez led rasvete + usluga montaže, takođe jednostavna i jeftina ogledala bez led rasvete.",
     url: "https://www.verdestaklorezac.com/ogledala-za-kupatilo",
@@ -37,6 +44,77 @@ export const metadata = {
   }
   },
 };
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Početna", "item": "https://www.verdestaklorezac.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Ogledala za kupatilo", "item": "https://www.verdestaklorezac.com/ogledala-za-kupatilo" }
+  ]
+}
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ogledala za kupatilo – izrada po meri i gotovi modeli",
+  "serviceType": "Custom bathroom mirrors",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Staklorezačka Radnja Verde",
+    "telephone": "+381603170707",
+    "image": "https://www.verdestaklorezac.com/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bulevar Kralja Aleksandra 546",
+      "addressLocality": "Beograd",
+      "postalCode": "11050",
+      "addressCountry": "RS"
+    }
+  },
+  "areaServed": { "@type": "City", "name": "Beograd" },
+  "description": "Ogledala za kupatilo po meri: sa ili bez LED rasvete, različite dimenzije, brušene ili fazetirane ivice, profesionalna montaža.",
+  "url": "https://www.verdestaklorezac.com/ogledala-za-kupatilo"
+}
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Da li je potrebna priprema struje za LED ogledala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da. Za ogledala sa LED rasvetom potrebno je da postoji dovod struje na mestu montaže radi povezivanja osvetljenja."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koliko traje montaža ogledala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montaža standardnog ogledala obično traje oko 30 minuta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Koje dimenzije i obrade nudite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Radimo ogledala po meri u različitim dimenzijama, sa brušenim ili fazetiranim (beveled) ivicama, po želji."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Da li izlazak na merenje naplaćujete?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Izlazak na merenje se ne naplaćuje – kontaktirajte nas da zakažemo termin."
+      }
+    }
+  ]
+}
 
 {/*
   const images = [
@@ -61,6 +139,15 @@ const CATEGORIES = [
 function Page() {
   return (
     <main className='flex flex-col gap-[4rem]'>
+          {/* JSON-LD */}
+      <Script id="ld-breadcrumb-ogledala" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <Script id="ld-service-ogledala" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <Script id="ld-faq-ogledala" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+
+
      <div>
      <Hero
         badgeText="Ogledala za kupatilo"

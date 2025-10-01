@@ -10,6 +10,7 @@ import MoreBanner from '../../components/moreBanner'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
 import ShopShell from '../prodavnica/ShopShell';
+import MirrorMain from '../../components/MirrorMain';
 
   const images = [
   { src: "https://i.postimg.cc/hjTmLsJJ/Ogl-lajsne-1.jpg.avif", alt: "Image 01" },
@@ -134,6 +135,10 @@ function Page() {
     <BlogGrid></BlogGrid>
     */}
     
+
+    <section>
+      <MirrorMain />
+    </section>
       
     </main>
   )
