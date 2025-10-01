@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { useCart } from '../context/CartContext';
 import MirrorPreview from "../components/MirrorPreview";
 import AnimatedOnScroll from "./AnimatedOnScroll";
@@ -13,7 +13,7 @@ export default function MirrorPage() {
   const [barT, setBarT] = useState(2);
   const [barColorName, setBarColorName] = useState("crna");
   const { addToCart, openCart } = useCart();
-  
+  const [scale, setScale] = useState(0.1);
   
 
 const mirrorVariantFromConfig = ({ widthCm, heightCm, cols, rows, barT }) =>
@@ -43,6 +43,22 @@ const mirrorVariantFromConfig = ({ widthCm, heightCm, cols, rows, barT }) =>
     // Dimenzija jednog polja (cm)
   const cellW = widthCm / cols;
   const cellH = heightCm / rows;
+
+  useEffect(() => {
+    const updateScale = () => {
+      if (window.innerWidth < 640) {
+        setScale(0.048); // mobile
+      } else if (window.innerWidth < 1024) {
+        setScale(0.06); // tablet
+      } else {
+        setScale(0.1); // desktop
+      }
+    };
+
+        updateScale(); // pokreni odmah kad se učita
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
 
   return (
     <div className="min-h-screen w-full p-2 md:p-2 rounded-3xl">
@@ -74,7 +90,7 @@ const mirrorVariantFromConfig = ({ widthCm, heightCm, cols, rows, barT }) =>
             barColor={barColorHex}  
             cornerRadiusCm={0.2}
             showDims
-            scale={0.1}
+            scale={scale} 
           />
 
           {/* Dimenzija jednog polja */}
