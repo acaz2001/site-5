@@ -18,16 +18,16 @@ function AddToCart({ show, setShow }) {
     `}>
       
       {/* Header */}
-      <section className='flex flex-row items-center justify-between pt-4 pb-4 pl-6 pr-6 border-b'>
+      <section className='flex flex-row items-center justify-between pt-4 pb-4  border-b'>
         <div className='flex flex-row items-center gap-5'>
-          <h1 className='text-[1.6rem] font-[450]'>Vaša korpa</h1>
+          <h1 className='pl-6 text-[1.6rem] font-[450]'>Vaša korpa</h1>
           <div className='bg-[#f9f6fe] p-1 rounded-full'>
             <p className='font-[500]'>{cartItems.length}</p> {/* Broj različitih proizvoda */}
           </div>
         </div>
         <div
           onClick={() => setShow(false)}
-          className='p-2 bg-[#f9f6fe] rounded-xl cursor-pointer'
+          className='p-2 bg-[#f9f6fe] mr-6 rounded-xl cursor-pointer'
         >
           <MdOutlineCancel className='text-[1.7rem]' />
         </div>
@@ -52,20 +52,20 @@ function AddToCart({ show, setShow }) {
                   
               return (
             <div key={`${item.name}-${item.variant}-${item.image}`} className='flex flex-row items-start p-5 gap-4 border-b'>
-              <div className='w-28 h-28 flex items-center justify-center bg-[#f3f3f3] rounded-xl'>
+              <div className='w-[120px]  h-28 flex items-center justify-center bg-[#f3f3f3] rounded-xl'>
               {imageSrc ? (
             <Image
               width={112}
               height={112}
               src={imageSrc}
               alt={item.name}
-              className='w-full h-full object-cover rounded-xl'
+              className='w-[120px] h-full object-contain rounded-xl'
               unoptimized
             />) : (
                 // Fallback kada nema slike:
                 <div className='w-full h-full flex items-center justify-center text-xs text-gray-500 rounded-xl'>
                   <Image width={112} height={112} src="/BeleOglLajsneModel.jpg" alt="Ogledalo Lajsne"
-                   className='w-full h-full object-contain' />
+                   className='w-[120px] h-full object-contain' />
                 </div>
             )}
               </div>

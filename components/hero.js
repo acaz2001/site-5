@@ -1,12 +1,14 @@
 import React from 'react'
 import AnimatedOnScroll from './AnimatedOnScroll';
-
+import { Suspense } from 'react';
 {/*
       bg-[#ede4fc] to je boja za backgroudn ljubicasta 
 */}
 
 function Hero({ heading, subheading, badgeText }) {
   return (
+    <>
+    <Suspense fallback={SkeletonHero}>
     <main>
       {/*
             <svg width="0" height="0">
@@ -41,9 +43,16 @@ function Hero({ heading, subheading, badgeText }) {
       </div>
       </AnimatedOnScroll>
     </main>
-
+    </Suspense>
+</>
     
   )
+}
+
+function SkeletonHero() {
+  return (
+    <div className="animate-pulse bg-gray-200 rounded-3xl h-[500px] lg:h-[500px] md:h-[500px] sm:h-[450px]"></div>
+  );
 }
 
 export default Hero;

@@ -137,7 +137,7 @@ const mirrorVariantFromConfig = ({ widthCm, heightCm, cols, rows, barT }) =>
               addToCart(product);
               openCart?.(); // ako želiš da se odmah otvori korpa
             }}
-            className="mt-4 px-6 py-3 rounded-lg bg-[#4aaf31] text-white font-medium hover:bg-green-700 transition"
+            className="mt-4 px-6 py-3 rounded-lg bg-[#4aaf31] text-white cursor-pointer font-medium hover:bg-green-700 transition"
           >
             Dodaj u korpu
           </button>
