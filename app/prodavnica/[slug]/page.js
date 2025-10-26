@@ -16,6 +16,7 @@ import { GiMirrorMirror } from "react-icons/gi";
 import { PiShower } from "react-icons/pi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import RecentlyViewedProductsView from '../../../components/RecentlyViewedProductsView'
+import Image from 'next/image'
 
 
 const builder = imageUrlBuilder(client)
@@ -87,17 +88,22 @@ export default async function Page({ params }) {
       </section>
 
       <AnimatedOnScroll>
-      <section className='flex flex-col lg:flex-row gap-[3%] w-[100%] h-[1050] lg:h-[900] md:h-[900] sm:h-[900] mb-15 mt-15'>
+      <section 
+      className='flex flex-col lg:flex-row gap-[3%] w-[100%] 
+      h-fit mb-15 mt-15'>
         <div
-          style={{
-            backgroundImage: product.infoImg1
-              ? `url(${urlFor(product.infoImg1).width(800).url()})`
-              : 'none'
-          }}
-          className='w-[100%] h-[80%] rounded-2xl md:h-[75%] lg:h-[100%] bg-cover bg-center'
-        ></div>
+          className='w-[100%] h-fit flex items-center rounded-2xl '
+        >
+          <Image src={urlFor(product.infoImg1).width(800).url()}
+          width={800}
+          height={900}
+          alt={product.infoTitle1}
+          className='lg:h-[850px] w-[100%] rounded-3xl lg:object-cover
+          md:aspect-[1/1] md:object-cover'/>
+        </div>
 
-        <div className='w-[100%] h-[50%] lg:h-[30%] sm:h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
+        <div className='w-[100%] h-[50%] lg:h-[30%] sm:h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62
+        pt-5'>
           <h1 className='text-[2.4rem] lg:text-[2.8rem] md:text-[2.8rem] font-[450] leading-[1.2]'>
             {product.infoTitle1}
           </h1>
@@ -114,8 +120,10 @@ export default async function Page({ params }) {
       </section>
 
       <AnimatedOnScroll>
-      <section className='flex flex-col lg:flex-row gap-[5%] w-[100%] h-[900] mt-10'>
-        <div className='w-[100%] h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
+      <section 
+      className='flex flex-col lg:flex-row gap-[6%] w-[100%] 
+            h-fit mb-15 mt-15'>        
+      <div className='w-[100%] h-[30%] md:h-[25%] flex flex-col gap-4 lg:pt-62 lg:pb-62'>
           <h1 className='text-[2.4rem] lg:text-[2.8rem] md:text-[2.8rem] font-[450] leading-[1.2]'>
             {product.infoTitle2}
           </h1>
@@ -125,13 +133,15 @@ export default async function Page({ params }) {
           </p>
         </div>
         <div
-          className='w-[100%] h-[70%] rounded-2xl md:h-[75%] lg:h-[100%] bg-cover bg-center'
-          style={{
-            backgroundImage: product.infoImg2
-              ? `url(${urlFor(product.infoImg2).width(800).url()})`
-              : 'none'
-          }}
-        ></div>
+          className='w-[100%] h-fit flex items-center rounded-2xl '
+        >
+        <Image src={urlFor(product.infoImg2).width(800).url()}
+          width={800}
+          height={900}
+          alt={product.infoTitle2}
+          className='lg:h-[850px] w-[100%] rounded-3xl lg:object-cover
+          md:aspect-[1/1] md:object-cover lg:mt-0 mt-5'/>
+        </div>
       </section>
       </AnimatedOnScroll>
 
