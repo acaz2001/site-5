@@ -18,8 +18,6 @@ const COLOR = [
 async function RamoviZaSlike() {
   //console.log("Boja"+COLOR[0])
 
-  const bojaRamova = await getRamoviByColors()
-
 
   return (
     <div className='px-[0]'>

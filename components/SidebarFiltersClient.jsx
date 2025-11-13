@@ -14,13 +14,9 @@ export default function SidebarFiltersClient({
   activeCategory,
   setActiveCategory,
   sortOption, // opcionalno, samo za hint / UX
-  colors,
-  activeColor,
-  setActiveColor
-}) {
-  const searchParams = useSearchParams()
 
-  const {boja = activeColor} = useSearchParams();
+}) {
+
 
   
   return (
@@ -61,6 +57,7 @@ export default function SidebarFiltersClient({
 
       </div>
 
+    {/*
       <div className="flex flex-col gap-4 mt-5 w-full">
         {colors.map((col) => (
           
@@ -95,6 +92,8 @@ export default function SidebarFiltersClient({
 
 
       </div>
+     
+     */}
 
       {/* 
             <RadioGroup defaultValue="comfortable">
