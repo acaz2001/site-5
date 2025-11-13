@@ -66,7 +66,7 @@ export default function Home() {
                   playsInline
                 >
                   <source src="/4665103-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
+                  Vaš pretraživač ne podržava ovaj tip videa.
                 </video>
             <div className="bg-white w-fit p-1 pl-3 pr-3 rounded-2xl flex flex-row items-center gap-[0.5rem] z-10 relative">
               <MdOutlineShoppingBag className="z-100 p-0 m-0"/>
