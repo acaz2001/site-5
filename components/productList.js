@@ -4,6 +4,7 @@ import Product from './product';
 import productPosts from '../data/products.json';
 import { products } from '../sanity/lib/queries';
 import getAllProducts from '../sanity/lib/getAllProducts';
+import { getRamoviByColors } from '../sanity/lib/getRamoviByColors';
 import { useState, useEffect, useMemo } from 'react';
 import AnimatedOnScroll from './AnimatedOnScroll';
 
@@ -11,6 +12,8 @@ export default function ProductList({
   activeCategory = 'All',
   isPopular = 'false',
   sortOption = 'bestselling',
+  colors,
+  activeColors
 }) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
@@ -65,6 +68,12 @@ export default function ProductList({
     }
     return filteredByCategory
   }, [filteredByCategory, isPopular])
+
+   // Filtiranje po boji filteredByColors
+  const filteredByColors = useMemo(() => {
+    if (activeColors === 'Sve boje') return items
+    return items.filter((p) => p?.category?.name === activeColors)
+  }, [items, activeColors])
 
   // 3) Sortiranje
   const sortedProducts = useMemo(() => {

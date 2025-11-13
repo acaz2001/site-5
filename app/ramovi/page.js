@@ -5,7 +5,6 @@ import Script from 'next/script'
 import Hero from '../../components/hero'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import CatalogViewer from '../../components/CatalogViewer'
-
 import { client } from '../../sanity/lib/client'
 import { frameCatalogBySlugQuery } from '../../sanity/lib/queries'
 import { urlFor } from '../../sanity/lib/image'
@@ -247,11 +246,6 @@ export default async function Ramovi() {
             </p>
           </AnimatedOnScroll>
 
-          {/* DEBUG – obriši kasnije */}
-          <div className="mt-2 text-xs text-[#6c6474]">
-            Pronađeni katalog slugovi:{' '}
-            {slugs.length ? slugs.join(', ') : 'nema'}
-          </div>
         </div>
       </section>
 

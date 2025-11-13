@@ -6,6 +6,8 @@ export default function ProductsSortClient({
   activeCategory,
   sortOption,
   setSortOption,
+  colors,
+  activeColors
 }) {
   return (
     <>
@@ -28,6 +30,8 @@ export default function ProductsSortClient({
       <ProductList
         activeCategory={activeCategory}
         sortOption={sortOption}
+        colors={colors}
+        activeColors={activeColors}        
       />
     </>
   )

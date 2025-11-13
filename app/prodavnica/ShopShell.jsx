@@ -3,18 +3,24 @@ import { useState } from 'react'
 import SidebarFiltersClient from '../../components/SidebarFiltersClient'
 import ProductsSortClient from '../../components/ProductsSortClient'
 
-export default function ShopShell({ categories }) {
+export default function ShopShell({ categories,colors = [] }) {
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [sortOption, setSortOption] = useState('bestselling')
+  const [activeColor, setActiveColor] = useState(colors[0])
+
+  console.log("Active Color" + activeColor)
 
   return (
     <section className="lg:flex lg:flex-row lg:justify-between mt-10 mb-20 md:flex md:flex-col sm:flex sm:flex-col">
       <aside className="lg:w-[18%] md:w-[100%] w-[100%] mb-10">
-        <SidebarFiltersClient
+        <SidebarFiltersClient //filteri prema kategoriji
           categories={categories}
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
           sortOption={sortOption}              // samo da se zadrži pri UX-u ako želiš
+          colors={colors}
+          activeColor={activeColor}
+          setActiveColor={setActiveColor}
         />
       </aside>
 
@@ -24,6 +30,8 @@ export default function ShopShell({ categories }) {
           activeCategory={activeCategory}
           sortOption={sortOption}
           setSortOption={setSortOption}
+          colors={colors}
+          activeColor={activeColor}
         />
       </section>
     </section>

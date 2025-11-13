@@ -157,6 +157,8 @@ const CATEGORIES = [
   'Paravan'
 ]
 
+const COLOR = [
+];
 export const revalidate = 3600;
 
 const images = [
@@ -228,7 +230,7 @@ function Page() {
         </section>
 
 
-        <ShopShell categories={CATEGORIES} />
+        <ShopShell categories={CATEGORIES} colors={COLOR}/>
 
           
         <section className="flex lg:flex-row md:flex-row sm:flex-col flex-col items-start justify-between mt-15 mb-8">

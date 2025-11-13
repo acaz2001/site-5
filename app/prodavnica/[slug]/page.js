@@ -17,6 +17,7 @@ import { PiShower } from "react-icons/pi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import RecentlyViewedProductsView from '../../../components/RecentlyViewedProductsView'
 import Image from 'next/image'
+import BackToTop from '../../../components/bactToTop'
 
 
 const builder = imageUrlBuilder(client)
@@ -69,9 +70,16 @@ export default async function Page({ params }) {
       description: "Preuzmite proizvod kod nas u radnji bez nadoknade, dostava ili montaža na adresi sa nadoknadom."
     }
   ]
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+  function scrollToTop() {
+      if (!isBrowser()) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
-    <main className='pt-25 w-[100%]'>
+    <main className='pt-25 w-[100%] relative'>
+      
       <ProductClient product={product} />
 
       <section>
@@ -87,6 +95,9 @@ export default async function Page({ params }) {
         </AboutProdGrid>
       </section>
 
+      <BackToTop image={product.infoImg1} name={product.name} cena={product.price}
+      dimenzija={product.dimension} product={product} opis={product.desc}/>
+      
       <AnimatedOnScroll>
       <section 
       className='flex flex-col lg:flex-row gap-[3%] w-[100%] 
@@ -153,7 +164,7 @@ export default async function Page({ params }) {
       {/*<RecentlyViewedProductsView /> */}
       
 
-
+    
     </main>
   )
 }
