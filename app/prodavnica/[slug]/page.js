@@ -101,7 +101,7 @@ export default async function Page({ params }) {
       <AnimatedOnScroll>
       <section 
       className='flex flex-col lg:flex-row gap-[3%] w-[100%] 
-      h-fit mb-15 mt-15'>
+      h-fit mb-15 mt-0'>
         <div
           className='w-[100%] h-fit flex items-center rounded-2xl '
         >

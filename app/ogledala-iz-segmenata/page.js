@@ -9,6 +9,7 @@ import BlogGrid from '../../components/blogGrid'
 import MoreBanner from '../../components/moreBanner'
 import AnimatedOnScroll from '../../components/AnimatedOnScroll'
 import ImageGallery from '../../components/ImageGallery'
+import OglSegmentiForma from '../../components/forms/OglSegmentiForma'
 
   const images = [
   { src: "https://i.postimg.cc/c1X4xfrL/262599260-618188062762754-2777503893336128715-n.jpg", alt: "Image 01" },
@@ -37,7 +38,28 @@ function Page() {
         <BlogBanner></BlogBanner>
      </div>
 
-    <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1.5px]">
+    <section className="flex flex-row items-center justify-between pb-5 mb-0 border-b-[1.5px]">
+      <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+        <AnimatedOnScroll>
+        <h1 className="text-[2rem] font-medium mb-5">Kako poručiti ?</h1>
+        </AnimatedOnScroll>
+        <AnimatedOnScroll>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Ako želite da zakažete merenje ili konsultaciju, možete nas kontaktirati, sve podatke imate ispod. Izlazak na merenje se ne naplaćuje.        
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] 
+        md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Kontakt telefon: 0603170707
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] 
+        md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+          Kontakt email: verdestaklo011@gmail.com
+        </p>
+        </AnimatedOnScroll>
+      </div>
+    </section>
+
+    <section className="flex flex-row items-center justify-between pb-5 mt-0 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
         <AnimatedOnScroll>
         <h1 className="text-[2rem] font-medium mb-5">Kako će se ogledalo uklopiti u vaš enterijer ?</h1>
@@ -53,7 +75,11 @@ function Page() {
       </div>
     </section>
 
-    <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
+
+
+    <ImageGallery images={images} />
+    
+    <section className="flex flex-row items-center justify-between pb-5 mb-0 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
         <AnimatedOnScroll>
         <h1 className="text-[2rem] font-medium mb-5">Kako se odredjuje veličina komada ?</h1>
@@ -68,9 +94,6 @@ function Page() {
         </AnimatedOnScroll>
       </div>
     </section>
-
-    <ImageGallery images={images} />
-    
 
     <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
@@ -88,22 +111,15 @@ function Page() {
       </div>
     </section>
 
-    <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
-      <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
-        <AnimatedOnScroll>
-        <h1 className="text-[2rem] font-medium mb-5">Besplatne konsultacije i izlazak na teren.</h1>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll>
-        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Ako želite da zakažete merenje ili konsultaciju, možete nas kontaktirati, sve podatke imate ispod. Izlazak na merenje se ne naplaćuje.        
-        </p>
-        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Kontakt telefon: 0603170707
-        </p>
-        <p>Kontakt email: verdestaklo011@gmail.com</p>
-        </AnimatedOnScroll>
-      </div>
-    </section>
+    <div className='flex flex-col w-full'>
+      <h1 className="text-[2rem] font-medium mb-4">Popunite formu da bi ste naručili ogledalo.</h1>
+      <p className='text-[#6c6474] text-[1.1rem] mt-2 mb-10'>
+      Na osnovu kupaca naših proizvoda izdvojili smo najčešča pitanja koja ih zanimaju.
+      </p>
+      <OglSegmentiForma/>
+    </div>
+
+
 
     {/*
     <BlogGrid></BlogGrid>
