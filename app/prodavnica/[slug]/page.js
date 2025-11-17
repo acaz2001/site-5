@@ -70,12 +70,6 @@ export default async function Page({ params }) {
       description: "Preuzmite proizvod kod nas u radnji bez nadoknade, dostava ili montaža na adresi sa nadoknadom."
     }
   ]
-  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
-
-  function scrollToTop() {
-      if (!isBrowser()) return;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
   return (
     <main className='pt-25 w-[100%] relative'>
