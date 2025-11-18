@@ -24,6 +24,7 @@
     "caniuse-lite": "^1.0.30001754",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "data-uri-to-buffer": "^6.0.2",
     "embla-carousel-react": "^8.6.0",
     "init": "^0.1.2",
     "lucide-react": "^0.487.0",

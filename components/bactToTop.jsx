@@ -168,45 +168,50 @@ import './style.css';
 
 function BactToTop({ image, name, cena, dimenzija, product, opis }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [isClosed, setIsClosed] = useState(false); // ✅ NOVO
+  const [isClosed, setIsClosed] = useState(false);
+  const [width, setWidth] = useState(0);        
   const { addToCart, openCart } = useCart();
-  const [width, setWidth] = useState(window.innerWidth);
 
-  console.log ("width is " + width);
-  
-  const currentPrice = product.price;
+  const currentPrice = product?.price;
 
   const isBrowser = () => typeof window !== 'undefined';
 
   const handleScroll = () => {
-    if (isClosed) return; // ✅ ako je zatvoreno, ignorisi scroll
+    if (!isBrowser() || isClosed) return;
+
     if (width >= 719) {
-      if (window.scrollY > 100 && window.scrollY < 2800 ) setIsVisible(true);
+      if (window.scrollY > 100 && window.scrollY < 2800) setIsVisible(true);
       else setIsVisible(false);
-    }
-    if (width <= 718) {
-      if (window.scrollY > 1450 && window.scrollY < 4400 ) setIsVisible(true);
+    } else {
+      if (window.scrollY > 1450 && window.scrollY < 4400) setIsVisible(true);
       else setIsVisible(false);
     }
   };
 
   const closeMenu = () => {
     setIsVisible(false);
-    setIsClosed(true); // ✅ trajno zatvori
+    setIsClosed(true);
     if (isBrowser()) window.removeEventListener('scroll', handleScroll);
   };
 
+  // 📏 uzmi širinu ekrana na klijentu + resize
   useEffect(() => {
-    if (!isBrowser() || isClosed) return; // ✅ ne kači listener ako je zatvoreno
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isClosed]); // ✅ prati promenu isClosed
+    if (!isBrowser()) return;
 
-  useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
+    handleResize(); // inicijalno
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // 👀 scroll listener – vezan tek kad smo na klijentu
+  useEffect(() => {
+    if (!isBrowser() || isClosed) return;
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isClosed, width]); // kad se promeni širina, logika se osveži
 
   const scrollToTop = () => {
     if (!isBrowser()) return;
@@ -214,7 +219,8 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
   };
 
   const addToCartHandler = () => {
-    // prilagodi po tvojoj logici (selectedVariant itd. ako postoji u kodu)
+    if (!product) return;
+
     addToCart({
       id: product._id,
       name: product.name,
@@ -227,7 +233,6 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
     openCart();
   };
 
-  // ✅ Ako je zatvoreno, ne renderuj ništa
   if (isClosed) return null;
 
   return (
@@ -238,13 +243,15 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
       <div className='flex flex-row justify-between items-end px-3 py-3 bg-white 
         md:w-[450px] sm:w-[500px] w-full h-[110px] rounded-2xl shadow-xl/30'>
         <div className='flex flex-row items-start gap-3'>
-          <Image
-            src={urlFor(image).width(200).url()}
-            width={80}
-            height={80}
-            alt={name || 'product'}
-            className='h-[90px] w-[90px] rounded-xl md:aspect-[1/1] md:object-cover'
-          />
+          {image && (
+            <Image
+              src={urlFor(image).width(200).url()}
+              width={80}
+              height={80}
+              alt={name || 'product'}
+              className='h-[90px] w-[90px] rounded-xl md:aspect-[1/1] md:object-cover'
+            />
+          )}
           <div className='py-1 flex flex-col gap-1 items-start h-[100%]'>
             <h1 className='text-[1.05rem] text-black font-normal tracking-[0.8px]'>
               {name}
@@ -262,7 +269,7 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
           <div>
             <MdClose
               className='inline-block text-black cursor-pointer w-[20px] h-[20px]'
-              onClick={closeMenu} // ✅ sada zaista zatvara trajno
+              onClick={closeMenu}
             />
           </div>
           <div className='flex flex-row gap-3'>
@@ -286,4 +293,3 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
 }
 
 export default BactToTop;
-

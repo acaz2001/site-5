@@ -10,6 +10,7 @@ function ContactForm() {
   const [message, setMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ function ContactForm() {
           setAddress('');
           setMessage('');
           setFormSubmitted(false);
+          setSuccess(true)
         }, 3000);
       } else {
         console.log('Form submission failed')
@@ -50,11 +52,13 @@ function ContactForm() {
  // }
   return (
     <>
-        {formSubmitted ? (
+    {/*
+            {formSubmitted ? (
           <div className="success-message">
             <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%]">Vaša forma je poslata, bićete kontaktirani u najkraćem roku.</p>
           </div>
         ) : (
+    */}
           <div className='flex flex-col items-start max-w-[1618px]'>
             <form onSubmit={handleSubmit} className='flex flex-col items-start w-[100%] lg:w-[100%] gap-3'>
 
@@ -101,11 +105,11 @@ function ContactForm() {
               <button type="submit" 
               className={`bg-black text-white text-[0.95rem] font-medium w-[100%] rounded-lg pb-2 pt-2 mt-5 cursor-pointer 
               ${loading ? 'bg-red500' : null}`}>
-                Pošalji
+                {success ? 'Uspešno poslato' : loading ? 'Slanje...' : 'Pošaljite poruku'}
               </button>
             </form>
           </div>
-        )}
+        
         </>
   );
 }

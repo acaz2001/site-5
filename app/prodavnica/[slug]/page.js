@@ -45,11 +45,10 @@ export const dynamicParams = true
 // ✅ Sprečava keširanje — svaki request je svež
 export const revalidate = 60
 
-export default async function Page({ params }) {
+export default async function Page(slug) {
 
-  const product = await getProductBySlug(params.slug)
-
-
+  const params = await slug.params;
+  const product = await getProductBySlug(params.slug);
 
   if (!product) return <p>Product not found</p>
 
@@ -99,7 +98,7 @@ export default async function Page({ params }) {
         <div
           className='w-[100%] h-fit flex items-center rounded-2xl '
         >
-          <Image src={urlFor(product.infoImg1).width(800).url()}
+          <Image src={urlFor(product.infoImg1).width(800).url() || null}
           width={800}
           height={900}
           alt={product.infoTitle1}
@@ -140,7 +139,7 @@ export default async function Page({ params }) {
         <div
           className='w-[100%] h-fit flex items-center rounded-2xl '
         >
-        <Image src={urlFor(product.infoImg2).width(800).url()}
+        <Image src={urlFor(product.infoImg2).width(800).url() || null}
           width={800}
           height={900}
           alt={product.infoTitle2}
