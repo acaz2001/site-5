@@ -112,7 +112,7 @@ function Page() {
     </section>
 
     <div className='flex flex-col w-full'>
-      <h1 className="text-[2rem] font-medium mb-4">Popunite formu da bi ste naručili ogledalo.</h1>
+      <h1 className="text-[2rem] font-medium mb-2">Popunite formu da bi ste naručili ogledalo ili postavite pitanje ako vas nešto zanima.</h1>
       <p className='text-[#6c6474] text-[1.1rem] mt-2 mb-10'>
       Na osnovu kupaca naših proizvoda izdvojili smo najčešča pitanja koja ih zanimaju.
       </p>

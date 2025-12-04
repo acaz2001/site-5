@@ -51,6 +51,33 @@ function Page() {
     </div>
     </AnimatedOnScroll>
 
+    <section className="flex flex-row items-center justify-between pb-5 border-b-[1.5px]">
+      <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
+        <AnimatedOnScroll>
+        <h1 className="text-[2rem] font-medium mb-5">Kako naručiti ogledalo, gotov model ili po meri.</h1>
+        </AnimatedOnScroll>
+        <AnimatedOnScroll>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Ako želite sa sajta gotove modele da naručite može direktno preko sajta naručiti.
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Izrada po meri, možete na kraju ove stranice pogledati aplikaciju koja prikazuje model ogledala sa vašim unetim dimenzijama i ostalim specifikacijama. 
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Ako želite da zakažete merenje ili konsultaciju, možete nas kontaktirati, sve podatke imate ispod.       
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
+        Kontakt telefon: 0603170707
+        </p>
+        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">Kontakt email: verdestaklo011@gmail.com</p>
+        </AnimatedOnScroll>
+      </div>
+    </section>
+
+
+    <section className="lg:flex lg:flex-row lg:justify-between mt-0 mb-0 md:flex md:flex-col sm:flex sm:flex-col">
+      <ShopShell categories={CATEGORIES} />
+    </section>
 
     <section className="flex flex-row items-center justify-between pb-5 mt-8 mb-8 border-b-[1.5px]">
       <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
@@ -86,12 +113,7 @@ function Page() {
         </AnimatedOnScroll>
       </div>
     </section>
-
-
-    <section className="lg:flex lg:flex-row lg:justify-between mt-0 mb-0 md:flex md:flex-col sm:flex sm:flex-col">
-      <ShopShell categories={CATEGORIES} />
-    </section>
-
+    
 
     <ImageGallery images={images} />
 
@@ -114,22 +136,7 @@ function Page() {
       </div>
     </section>
 
-    <section className="flex flex-row items-center justify-between pb-5 mb-8 border-b-[1.5px]">
-      <div className="lg:w-fit md:w-fit sm:w-fit w-[100%]">
-        <AnimatedOnScroll>
-        <h1 className="text-[2rem] font-medium mb-5">Besplatne konsultacije i izlazak na teren.</h1>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll>
-        <p className="text-[#6c6474] text-[1.1rem] mt-1.5 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Ako želite da zakažete merenje ili konsultaciju, možete nas kontaktirati, sve podatke imate ispod. Izlazak na merenje se ne naplaćuje.        
-        </p>
-        <p className="text-[#6c6474] text-[1.1rem] mt-3 font-[450] lg:lg:w-[80%] md:w-[80%] sm:w-[100%] w-[100%] md:w-[80%] sm:w-[100%] w-[100%]">
-        Kontakt telefon: 0603170707
-        </p>
-        <p>Kontakt email: verdestaklo011@gmail.com</p>
-        </AnimatedOnScroll>
-      </div>
-    </section>
+
 
     {/*
     <BlogGrid></BlogGrid>

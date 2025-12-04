@@ -16,9 +16,18 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 function CartInner() {
   const searchParams = useSearchParams();
   const [buyNowItem, setBuyNowItem] = useState(null);
-  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart, total, clearCart } = useCart();
+
+  const {
+    cartItems,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    total,
+    clearCart,
+  } = useCart();
+
   const [shippingOption, setShippingOption] = useState(null);
-  const [selectedShipping, setSelectedShipping] = useState("");
+
   const [customerData, setCustomerData] = useState({
     imePrezime: "",
     adresa: "",
@@ -26,16 +35,46 @@ function CartInner() {
     spratStan: "",
     opstina: "",
     grad: "Beograd",
-    email: ""
+    gradDostava: "",
+    email: "",
   });
 
+  // ✅ BITNO: ovde (e) MORA da postoji da ne bi bacao "e is not defined"
   const handleCustomerDataChange = (e) => {
     setCustomerData({
       ...customerData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
+  // ✅ Učitaj buy-now item iz query parametra (?buyNow=...)
+  useEffect(() => {
+    const buyNowParam = searchParams.get("buyNow");
+    if (!buyNowParam) return;
+
+    try {
+      const parsedItem = JSON.parse(buyNowParam);
+      setBuyNowItem(parsedItem);
+    } catch (error) {
+      console.error("Failed to parse buyNow param:", error);
+    }
+  }, [searchParams]);
+
+  // ✅ Računanje total price
+  const productSubtotal = buyNowItem
+    ? buyNowItem.price * buyNowItem.quantity
+    : total;
+
+  let shippingCost = 0;
+  if (shippingOption === "delivery") {
+    shippingCost = 1000;
+  } else if (shippingOption === "installation") {
+    shippingCost = productSubtotal * 0.35;
+  }
+
+  const totalWithShipping = productSubtotal + shippingCost;
+
+  // ✅ Validacija forme (sređene zagrade + return)
   const isFormValid = () => {
     if (shippingOption === "store") {
       return (
@@ -44,7 +83,19 @@ function CartInner() {
         customerData.email.trim()
       );
     }
-    if (shippingOption === "delivery" || shippingOption === "installation") {
+
+    if (shippingOption === "delivery") {
+      return (
+        customerData.imePrezime.trim() &&
+        customerData.adresa.trim() &&
+        customerData.telefon.trim() &&
+        customerData.opstina.trim() &&
+        customerData.gradDostava.trim() &&
+        customerData.email.trim()
+      );
+    }
+
+    if (shippingOption === "installation") {
       return (
         customerData.imePrezime.trim() &&
         customerData.adresa.trim() &&
@@ -54,13 +105,12 @@ function CartInner() {
         customerData.email.trim()
       );
     }
+
     return false;
   };
 
-  
-
+  // ✅ Checkout logika (posle totalWithShipping)
   const handleCheckout = async (paymentType) => {
-    // Računanje totalWithShipping se nalazi niže; ovde ga samo koristimo
     if (paymentType === "cod") {
       try {
         const res = await fetch("https://formspree.io/f/myzpgvow", {
@@ -73,6 +123,7 @@ function CartInner() {
             spratStan: customerData.spratStan,
             opstina: customerData.opstina,
             grad: customerData.grad,
+            gradDostava: customerData.gradDostava,
             email: customerData.email,
             proizvodi: buyNowItem
               ? [
@@ -81,20 +132,20 @@ function CartInner() {
                     varijanta: buyNowItem.variant,
                     dimenzija: buyNowItem.dimenzija,
                     kolicina: buyNowItem.quantity,
-                    cena: buyNowItem.price
-                  }
+                    cena: buyNowItem.price,
+                  },
                 ]
               : cartItems.map((item) => ({
                   naziv: item.name,
                   varijanta: item.variant,
                   dimenzija: item.dimenzija,
                   kolicina: item.quantity,
-                  cena: item.price
+                  cena: item.price,
                 })),
             ukupno: totalWithShipping,
             nacinPlacanja: "Plaćanje pouzećem",
-            nacinIsporuke: shippingOption
-          })
+            nacinIsporuke: shippingOption,
+          }),
         });
 
         if (res.ok) {
@@ -106,8 +157,8 @@ function CartInner() {
               ime: customerData.imePrezime,
               proizvod: buyNowItem?.name || cartItems[0]?.name,
               dimenzija: buyNowItem?.dimenzija || cartItems[0]?.dimenzija,
-              cena: totalWithShipping
-            })
+              cena: totalWithShipping,
+            }),
           });
 
           window.location.href = "/success";
@@ -123,37 +174,14 @@ function CartInner() {
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cartItems, shippingOption, customerData })
+        body: JSON.stringify({ cartItems, shippingOption, customerData }),
       });
       const data = await response.json();
       await stripe?.redirectToCheckout({ sessionId: data.id });
     }
   };
 
-  useEffect(() => {
-    const buyNowParam = searchParams.get("buyNow");
-    if (buyNowParam) {
-      try {
-        const parsedItem = JSON.parse(buyNowParam);
-        setBuyNowItem(parsedItem);
-      } catch (error) {
-        console.error("Failed to parse buyNow param:", error);
-      }
-    }
-  }, [searchParams]);
-
-  // Računanje total price:
-  const productSubtotal = buyNowItem ? buyNowItem.price * buyNowItem.quantity : total;
-
-  // Izračunaj shipping za buy-now:
-  let shippingCost = 0;
-  if (shippingOption === "delivery") {
-    shippingCost = 1000;
-  } else if (shippingOption === "installation") {
-    shippingCost = buyNowItem ? productSubtotal * 0.35 : total * 0.35;
-  }
-  const totalWithShipping = productSubtotal + shippingCost;
-
+  // ✅ Prazna korpa
   if (cartItems.length === 0 && !buyNowItem) {
     return (
       <AnimatedOnScroll>
@@ -170,6 +198,7 @@ function CartInner() {
     );
   }
 
+  // ✅ UI
   return (
     <AnimatedOnScroll>
       <main className="flex flex-col p-8 gap-8 min-h-[90vh] mt-15">
@@ -179,13 +208,23 @@ function CartInner() {
           {buyNowItem ? (
             <div className="flex flex-row items-start border-b pb-6 gap-6">
               <div className="w-28 h-28 flex items-center justify-center bg-[#f3f3f3] p-3 rounded-xl">
-                <Image width={112} height={120} src={buyNowItem.image} alt={buyNowItem.name} className="w-full h-full object-contain" />
+                <Image
+                  width={112}
+                  height={120}
+                  src={buyNowItem.image}
+                  alt={buyNowItem.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col flex-1 gap-7">
                 <div className="flex flex-row justify-between">
                   <div className="flex flex-col gap-1">
-                    <h2 className="font-semibold text-lg">{buyNowItem.name}</h2>
-                    <p className="text-sm text-gray-500">Varijanta: {buyNowItem.variant}</p>
+                    <h2 className="font-semibold text-lg">
+                      {buyNowItem.name}
+                    </h2>
+                    <p className="text-sm text-gray-500">
+                      Varijanta: {buyNowItem.variant}
+                    </p>
                   </div>
                   <p className="font-medium">{buyNowItem.price} RSD</p>
                 </div>
@@ -198,17 +237,30 @@ function CartInner() {
             </div>
           ) : (
             cartItems.map((item) => (
-              <div key={`${item.name}-${item.variant}-${item.image}`} className="flex flex-row items-start border-b pb-6 gap-6">
+              <div
+                key={`${item.name}-${item.variant}-${item.image}`}
+                className="flex flex-row items-start border-b pb-6 gap-6"
+              >
                 <div className="w-28 h-30 flex items-center justify-center bg-[#f3f3f3] rounded-xl">
-                  <Image width={112} height={120} src={item.image} alt={item.name} className="w-full h-full object-cover rounded-xl" />
+                  <Image
+                    width={112}
+                    height={120}
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
 
                 <div className="flex flex-col flex-1 gap-7">
                   <div className="flex flex-row justify-between">
                     <div className="flex flex-col gap-1">
                       <h2 className="font-semibold text-lg">{item.name}</h2>
-                      <p className="text-sm text-gray-500">Varijanta: {item.variant}</p>
-                      <p className="text-sm text-gray-500">Dimezija: {item.dimenzija}</p>
+                      <p className="text-sm text-gray-500">
+                        Varijanta: {item.variant}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Dimezija: {item.dimenzija}
+                      </p>
                     </div>
 
                     <p className="font-medium">{item.price} RSD</p>
@@ -217,14 +269,30 @@ function CartInner() {
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center gap-2">
                       <button
-                        onClick={() => decreaseQuantity(item.id, item.name, item.image, item.variant)}
+                        onClick={() =>
+                          decreaseQuantity(
+                            item.id,
+                            item.name,
+                            item.image,
+                            item.variant
+                          )
+                        }
                         className="bg-[#f3f3f3] p-2 rounded-md cursor-pointer"
                       >
                         <FaMinus />
                       </button>
-                      <span className=" bg-[#f3f3f3] px-6 py-1.5 rounded-md cursor-pointer">{item.quantity}</span>
+                      <span className=" bg-[#f3f3f3] px-6 py-1.5 rounded-md cursor-pointer">
+                        {item.quantity}
+                      </span>
                       <button
-                        onClick={() => increaseQuantity(item.id, item.name, item.image, item.variant)}
+                        onClick={() =>
+                          increaseQuantity(
+                            item.id,
+                            item.name,
+                            item.image,
+                            item.variant
+                          )
+                        }
                         className="bg-[#f3f3f3] p-2 rounded-md cursor-pointer"
                       >
                         <FaPlus />
@@ -232,7 +300,14 @@ function CartInner() {
                     </div>
 
                     <div
-                      onClick={() => removeFromCart(item.id, item.name, item.image, item.variant)}
+                      onClick={() =>
+                        removeFromCart(
+                          item.id,
+                          item.name,
+                          item.image,
+                          item.variant
+                        )
+                      }
                       className="p-2 bg-[#f9f6fe] rounded-xl cursor-pointer translate-x-[10px] lg:translate-x-0 md:translate-x-0 sm:translate-x-0"
                     >
                       <MdOutlineCancel className="lg:text-[1.7rem] md:text-[1.7rem] sm:text-[1.7rem] text-[1.4rem]" />
@@ -339,14 +414,25 @@ function CartInner() {
                   value={customerData.opstina}
                   onChange={handleCustomerDataChange}
                 />
-                <select
-                  name="grad"
-                  value={customerData.grad}
-                  onChange={handleCustomerDataChange}
-                  className="border border-gray-300 p-2 rounded"
-                >
-                  <option value="Beograd">Beograd</option>
-                </select>
+                {shippingOption === "installation" ? (
+                  <select
+                    name="grad"
+                    value={customerData.grad}
+                    onChange={handleCustomerDataChange}
+                    className="border border-gray-300 p-2 rounded"
+                  >
+                    <option value="Beograd">Beograd</option>
+                  </select>
+                ) : (
+                  <input
+                    name="gradDostava"
+                    type="text"
+                    placeholder="Unesite grad"
+                    value={customerData.gradDostava}
+                    onChange={handleCustomerDataChange}
+                    className="border border-gray-300 p-2 rounded"
+                  />
+                )}
               </>
             )}
           </div>
@@ -371,19 +457,6 @@ function CartInner() {
 
           <div className="flex flex-col gap-4 mt-4">
             <div className="flex flex-row gap-[1rem]">
-              {/* 
-              <button
-                onClick={() => handleCheckout("card")}
-                disabled={!shippingOption || !isFormValid()}
-                className={`w-full py-3 rounded-2xl font-semibold cursor-pointer ${
-                  shippingOption && isFormValid()
-                    ? "bg-black text-white"
-                    : "bg-gray-300 text-gray-600 cursor-not-allowed"
-                }`}
-              >
-                Plaćanje karticom
-              </button>
-              */}
               <button
                 onClick={() => handleCheckout("cod")}
                 disabled={!shippingOption || !isFormValid()}

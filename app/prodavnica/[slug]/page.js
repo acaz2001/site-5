@@ -17,6 +17,7 @@ import { PiShower } from "react-icons/pi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import RecentlyViewedProductsView from '../../../components/RecentlyViewedProductsView'
 import Image from 'next/image'
+import MirrorMain from '../../../components/MirrorMain'
 import BackToTop from '../../../components/bactToTop'
 
 
@@ -45,10 +46,103 @@ export const dynamicParams = true
 // ✅ Sprečava keširanje — svaki request je svež
 export const revalidate = 60
 
-export default async function Page(slug) {
+// ✅ SEO metadata generation
+export async function generateMetadata({ params }) {
+  const product = await getProductBySlug(params.slug);
 
+  if (!product) {
+    return {
+      title: "Proizvod nije pronađen | Staklorezačka radnja",
+      description: "Ovaj proizvod trenutno nije dostupan.",
+    };
+  }
+
+  const siteUrl = "https://www.verdestaklorezac.com/"; 
+  const canonical = `${siteUrl}/prodavnica/${params.slug}`;
+
+  const title = `${product.name} | ${product.category?.name}`;
+  const description =
+    product.description?.substring(0, 160) ||
+    `${product.name} – pogledajte opis, cenu i dostupnost proizvoda.`;
+
+  const imageUrl =
+    product.infoImg1?.url ||
+    "https://tvoj-sajt.com/default-og-image.jpg"; // fallback
+
+  return {
+    title,
+    description,
+    keywords: [
+      product.name,
+      product.category?.name || "",
+      "ogledala",
+      "tuš kabine",
+      "izrada po meri",
+      "staklorezačka radnja",
+    ],
+
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "article",
+      siteName: "Staklorezačka radnja",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: product.name,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+
+    alternates: {
+      canonical,
+    },
+  };
+}
+
+
+
+
+export default async function Page(slug) {
   const params = await slug.params;
   const product = await getProductBySlug(params.slug);
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description:
+      product.description ||
+      product.infoDesc1 ||
+      `Detaljan opis za proizvod ${product.name}.`,
+    //image: [imageUrl],
+    sku: product.sku || undefined,
+    brand: {
+      '@type': 'Brand',
+      name: 'Staklorezačka radnja',
+    },
+    category: product.category?.name || undefined,
+    offers: {
+      '@type': 'Offer',
+     // url: productUrl,
+      priceCurrency: 'RSD', // ⬅️ promeni u 'EUR' ako treba
+      price: product.price,
+      availability: product.availableForSale
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
+    },
+  }
+
 
   if (!product) return <p>Product not found</p>
 
@@ -72,6 +166,11 @@ export default async function Page(slug) {
 
   return (
     <main className='pt-25 w-[100%] relative'>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd)
+        }}/>
       
       <ProductClient product={product} />
 
@@ -148,6 +247,9 @@ export default async function Page(slug) {
         </div>
       </section>
       </AnimatedOnScroll>
+
+      {product.category?.name === 'Hodnik' ? <MirrorMain/> : null}
+      
 
       <RelatedProducts
         currentProductId={product._id}

@@ -59,13 +59,13 @@ function AddToCart({ show, setShow }) {
               height={112}
               src={imageSrc}
               alt={item.name}
-              className='w-[120px] h-full object-contain rounded-xl'
+              className='w-[120px] h-full object-cover rounded-xl'
               unoptimized
             />) : (
                 // Fallback kada nema slike:
                 <div className='w-full h-full flex items-center justify-center text-xs text-gray-500 rounded-xl'>
                   <Image width={112} height={112} src="/BeleOglLajsneModel.jpg" alt="Ogledalo Lajsne"
-                   className='w-[120px] h-full object-contain' />
+                   className='w-[120px] h-full object-cover' />
                 </div>
             )}
               </div>

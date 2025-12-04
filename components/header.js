@@ -68,7 +68,7 @@ function Header() {
       <main
         className={`header fixed z-40 flex flex-row items-center w-fit lg:gap-2 
         md:gap-2 sm:gap-0 gap-0 px-4 py-[10px] rounded-xl
-        ${isScrolled ? 'bg-[#ede4fc] transition-all transition-discrete ' : 'bg-transparent transition-all transition-discrete'}`}
+        ${isScrolled ? 'bg-[#d0f0c0] transition-all transition-discrete ' : 'bg-transparent transition-all transition-discrete'}`}
       >
         {isMenuOpen && (
           <div
