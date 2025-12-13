@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/prodavnica/page.ts", "app/cart/page.js"  ],
+, "app/prodavnica/page.ts", "app/cart/page.js", "app/api/send-confirmation/route.js"  ],
   "exclude": [
     "node_modules"
   ]
