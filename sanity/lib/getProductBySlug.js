@@ -1,6 +1,10 @@
 import { client } from "./client";
 
+
 export async function getProductBySlug(slug) {
+    if (!slug) throw new Error("slug nije prosleđen");
+
+    
   const query = `
     *[_type == "Product" && slug.current == $slug][0]{
       _id,
@@ -37,5 +41,6 @@ export async function getProductBySlug(slug) {
     }
   `;
 
-  return await client.fetch(query, { slug });
+  //return await client.fetch(query, { slug });
+  return client.fetch(query, { slug });
 }

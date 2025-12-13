@@ -37,6 +37,7 @@ export async function generateStaticParams() {
 
   return slugs.map((p) => ({
     slug: p.slug.toLowerCase(), // 🔐 lowercase za bezbednost
+    //slug: p.slug,
   }))
 }
 
@@ -48,7 +49,9 @@ export const revalidate = 60
 
 // ✅ SEO metadata generation
 export async function generateMetadata({ params }) {
-  const product = await getProductBySlug(params.slug);
+  const { slug } = await params;
+  //const product = await getProductBySlug(params.slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -113,13 +116,16 @@ export async function generateMetadata({ params }) {
 
 
 
-export default async function Page(slug) {
-  const params = await slug.params;
-  const product = await getProductBySlug(params.slug);
+export default async function Page({ params }) {
+   const { slug } = await params;
+   if (!slug) notFound();
+  //const product = await getProductBySlug(params.slug);
+  const product = await getProductBySlug(slug);
+  if (!product) notFound();
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.name,
+    name: product.name, 
     description:
       product.description ||
       product.infoDesc1 ||
