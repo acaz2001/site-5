@@ -82,6 +82,12 @@ export const Products = defineType({
       options: { hotspot: true }
     }),
     defineField({
+      name: 'slikaRama',
+      title: 'Slika Rama',
+      type: 'image',
+      options: { hotspot: true }
+    }),
+    defineField({
       name: 'popular',
       title: 'Popular',
       type: 'boolean'

@@ -19,9 +19,11 @@ import RecentlyViewedProductsView from '../../../components/RecentlyViewedProduc
 import Image from 'next/image'
 import MirrorMain from '../../../components/MirrorMain'
 import BackToTop from '../../../components/bactToTop'
+import ProizvodPoMeri from '../../../components/forms/ProizvodPoMeri'
 
 
 const builder = imageUrlBuilder(client)
+
 function urlFor(source) {
   return builder.image(source)
 }
@@ -195,6 +197,15 @@ export default async function Page({ params }) {
 
       <BackToTop image={product.infoImg1} name={product.name} cena={product.price}
       dimenzija={product.dimension} product={product} opis={product.desc}/>
+
+      {product.category?.name === 'Sa ramom' ? 
+      <AnimatedOnScroll>
+      <section className='md:mb-30 mb-15'>
+        <Image src={urlFor(product.slikaRama).width(3100).url() || ''}
+        width={1450} height={600} alt={product.infoTitle1}
+        className='rounded-4xl'
+        />
+      </section></AnimatedOnScroll> : null}
       
       <AnimatedOnScroll>
       <section 
@@ -255,7 +266,19 @@ export default async function Page({ params }) {
       </AnimatedOnScroll>
 
       {product.category?.name === 'Hodnik' ? <MirrorMain/> : null}
+
       
+      <section id='izradaPoMeri'>
+        <h1 className='text-2xl md:w-[75%] w-full font-semibold pb-2.5'>Popunite formu da bi ste poslali upit za izradu po meri za proizvod {product.name},
+           ili nas pozovite na 0603170707</h1>
+        <p className='pb-10 md:w-[70%]'>
+          Unesite potrebne podatke o proizvodu koji želite da poručite po meri.
+          Cenu za proizvod po meri dobijate nakon što pošaljete upit.
+          Kada popunite formu kontakriraćemo vas u najkraćem roku.
+        </p>
+        <p></p>
+        <ProizvodPoMeri product={product} params={params.slug}/>
+      </section>
 
       <RelatedProducts
         currentProductId={product._id}

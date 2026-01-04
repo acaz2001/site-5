@@ -175,15 +175,16 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
   const currentPrice = product?.price;
 
   const isBrowser = () => typeof window !== 'undefined';
+  
 
   const handleScroll = () => {
     if (!isBrowser() || isClosed) return;
 
     if (width >= 719) {
-      if (window.scrollY > 100 && window.scrollY < 2800) setIsVisible(true);
+      if (window.scrollY > 200 && window.scrollY < 3400) setIsVisible(true);
       else setIsVisible(false);
     } else {
-      if (window.scrollY > 1450 && window.scrollY < 4400) setIsVisible(true);
+      if (window.scrollY > 1850 && window.scrollY < 4400) setIsVisible(true);
       else setIsVisible(false);
     }
   };

@@ -40,6 +40,7 @@ const CATEGORIES = [
   'Kupatilo/ LED rasveta',
   'Kupatilo/ Bez LED rasvete',
   'Hodnik',
+  'Sa ramom'
 ]
 
 

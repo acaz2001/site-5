@@ -7,6 +7,7 @@ import { useCart } from '../context/CartContext';
 import { urlFor } from '../sanity/lib/image'; 
 import AddToCart from '../components/addToCart'; 
 import { useRouter } from 'next/navigation';
+import { HashLink } from 'react-router-hash-link';
 
 
 
@@ -142,6 +143,22 @@ const handleBuyNow = () => {
   router.push(`/cart?buyNow=${encodeURIComponent(JSON.stringify(productToBuy))}`);
 };
 
+// Scroll to the "izradaPoMeri" section on the page. If the element
+// isn't present (component used elsewhere), fall back to navigating
+// to the same path with a hash so the server/router can handle it.
+const scrollToIzradaPoMeri = () => {
+  const el = document.getElementById('izradaPoMeri');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    try {
+      router.push(`${window.location.pathname}#izradaPoMeri`);
+    } catch (e) {
+      // ignore
+    }
+  }
+};
+
 const currentPrice = selectedDimension?.cena ?? selectedVariant.price;
 const currentOldPrice = selectedDimension?.staraCena ?? selectedVariant.priceOld;
 const categoriesWithBuyButton = ['Kabina/ Šarke', 'Kabina/ Klizna', 'Paravan'];
@@ -239,7 +256,8 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
           {/*Izaberi Dimenziju */}    
           <div className='mt-4'>
             <p className='text-[1rem]'>Izaberite dimenziju:</p>
-            <div className='flex gap-2 mt-2'>
+            <div className='lg:grid lg:grid-cols-3 lg:grid-rows-auto
+             md:flex flex gap-2 mt-2'>
               {selectedVariant.dimenzije?.map((dim, i) => (
                 <button
                   key={i}
@@ -379,12 +397,13 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
           {/*Izaberi Dimenziju */}    
           <div className='mt-4'>
             <p className='text-[1rem]'>Izaberite dimenziju:</p>
-            <div className='flex gap-2 mt-2'>
+            <div className='lg:grid lg:grid-cols-3 lg:grid-rows-auto
+            md:flex gap-2 mt-2'>
               {selectedVariant.dimenzije?.map((dim, i) => (
                 <button
                   key={i}
                   onClick={() => setSelectedDimension(dim)}
-                  className={`px-5 py-2 rounded-sm font-medium text-[0.9rem] cursor-pointer transition-all duration-400 ease-in-out ${
+                  className={`px-5 py-2 rounded-sm font-medium text-center text-[0.9rem] cursor-pointer transition-all duration-400 ease-in-out ${
                     selectedDimension?.naziv === dim.naziv ? 'bg-black text-white' : 'bg-[#ebebeb]'
                   }`}
                 >
@@ -405,8 +424,16 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
               >
                 {isAdded ? 'Dodato u korpu' : 'Dodaj u korpu'}
               </button>
+              
+              <button
+                className={`bg-[#ede4fc] text-black text-[1rem] font-medium w-full rounded-2xl pt-3 pb-3 cursor-pointer `}
+                onClick={scrollToIzradaPoMeri}
+                
+                disabled={isAdded}
+              >
+                Naručite proizvod po meri
+              </button>
           </div>
-
 
 
           <div className='mt-8 w-full'>

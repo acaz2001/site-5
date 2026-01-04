@@ -20,6 +20,7 @@ export async function getProductBySlug(slug) {
       infoTitle2,
       infoDesc2,
       infoImg2{asset->},
+      slikaRama{asset->},
       popular,
       images[]{asset->},
       price,

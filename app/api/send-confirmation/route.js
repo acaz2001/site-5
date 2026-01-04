@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import VercelInviteUserEmail from "../../../components/email-template";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
@@ -13,7 +14,8 @@ export async function POST(req) {
   try {
     const body = await req.json();
     console.log('send-confirmation body:', body);
-    const { toEmail, ime, proizvod, dimenzija, cena } = body;
+    const { toEmail, ime, proizvodi, cena,nacinIsporuke,nacinPlacanja  } = body;
+
 
     if (!toEmail) {
       return NextResponse.json({ error: 'toEmail missing' }, { status: 400 });
@@ -28,9 +30,14 @@ export async function POST(req) {
     }
 
     const result = await resend.emails.send({
-      from: 'verdestaklo011@gmail.com',
-      to: toEmail,
+      from: 'Verde Staklorezac <v@kontakt.verdestaklorezac.com>',
+      to: [toEmail],
       subject: 'Potvrda o porudžbini',
+      
+      react: VercelInviteUserEmail({ime,cena,proizvodi,nacinIsporuke,nacinPlacanja})
+    });
+
+    {/*
       html: `
         <p>Zdravo ${ime},</p>
         <p>Hvala na vašoj porudžbini.</p>
@@ -40,7 +47,7 @@ export async function POST(req) {
         <p>Kontaktiraćemo vas u najkraćem roku.</p>
         <p>Srdačno,<br/>Verde Staklo</p>
       `,
-    });
+      */}
 
     console.log('Resend send result:', result);
 

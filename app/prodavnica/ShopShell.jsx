@@ -8,7 +8,7 @@ export default function ShopShell({ categories,colors = [] }) {
   const [sortOption, setSortOption] = useState('bestselling')
   const [activeColor, setActiveColor] = useState(colors[0])
 
-  console.log("Active Color" + activeColor)
+  //console.log("Active Color" + activeColor)
 
   return (
     <section className="lg:flex lg:flex-row lg:justify-between mt-10 mb-20 md:flex md:flex-col sm:flex sm:flex-col">

@@ -148,6 +148,8 @@ function CartInner() {
           }),
         });
 
+        
+
         if (res.ok) {
           await fetch("/api/send-confirmation", {
             method: "POST",
@@ -155,9 +157,26 @@ function CartInner() {
             body: JSON.stringify({
               toEmail: customerData.email,
               ime: customerData.imePrezime,
-              proizvod: buyNowItem?.name || cartItems[0]?.name,
-              dimenzija: buyNowItem?.dimenzija || cartItems[0]?.dimenzija,
+              proizvodi: buyNowItem
+              ? [
+                  {
+                    naziv: buyNowItem.name,
+                    varijanta: buyNowItem.variant,
+                    dimenzija: buyNowItem.dimenzija,
+                    kolicina: buyNowItem.quantity,
+                    cena: buyNowItem.price,
+                  },
+                ]
+              : cartItems.map((item) => ({
+                  naziv: item.name,
+                  varijanta: item.variant,
+                  dimenzija: item.dimenzija,
+                  kolicina: item.quantity,
+                  cena: item.price,
+                })),
               cena: totalWithShipping,
+              nacinPlacanja: "Plaćanje pouzećem",
+              nacinIsporuke: shippingOption,
             }),
           });
 
