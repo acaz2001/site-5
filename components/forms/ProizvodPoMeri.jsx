@@ -107,6 +107,27 @@ function ProizvodPoMeriForma({product,params}) {
                   required
                 />
 
+
+                {/*Slucaj kada je ogledalo sa ramom u pitanju*/}
+                {product.category?.name === 'Sa ramom' ? 
+                  <>
+                   <label htmlFor="visina" className='justify-items-start text-[0.95rem] font-medium'>Visina (unesite u centimetrima):</label>
+                    <input 
+                      className='bg-[#f9f6fe] p-2.5 w-[100%] rounded-lg text-[0.9rem]'
+                      id="visina"
+                      value={visina}
+                      onChange={(e) => setVisina(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="sirina" className='justify-items-start text-[0.95rem] font-medium'>Širina (unesite u centimetrima):</label>
+                    <input 
+                      className='bg-[#f9f6fe] p-2.5 w-[100%] rounded-lg text-[0.9rem]'
+                      id="sirina"
+                      value={sirina}
+                      onChange={(e) => setSirina(e.target.value)}
+                      required
+                    />
+                  </> : null}
                 
 
                 {product.category?.name === 'Kupatilo/ LED rasveta' ||  product.category?.name === 'Kupatilo/ Bez LED rasvete' ? 
