@@ -267,18 +267,20 @@ export default async function Page({ params }) {
 
       {product.category?.name === 'Hodnik' ? <MirrorMain/> : null}
 
-      
-      <section id='izradaPoMeri'>
-        <h1 className='text-2xl md:w-[75%] w-full font-semibold pb-2.5'>Popunite formu da bi ste poslali upit za izradu po meri za proizvod {product.name},
-           ili nas pozovite na 0603170707</h1>
-        <p className='pb-10 md:w-[70%]'>
-          Unesite potrebne podatke o proizvodu koji želite da poručite po meri.
-          Cenu za proizvod po meri dobijate nakon što pošaljete upit.
-          Kada popunite formu kontakriraćemo vas u najkraćem roku.
-        </p>
-        <p></p>
-        <ProizvodPoMeri product={product} params={params.slug}/>
-      </section>
+      {product.category?.name === 'Hodnik' ? <section id='izradaPoMeri'></section> : 
+        <AnimatedOnScroll>
+          <section id='izradaPoMeri'>
+            <h1 className='text-2xl md:w-[75%] w-full font-semibold pb-2.5'>Popunite formu da bi ste poslali upit za izradu po meri za proizvod {product.name},
+              ili nas pozovite na 0603170707</h1>
+            <p className='pb-10 md:w-[70%]'>
+              Unesite potrebne podatke o proizvodu koji želite da poručite po meri.
+              Cenu za proizvod po meri dobijate nakon što pošaljete upit.
+              Kada popunite formu kontakriraćemo vas u najkraćem roku.
+            </p>
+            <p></p>
+            <ProizvodPoMeri product={product} params={params.slug}/>
+          </section>
+        </AnimatedOnScroll>}
 
       <RelatedProducts
         currentProductId={product._id}
