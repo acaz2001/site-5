@@ -20,6 +20,8 @@ import Image from 'next/image'
 import MirrorMain from '../../../components/MirrorMain'
 import BackToTop from '../../../components/bactToTop'
 import ProizvodPoMeri from '../../../components/forms/ProizvodPoMeri'
+import { Suspense } from 'react'
+import ProductListSkeleton from '../../../components/loading/ProductListSkeleton'
 
 
 const builder = imageUrlBuilder(client)
@@ -180,7 +182,9 @@ export default async function Page({ params }) {
           __html: JSON.stringify(productJsonLd)
         }}/>
       
-      <ProductClient product={product} />
+      <Suspense fallback={<ProductListSkeleton />}>
+        <ProductClient product={product} />
+      </Suspense>
 
       <section>
         <AboutProdGrid>
