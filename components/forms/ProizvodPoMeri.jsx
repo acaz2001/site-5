@@ -18,7 +18,11 @@ function ProizvodPoMeriForma({product,params}) {
   const [ledBoja, setLedBoja] = useState("Žuta boja");
   const [okovBoja, setOkovBoja] = useState("Siva");
   const [bojaStakla, setBojaStakla] = useState("Providno")
-  const [slug, setSlug] = useState(params)
+  const [bojaRama, setBojaRama] = useState("");
+  const [slug, setSlug] = useState(params);
+  const [varijanta, setVarijanta] = useState(product.variant);
+
+  console.log('Product VARIJANTA:', product.variants)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -125,6 +129,14 @@ function ProizvodPoMeriForma({product,params}) {
                       id="sirina"
                       value={sirina}
                       onChange={(e) => setSirina(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="bojaRama" className='justify-items-start text-[0.95rem] font-medium'>Boja rama:</label>
+                    <input 
+                      className='bg-[#f9f6fe] p-2.5 w-[100%] rounded-lg text-[0.9rem]'
+                      id="bojaRama"
+                      value={bojaRama}
+                      onChange={(e) => setBojaRama(e.target.value)}
                       required
                     />
                   </> : null}

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useCart } from '../context/CartContext';
 import { urlFor } from '../sanity/lib/image'; 
 import AddToCart from '../components/addToCart'; 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { HashLink } from 'react-router-hash-link';
 
 
@@ -18,11 +18,19 @@ function ProductClient({ product}) {
   const [showCart, setShowCart] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-
   const router = useRouter();
-
+  const searchParams = useSearchParams();
 
   const [selectedVariant, setSelectedVariant] = useState(() => {
+    // Prvo pokušaj da učitaš varijantu iz URL query parametra
+    const variantFromUrl = searchParams.get('variant');
+    
+    if (variantFromUrl && product.variants?.length > 0) {
+      const foundVariant = product.variants.find(v => v.name === variantFromUrl);
+      if (foundVariant) return foundVariant;
+    }
+    
+    // Ako nema u URL-u, koristi prvu varijantu
     if (product.variants?.length > 0) return product.variants[0];
     return {
       name: 'Default',
@@ -98,8 +106,24 @@ useEffect(() => {
   localStorage.setItem('recentlyViewed', JSON.stringify(viewed));
 }, [product]);
 
+const handleVariantChange = (variant) => {
+  setSelectedVariant(variant);
+  // Ažurira URL sa query parametrom
+  const params = new URLSearchParams(searchParams.toString());
+  params.set('variant', variant.name);
+  router.push(`?${params.toString()}`);
+};
 
-
+// Postavi URL za default varijantu kada se komponenta prvi put učita
+useEffect(() => {
+  const variantFromUrl = searchParams.get('variant');
+  // Ako nema query parametra, postavi ga za trenutno izabranu varijantu
+  if (!variantFromUrl && selectedVariant) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('variant', selectedVariant.name);
+    router.push(`?${params.toString()}`, { shallow: true });
+  }
+}, []); // Samo pri prvom učitavanju
 
   const addToCartHandler = () => {
     addToCart({
@@ -176,7 +200,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
             {product.variants?.map((variant, index) => (
               <div
                 key={index}
-                onClick={() => setSelectedVariant(variant)}
+                onClick={() => handleVariantChange(variant)}
                 className='bg-[#f9f6fe] rounded-sm cursor-pointer flex flex-row justify-start h-20 lg:h-auto md:h-auto'
               >
                 <img
@@ -242,7 +266,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
               {product.variants?.map((variant, i) => (
                 <button
                   key={i}
-                  onClick={() => setSelectedVariant(variant)}
+                  onClick={() => handleVariantChange(variant)}
                   className={`px-5 py-2 rounded-sm font-medium text-[0.9rem] cursor-pointer transition-all duration-400 ease-in-out ${
                     selectedVariant.name === variant.name ? 'bg-black text-white' : 'bg-[#ebebeb]'
                   }`}
@@ -317,7 +341,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
             {product.variants?.map((variant, index) => (
               <div
                 key={index}
-                onClick={() => setSelectedVariant(variant)}
+                onClick={() => handleVariantChange(variant)}
                 className='bg-[#f9f6fe] rounded-sm cursor-pointer flex flex-row justify-start h-20 lg:h-auto md:h-auto'
               >
                 <img
@@ -383,7 +407,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
               {product.variants?.map((variant, i) => (
                 <button
                   key={i}
-                  onClick={() => setSelectedVariant(variant)}
+                  onClick={() => handleVariantChange(variant)}
                   className={`px-5 py-2 rounded-sm font-medium text-[0.9rem] cursor-pointer transition-all duration-400 ease-in-out ${
                     selectedVariant.name === variant.name ? 'bg-black text-white' : 'bg-[#ebebeb]'
                   }`}
@@ -398,7 +422,7 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
           <div className='mt-4'>
             <p className='text-[1rem]'>Izaberite dimenziju:</p>
             <div className='lg:grid lg:grid-cols-3 lg:grid-rows-auto
-            md:flex gap-2 mt-2'>
+            md:flex flex flex-row flex-wrap gap-2 mt-2'>
               {selectedVariant.dimenzije?.map((dim, i) => (
                 <button
                   key={i}
