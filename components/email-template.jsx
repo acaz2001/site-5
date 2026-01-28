@@ -1,3 +1,4 @@
+
 import {
   Body,
   Button,
@@ -43,8 +44,8 @@ export const VercelInviteUserEmail = ({
       >
         <Body className="mx-auto my-auto bg-white px-5 rounded-2xl font-sans">
           
-          <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-[#eaeaea] border-solid p-[20px]">
-            <Section className="mt-[32px]">
+          <Container className="mx-auto my-[40px] max-w-[665px] rounded border border-[#eaeaea] border-solid p-[20px]">
+            <Section className="mt-[20px]">
               {/*<Img
                 src={'https://i.postimg.cc/KvfCyxPH/VERDE-LOGO-1.png'}
                 width="40"
@@ -84,6 +85,7 @@ export const VercelInviteUserEmail = ({
                 <Text className="text-[18px] text-black leading-[24px]">
                   Cena: {p.cena}
                 </Text>
+                <img src={p.slika} width={250} height={250} alt={p.naziv} />
               </Section>
             ))}
             

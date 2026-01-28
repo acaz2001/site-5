@@ -35,6 +35,7 @@ export async function getProductBySlug(slug) {
         dimenzije[] {
           naziv,
           cena,
+          dostavnaCena,
           staraCena
         },
         opis

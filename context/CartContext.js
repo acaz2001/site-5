@@ -33,6 +33,7 @@ export const CartProvider = ({ children }) => {
 
   // ✅ Dodavanje u korpu
   const addToCart = (product) => {
+    console.log('📦 addToCart prima product:', product);
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(
         (item) =>
@@ -52,7 +53,9 @@ export const CartProvider = ({ children }) => {
             : item
         );
       } else {
-        return [...prevItems, { ...product, quantity: 1 }];
+        const newItem = { ...product, quantity: 1 };
+        console.log('✅ Novi item u korpi:', newItem);
+        return [...prevItems, newItem];
       }
     });
   };

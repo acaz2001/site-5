@@ -164,6 +164,11 @@ export const Products = defineType({
                       type: 'number', 
                       title: 'Stara cena' 
                     },
+                    { 
+                      name: 'dostavnaCena', 
+                      type: 'number', 
+                      title: 'Cena Dostave' 
+                    },
                     {
                       name: 'bojaRama',
                       title: 'Boja Rama',

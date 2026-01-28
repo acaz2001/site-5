@@ -27,15 +27,20 @@ const { addToCart, openCart } = useCart();
   };
 
 const addToCartHandler = () => {
+    // Pronađi dostavnaCenu iz prvog varianta i prve dimenzije ako su dostupni
+    let dostavnaC = null;
+    if (product && product.variants && product.variants[0] && product.variants[0].dimenzije && product.variants[0].dimenzije[0]) {
+      dostavnaC = product.variants[0].dimenzije[0].dostavnaCena;
+    }
+
     addToCart({
     id: product._id,
     name: product.name,
-    price: currentPrice,
-    image: selectedVariant.image?.asset
-        ? urlFor(selectedVariant.image.asset).width(300).url()
-        : '/fallback.png',
-    variant: selectedVariant.name,
-    dimenzija: selectedDimension?.naziv || null,
+    price: cena || currentPrice,
+    image: image ? urlFor(image).width(300).url() : '/fallback.png',
+    variant: dimenzija || null,
+    dimenzija: dimenzija || null,
+    dostavnaCena: dostavnaC || null,
     quantity: 1,
     });
 };
@@ -229,6 +234,7 @@ function BactToTop({ image, name, cena, dimenzija, product, opis }) {
       image: image ? urlFor(image).width(300).url() : '/fallback.png',
       variant: dimenzija,
       dimenzija: dimenzija || null,
+      dostavnaCena: product.dostavnaCena || null,
       quantity: 1,
     });
     openCart();

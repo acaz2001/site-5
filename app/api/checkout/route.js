@@ -12,9 +12,9 @@ export async function POST(request) {
 
     let shippingCost = 0;
 
-    if (shippingOption === 'delivery') {
+    if (shippingOption === 'dostava') {
       shippingCost = 1000;
-    } else if (shippingOption === 'installation') {
+    } else if (shippingOption === 'montaža') {
       const subtotal = cartItems.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0
@@ -30,7 +30,7 @@ export async function POST(request) {
                 currency: 'usd',
                 product_data: {
                   name:
-                    shippingOption === 'delivery'
+                    shippingOption === 'dostava'
                       ? 'Dostava'
                       : 'Montaža',
                 },

@@ -1,6 +1,7 @@
 // app/cart/page.tsx
 "use client";
 
+
 import React, { useState, useEffect, Suspense } from "react";
 import { useCart } from "../../context/CartContext";
 import Link from "next/link";
@@ -10,10 +11,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import AnimatedOnScroll from "../../components/AnimatedOnScroll";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { getProductBySlug } from "../../sanity/lib/getProductBySlug";
+import { cn } from "../../src/components/lib/utils";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 function CartInner() {
+  
   const searchParams = useSearchParams();
   const [buyNowItem, setBuyNowItem] = useState(null);
 
@@ -25,6 +29,10 @@ function CartInner() {
     total,
     clearCart,
   } = useCart();
+
+  console.log('Cart Items Je:',cartItems);
+  console.log('Cart Items Inlucdes:',cartItems.find(item => item.dostavnaCena));
+  
 
   const [shippingOption, setShippingOption] = useState(null);
 
@@ -66,11 +74,38 @@ function CartInner() {
     : total;
 
   let shippingCost = 0;
-  if (shippingOption === "delivery") {
-    shippingCost = 1000;
-  } else if (shippingOption === "installation") {
+  if (shippingOption === "dostava") {
+    const itemsForShipping = buyNowItem ? [buyNowItem] : cartItems;
+
+    shippingCost = itemsForShipping.reduce((sum, item) => {
+      const cena = Number(item?.dostavnaCena || 0);
+      const qty = Number(1);
+      return sum + cena * qty;
+    }, 0);
+  } else if (shippingOption === "montaža") {
     shippingCost = productSubtotal * 0.35;
   }
+
+  //KAda hocu da se naplacuje dostava po komadu i da 
+  //kada se doda jos istih proizvoda dodaje se dostavna cena
+  {/*
+    const productSubtotal = buyNowItem
+    ? buyNowItem.price * buyNowItem.quantity
+    : total;
+
+  let shippingCost = 0;
+  if (shippingOption === "dostava") {
+    const itemsForShipping = buyNowItem ? [buyNowItem] : cartItems;
+
+    shippingCost = itemsForShipping.reduce((sum, item) => {
+      const cena = Number(item?.dostavnaCena || 0);
+      const qty = Number(item?.quantity || 1);
+      return sum + cena * qty;
+    }, 0);
+  } else if (shippingOption === "montaža") {
+    shippingCost = productSubtotal * 0.35;
+  }
+    */}
 
   const totalWithShipping = productSubtotal + shippingCost;
 
@@ -84,7 +119,7 @@ function CartInner() {
       );
     }
 
-    if (shippingOption === "delivery") {
+    if (shippingOption === "dostava") {
       return (
         customerData.imePrezime.trim() &&
         customerData.adresa.trim() &&
@@ -95,7 +130,7 @@ function CartInner() {
       );
     }
 
-    if (shippingOption === "installation") {
+    if (shippingOption === "montaža") {
       return (
         customerData.imePrezime.trim() &&
         customerData.adresa.trim() &&
@@ -165,6 +200,7 @@ function CartInner() {
                     dimenzija: buyNowItem.dimenzija,
                     kolicina: buyNowItem.quantity,
                     cena: buyNowItem.price,
+                    slika: buyNowItem.image,
                   },
                 ]
               : cartItems.map((item) => ({
@@ -173,6 +209,7 @@ function CartInner() {
                   dimenzija: item.dimenzija,
                   kolicina: item.quantity,
                   cena: item.price,
+                  slika: item.image
                 })),
               cena: totalWithShipping,
               nacinPlacanja: "Plaćanje pouzećem",
@@ -220,7 +257,8 @@ function CartInner() {
   // ✅ UI
   return (
     <AnimatedOnScroll>
-      <main className="flex flex-col p-8 gap-8 min-h-[90vh] mt-15">
+      <main className="flex flex-col md:p-8 sm:p-8 md:px-0 sm:px-0 px-2
+      gap-8 min-h-[90vh] md:mt-15 sm:mt-15 mt-20">
         <h1 className="text-3xl font-bold">Vaša korpa</h1>
 
         <div className="flex flex-col gap-6">
@@ -280,6 +318,10 @@ function CartInner() {
                       <p className="text-sm text-gray-500">
                         Dimezija: {item.dimenzija}
                       </p>
+                      <p className="text-sm text-gray-500">
+                        {item.dostavnaCena != null ? `Cena dostave: ${item.dostavnaCena} RSD` 
+                        : <p className="font-bold text-sm text-gray-500">Za ovaj proizvod cena dostave se obračunava nakon kupovine.</p>}
+                      </p>
                     </div>
 
                     <p className="font-medium">{item.price} RSD</p>
@@ -338,7 +380,8 @@ function CartInner() {
           )}
         </div>
 
-        {/* Način isporuke */}
+      {/* Način isporuke */}
+      {cartItems.find(item => item.dostavnaCena) ? (
         <div className="flex flex-col gap-4 border-t pt-6">
           <h2 className="text-xl font-semibold mb-2">Način isporuke</h2>
           <div className="flex flex-col gap-3">
@@ -352,28 +395,74 @@ function CartInner() {
               />
               <span>Preuzimanje u radnji (0 RSD)</span>
             </label>
+            
+            <div className={cn("")}>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="dostava"
+                  checked={shippingOption === "dostava"}
+                  onChange={() => setShippingOption("dostava")}
+                />
+                <span>Dostava (Naplaćuje se)</span>
+              </label>
+            </div> 
+
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="radio"
                 name="shipping"
-                value="delivery"
-                checked={shippingOption === "delivery"}
-                onChange={() => setShippingOption("delivery")}
-              />
-              <span>Dostava (+1000 RSD)</span>
-            </label>
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input
-                type="radio"
-                name="shipping"
-                value="installation"
-                checked={shippingOption === "installation"}
-                onChange={() => setShippingOption("installation")}
+                value="montaža"
+                checked={shippingOption === "montaža"}
+                onChange={() => setShippingOption("montaža")}
               />
               <span>Montaža</span>
             </label>
           </div>
         </div>
+       ) : 
+        <div className="flex flex-col gap-4 border-t pt-6">
+          <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="shipping"
+                value="store"
+                checked={shippingOption === "store"}
+                onChange={() => setShippingOption("store")}
+              />
+              <span>Preuzimanje u radnji (0 RSD)</span>
+          </label>
+
+          <div className={cn("")}>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="dostava"
+                  checked={shippingOption === "dostava"}
+                  onChange={() => setShippingOption("dostava")}
+                />
+                <span>Dostava (Naplaćuje se)</span>
+              </label>
+            </div>
+
+            {/*  <h1>Proizvod u korpi nema opciju dostave, pošto je prevelik za 
+            slanje.
+          </h1>*/}
+         
+          <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="shipping"
+                value="montaža"
+                checked={shippingOption === "montaža"}
+                onChange={() => setShippingOption("montaža")}
+              />
+              <span>Montaža</span>
+            </label>
+        </div>
+       }
 
         {/* Podaci Kupca */}
         {shippingOption && (
@@ -433,7 +522,7 @@ function CartInner() {
                   value={customerData.opstina}
                   onChange={handleCustomerDataChange}
                 />
-                {shippingOption === "installation" ? (
+                {shippingOption === "montaža" ? (
                   <select
                     name="grad"
                     value={customerData.grad}
@@ -504,6 +593,7 @@ function CartInner() {
 }
 
 export default function CartPage() {
+  
   return (
     <Suspense fallback={<div>Učitavanje korpe…</div>}>
       <CartInner />

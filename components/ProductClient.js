@@ -91,6 +91,7 @@ useEffect(() => {
     slug: product.slug?.current, // string
     price: product.price,
     image: product.images?.[0]?.asset?.url, // direktan URL
+    dostavnaCena: selectedDimension?.dostavnaCena || null
   };
 
   const stored = localStorage.getItem('recentlyViewed');
@@ -126,7 +127,7 @@ useEffect(() => {
 }, []); // Samo pri prvom učitavanju
 
   const addToCartHandler = () => {
-    addToCart({
+    const itemToAdd = {
       id: product._id,
       name: product.name,
       price: currentPrice,
@@ -135,8 +136,11 @@ useEffect(() => {
         : '/fallback.png',
       variant: selectedVariant.name,
       dimenzija: selectedDimension?.naziv || null,
+      dostavnaCena: selectedDimension?.dostavnaCena || null,
       quantity: 1,
-    });
+    };
+    console.log('🛒 Dodaj u korpu:', itemToAdd);
+    addToCart(itemToAdd);
   };
 
 const handleAddToCartAndShow = () => {
@@ -433,9 +437,12 @@ const showBuyButton = categoriesWithBuyButton.includes(product.category.name);
                 >
                   {dim.naziv}
                 </button>
+                
               ))}
             </div>
           </div>
+
+         
 
           
           <div className='flex flex-col w-full gap-4 mt-8'>
