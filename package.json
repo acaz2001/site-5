@@ -21,6 +21,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^4.21.1",
     "@stripe/stripe-js": "^7.2.0",
+    "@vercel/analytics": "^1.6.1",
     "autoprefixer": "^10.4.21",
     "caniuse-lite": "^1.0.30001754",
     "class-variance-authority": "^0.7.1",

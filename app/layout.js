@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import AddToCart from "../components/addToCart";
 import { CartProvider } from '../context/CartContext'; 
 import AddToCartWrapper from "../components/AddToCartWrapper";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
         </div>
         <div className="fade-in-page layout">
         {children}
+        <Analytics />
         </div>
         <AddToCartWrapper /> {/* 👈 Globalno AddToCart uvek dostupno */}
         <Footer></Footer>
